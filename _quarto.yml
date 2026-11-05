@@ -18,6 +18,9 @@ book:
   repo-actions: [issue]
   search: true
   downloads: [docx]
+  favicon: images/timera-icon.png
+  sidebar:
+    logo: images/timera-logo.png
 
 bibliography: references.bib
 

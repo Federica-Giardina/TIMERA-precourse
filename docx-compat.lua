@@ -22,6 +22,17 @@ function Image(el)
   end
 end
 
+-- The TIMERA logo above the title, on the first page of the Word document.
+function Meta(meta)
+  if meta.title then
+    local logo = pandoc.Image({}, "images/timera-logo.png", "", { width = "3.6in" })
+    local title = pandoc.Inlines({ logo, pandoc.LineBreak() })
+    title:extend(pandoc.Inlines(meta.title))
+    meta.title = title
+    return meta
+  end
+end
+
 -- Raw HTML is dropped in Word: <br> becomes a line break, and <code>...</code>
 -- (used where a "|" must appear inside a table cell) becomes inline code.
 function Inlines(inlines)

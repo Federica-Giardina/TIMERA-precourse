@@ -36,6 +36,8 @@ def main():
     # datasets, and a marker that tells GitHub Pages to serve the files as they are
     shutil.copytree(os.path.join(ROOT, "datasets"), os.path.join(SITE, "datasets"), dirs_exist_ok=True)
     open(os.path.join(SITE, ".nojekyll"), "w").close()
+    shutil.copy2(os.path.join(ROOT, "images", "timera-logo.png"), os.path.join(SITE, "timera-logo.png"))
+    shutil.copy2(os.path.join(ROOT, "images", "timera-icon.png"), os.path.join(SITE, "timera-icon.png"))
 
     rows = []
     for lang, name in NAMES.items():
@@ -50,10 +52,11 @@ def main():
         f.write("""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TIMERA — Preliminary learning</title>
+<link rel="icon" href="timera-icon.png">
 <style>body{font-family:system-ui,sans-serif;max-width:42rem;margin:3rem auto;padding:0 1rem;line-height:1.6}</style>
 </head><body>
-<h1>TIMERA — Preliminary learning</h1>
-<p>Training Initiative for Modelling Epidemic Response in Africa</p>
+<p><img src="timera-logo.png" alt="TIMERA — Training Initiative for Modelling Epidemic Response in Africa" style="max-width:100%%;width:26rem"></p>
+<h1>Preliminary learning</h1>
 <ul>
 %s
 </ul>
