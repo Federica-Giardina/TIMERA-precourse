@@ -1,7 +1,7 @@
 lang: fr
 
 project:
-  output-dir: _book/fr
+  output-dir: docs/fr
 
 book:
   title: "Apprentissage préliminaire"

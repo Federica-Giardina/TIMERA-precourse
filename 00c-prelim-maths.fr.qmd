@@ -1,15 +1,16 @@
-<!-- Translation of 00c-prelim-maths.qmd (fr). Translate the text only: keep the code, the labels
-     ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
-     is complete, remove the box marked .translation-pending and run
-     py preparatory/translations.py accept fr 00c-prelim-maths.qmd -->
+<!-- Translation of 00c-prelim-maths.qmd (fr). Draft translation, under review.
+     Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
+     and file names unchanged. When the review is complete, remove the box marked
+     .translation-review. After changes to the English text:
+     py preparatory/translations.py status --diff -->
 
 # P3 Bases mathématiques {#sec-prelim-maths .unnumbered}
 
 *Apprentissage préliminaire — mathématiques pour la modélisation des maladies infectieuses*
 
-::: {.callout-warning .translation-pending}
-## Traduction en cours
-Ce chapitre n'a pas encore été traduit : le texte ci-dessous est la version anglaise.
+::: {.callout-note .translation-review}
+## Traduction provisoire
+Ce chapitre a été traduit de l'anglais et est en cours de relecture. Les remarques sont les bienvenues.
 :::
 
 ```{r}
@@ -18,127 +19,127 @@ source("_common.R")
 ```
 
 ::: {.callout-tip icon="false"}
-## Learning objectives
-By the end of this chapter, participants should be able to:
+## Objectifs d'apprentissage
+À la fin de ce chapitre, les participants devraient être capables de :
 
-1. Convert between rates, probabilities and mean durations, and calculate the probabilities of competing events.
-2. Describe exponential growth and decay, and calculate doubling times using logarithms.
-3. Interpret a derivative as a rate of change, and explain what a differential equation and its numerical solution are.
-4. Find the equilibria of a simple model and assess their stability.
-5. Multiply a matrix by a vector and interpret the dominant eigenvalue of a matrix.
-6. Solve equations and minimise functions numerically in R.
+1. Passer d'un taux à une probabilité et à une durée moyenne, et calculer les probabilités d'événements concurrents.
+2. Décrire la croissance et la décroissance exponentielles, et calculer des temps de doublement à l'aide des logarithmes.
+3. Interpréter une dérivée comme un taux de variation, et expliquer ce que sont une équation différentielle et sa résolution numérique.
+4. Déterminer les équilibres d'un modèle simple et évaluer leur stabilité.
+5. Multiplier une matrice par un vecteur et interpréter la valeur propre dominante d'une matrice.
+6. Résoudre des équations et minimiser des fonctions numériquement dans R.
 :::
 
-No mathematics beyond secondary-school level is assumed. The emphasis is on interpretation rather than on derivation: in this book, all equations are solved numerically in R.
+Aucune connaissance mathématique au-delà du niveau de l'enseignement secondaire n'est supposée. L'accent est mis sur l'interprétation plutôt que sur la démonstration : dans le cours, toutes les équations sont résolues numériquement dans R.
 
 ```{r}
 library(tidyverse)
 ```
 
-## P3.1 Notation, exponentials and logarithms {.unnumbered}
+## P3.1 Notations, exponentielles et logarithmes {.unnumbered}
 
-| Notation | Meaning |
+| Notation | Signification |
 |---|---|
-| $\sum_{i=1}^{n} x_i$ | the sum $x_1 + x_2 + \dots + x_n$ |
-| $e^{x}$, `exp(x)` | the exponential function, with $e \approx 2.718$ |
-| $\ln x$, `log(x)` | the natural logarithm, the inverse of the exponential: $\ln(e^x) = x$ |
-| $\frac{dx}{dt}$ | the derivative of $x$ with respect to time: the rate of change of $x$ |
-| $\int_0^T f(t)\, dt$ | the integral of $f$ from 0 to $T$: the area under the curve |
-| $\lambda$, $\beta$, $\gamma$, $\sigma$, $\mu$ | Greek letters commonly used for rates (lambda, beta, gamma, sigma, mu) |
+| $\sum_{i=1}^{n} x_i$ | la somme $x_1 + x_2 + \dots + x_n$ |
+| $e^{x}$, `exp(x)` | la fonction exponentielle, avec $e \approx 2{,}718$ |
+| $\ln x$, `log(x)` | le logarithme népérien, réciproque de l'exponentielle : $\ln(e^x) = x$ |
+| $\frac{dx}{dt}$ | la dérivée de $x$ par rapport au temps : le taux de variation de $x$ |
+| $\int_0^T f(t)\, dt$ | l'intégrale de $f$ de 0 à $T$ : l'aire sous la courbe |
+| $\lambda$, $\beta$, $\gamma$, $\sigma$, $\mu$ | lettres grecques couramment utilisées pour les taux (lambda, bêta, gamma, sigma, mu) |
 
-Useful properties of logarithms are $\ln(ab) = \ln a + \ln b$, $\ln(a^b) = b \ln a$ and $\ln 2 \approx 0.693$. In R, `log()` is the natural logarithm and `log10()` the logarithm with base 10.
+Quelques propriétés utiles des logarithmes : $\ln(ab) = \ln a + \ln b$, $\ln(a^b) = b \ln a$ et $\ln 2 \approx 0{,}693$. Dans R, `log()` est le logarithme népérien et `log10()` le logarithme de base 10.
 
-## P3.2 Rates, probabilities and durations {.unnumbered}
+## P3.2 Taux, probabilités et durées {.unnumbered}
 
-A **rate** is the number of events per unit of time per individual at risk (e.g. recoveries per infectious person per day). A **probability** is dimensionless and refers to a specified period. If events occur at a constant rate $r$, then:
+Un **taux** est le nombre d'événements par unité de temps et par individu à risque (par ex. guérisons par personne infectieuse et par jour). Une **probabilité** est sans dimension et se rapporte à une période donnée. Si les événements surviennent à un taux constant $r$, alors :
 
-- the probability that the event occurs within a period $t$ is $p = 1 - e^{-r t}$;
-- the mean time until the event is $1/r$;
-- conversely, a probability $p$ over a period $t$ corresponds to the rate $r = -\ln(1-p)/t$.
+- la probabilité que l'événement survienne au cours d'une période $t$ est $p = 1 - e^{-r t}$ ;
+- le temps moyen jusqu'à l'événement est $1/r$ ;
+- inversement, une probabilité $p$ sur une période $t$ correspond au taux $r = -\ln(1-p)/t$.
 
-For small values of $r t$, $p \approx r t$.
+Pour de petites valeurs de $r t$, $p \approx r t$.
 
 ```{r}
-gamma <- 1 / 7                     # recovery rate: mean infectious period of 7 days
-1 - exp(-gamma * 1)                # probability of recovery within one day
-1 - exp(-gamma * 7)                # probability of recovery within 7 days (not 1!)
+gamma <- 1 / 7                     # taux de guérison : période infectieuse moyenne de 7 jours
+1 - exp(-gamma * 1)                # probabilité de guérison en un jour
+1 - exp(-gamma * 7)                # probabilité de guérison en 7 jours (pas 1 !)
 
-p_annual <- 0.05                   # 5% annual probability of an event
--log(1 - p_annual)                 # corresponding annual rate
+p_annual <- 0.05                   # probabilité annuelle d'un événement de 5 %
+-log(1 - p_annual)                 # taux annuel correspondant
 ```
 
-When an individual can leave a state through several routes with rates $r_1, r_2, \dots$ (**competing events**), the total exit rate is $r_1 + r_2 + \dots$, the mean time in the state is $1/(r_1 + r_2 + \dots)$, and the probability of leaving through route $i$ is $r_i / (r_1 + r_2 + \dots)$. For instance, if patients with active tuberculosis self-cure at rate 0.2 per year, die at rate 0.2 per year and are diagnosed and treated at rate 0.6 per year:
+Lorsqu'un individu peut quitter un état par plusieurs voies, avec des taux $r_1, r_2, \dots$ (**événements concurrents**), le taux de sortie total est $r_1 + r_2 + \dots$, la durée moyenne dans l'état est $1/(r_1 + r_2 + \dots)$, et la probabilité de sortir par la voie $i$ est $r_i / (r_1 + r_2 + \dots)$. Par exemple, si les patients atteints de tuberculose active guérissent spontanément au taux de 0,2 par an, décèdent au taux de 0,2 par an et sont diagnostiqués et traités au taux de 0,6 par an :
 
 ```{r}
 rates <- c(selfcure = 0.2, death = 0.2, diagnosis = 0.6)
-1 / sum(rates)            # mean duration of disease (years)
-rates / sum(rates)        # probability of each outcome
+1 / sum(rates)            # durée moyenne de la maladie (années)
+rates / sum(rates)        # probabilité de chaque issue
 ```
 
-## P3.3 Exponential growth and decay {.unnumbered}
+## P3.3 Croissance et décroissance exponentielles {.unnumbered}
 
-If each individual generates new individuals at a constant per capita rate $r$, the number grows **exponentially**:
+Si chaque individu engendre de nouveaux individus à un taux par individu constant $r$, l'effectif croît de manière **exponentielle** :
 
 $$
 N(t) = N_0 \, e^{r t}.
 $$
 
-With $r < 0$ the number declines (exponential decay). Taking logarithms gives $\ln N(t) = \ln N_0 + r t$, a straight line with slope $r$. This is why epidemic curves are often displayed on a logarithmic scale, and why the growth rate is estimated by regression of the logarithm of the counts on time (@sec-growth-rate). The **doubling time** follows from $e^{r T_d} = 2$:
+Avec $r < 0$, l'effectif diminue (décroissance exponentielle). En prenant le logarithme, on obtient $\ln N(t) = \ln N_0 + r t$, une droite de pente $r$. C'est pourquoi les courbes épidémiques sont souvent représentées sur une échelle logarithmique, et pourquoi le taux de croissance est estimé par une régression du logarithme des effectifs sur le temps (@sec-growth-rate). Le **temps de doublement** découle de $e^{r T_d} = 2$ :
 
 $$
 T_d = \frac{\ln 2}{r}.
 $$
 
 ```{r}
-r <- 0.1                  # growth rate per day
-log(2) / r                # doubling time (days)
-exp(r * 30)               # multiplication factor after 30 days
+r <- 0.1                  # taux de croissance par jour
+log(2) / r                # temps de doublement (jours)
+exp(r * 30)               # facteur de multiplication après 30 jours
 ```
 
 ```{r}
 #| label: fig-exponential
 #| echo: false
 #| fig-height: 3
-#| fig-cap: "Exponential growth with $r$ = 0.1 per day on a linear scale (A) and a logarithmic scale (B). On the logarithmic scale, exponential growth appears as a straight line with slope $r$."
+#| fig-cap: "Croissance exponentielle avec $r$ = 0,1 par jour sur une échelle linéaire (A) et logarithmique (B). Sur l'échelle logarithmique, la croissance exponentielle apparaît comme une droite de pente $r$."
 growth <- tibble(t = 0:60, N = 10 * exp(0.1 * t))
 pA <- ggplot(growth, aes(t, N)) + geom_line(linewidth = 1, colour = "#0072B2") +
-  labs(x = "Days", y = "Cases", title = "A. Linear scale")
+  labs(x = "Jours", y = "Cas", title = "A. Échelle linéaire")
 pB <- ggplot(growth, aes(t, N)) + geom_line(linewidth = 1, colour = "#0072B2") +
-  scale_y_log10() + labs(x = "Days", y = "Cases (log scale)", title = "B. Logarithmic scale")
+  scale_y_log10() + labs(x = "Jours", y = "Cas (échelle log.)", title = "B. Échelle logarithmique")
 patchwork::wrap_plots(pA, pB) & theme(plot.title = element_text(size = 11))
 ```
 
-## P3.4 Derivatives: rates of change {.unnumbered}
+## P3.4 Dérivées : taux de variation {.unnumbered}
 
-The **derivative** $\frac{dx}{dt}$ is the instantaneous rate of change of a quantity $x$ with respect to time: the slope of the curve $x(t)$ at time $t$. It can be approximated by the change over a short interval $h$:
+La **dérivée** $\frac{dx}{dt}$ est le taux de variation instantané d'une grandeur $x$ par rapport au temps : la pente de la courbe $x(t)$ au temps $t$. Elle peut être approchée par la variation sur un court intervalle $h$ :
 
 $$
 \frac{dx}{dt} \approx \frac{x(t + h) - x(t)}{h}.
 $$
 
-Two results are sufficient for this book:
+Deux résultats suffisent pour ce cours :
 
-- the derivative of a constant is zero;
-- the derivative of $N_0 e^{r t}$ is $r N_0 e^{r t}$, i.e. $r$ times the function itself. Exponential growth is therefore the solution of $\frac{dN}{dt} = r N$.
+- la dérivée d'une constante est nulle ;
+- la dérivée de $N_0 e^{r t}$ est $r N_0 e^{r t}$, c'est-à-dire $r$ fois la fonction elle-même. La croissance exponentielle est donc la solution de $\frac{dN}{dt} = r N$.
 
 ```{r}
 N_fun <- function(t) 10 * exp(0.1 * t)
 h <- 1e-4
-(N_fun(20 + h) - N_fun(20)) / h     # numerical derivative at t = 20
-0.1 * N_fun(20)                     # exact derivative: r * N(20)
+(N_fun(20 + h) - N_fun(20)) / h     # dérivée numérique en t = 20
+0.1 * N_fun(20)                     # dérivée exacte : r * N(20)
 ```
 
-## P3.5 Differential equations and their numerical solution {.unnumbered}
+## P3.5 Équations différentielles et leur résolution numérique {.unnumbered}
 
-A **differential equation** specifies the rate of change of a quantity as a function of the quantity itself and of time, for instance $\frac{dI}{dt} = \beta S I / N - \gamma I$. Its **solution** is the function $I(t)$ that satisfies the equation for given initial values. Compartmental models consist of a system of such equations, one for each compartment (@sec-sir).
+Une **équation différentielle** exprime le taux de variation d'une grandeur en fonction de cette grandeur et du temps, par exemple $\frac{dI}{dt} = \beta S I / N - \gamma I$. Sa **solution** est la fonction $I(t)$ qui satisfait l'équation pour des valeurs initiales données. Les modèles à compartiments sont constitués d'un système de telles équations, une par compartiment (@sec-sir).
 
-Most systems of differential equations cannot be solved analytically and are solved **numerically**. The simplest method, **Euler's method**, advances the solution in small time steps $h$, using the derivative to approximate the change during each step:
+La plupart des systèmes d'équations différentielles ne peuvent pas être résolus analytiquement et sont résolus **numériquement**. La méthode la plus simple, la **méthode d'Euler**, fait avancer la solution par petits pas de temps $h$, en utilisant la dérivée pour approcher la variation au cours de chaque pas :
 
 $$
 x(t + h) \approx x(t) + h \, \frac{dx}{dt}(t).
 $$
 
-The following code applies Euler's method to $\frac{dN}{dt} = 0.1 N$, for which the exact solution $N(t) = 10 e^{0.1 t}$ is known:
+Le code suivant applique la méthode d'Euler à $\frac{dN}{dt} = 0{,}1 N$, dont la solution exacte $N(t) = 10 e^{0{,}1 t}$ est connue :
 
 ```{r}
 euler <- function(h, t_end = 30, N0 = 10, r = 0.1) {
@@ -157,34 +158,34 @@ c(euler_h5 = last(euler(5)$N), euler_h1 = last(euler(1)$N),
 #| label: fig-euler
 #| echo: false
 #| fig-height: 3.2
-#| fig-cap: "Numerical solution of $dN/dt = 0.1 N$ by Euler's method with step sizes of 5 and 1 days, compared with the exact solution. Smaller steps give more accurate solutions."
+#| fig-cap: "Résolution numérique de $dN/dt = 0{,}1 N$ par la méthode d'Euler avec des pas de 5 et 1 jours, comparée à la solution exacte. Des pas plus petits donnent des solutions plus précises."
 bind_rows(euler(5), euler(1)) |>
   ggplot(aes(time, N, colour = step)) +
   geom_line(linewidth = 0.8) +
   geom_point(size = 1.2) +
   geom_function(fun = function(t) 10 * exp(0.1 * t), colour = "black", linetype = 2, inherit.aes = FALSE) +
-  labs(x = "Time (days)", y = "N", colour = "Euler's method")
+  labs(x = "Temps (jours)", y = "N", colour = "Méthode d'Euler")
 ```
 
-The error of Euler's method decreases as the step size decreases. The function `ode()` of the `deSolve` package, used throughout this book, applies more accurate methods that adapt the step size automatically (@sec-sir-ode). The discrete-time SIR model of @sec-r-model-function is equivalent to Euler's method with a step of one day.
+L'erreur de la méthode d'Euler diminue lorsque le pas diminue. La fonction `ode()` du package `deSolve`, utilisée tout au long du cours, applique des méthodes plus précises qui adaptent automatiquement le pas (@sec-sir-ode). Le modèle SIR en temps discret de @sec-r-model-function équivaut à la méthode d'Euler avec un pas d'un jour.
 
-## P3.6 Equilibria and stability {.unnumbered}
+## P3.6 Équilibres et stabilité {.unnumbered}
 
-An **equilibrium** is a state in which all derivatives are zero, so that the system no longer changes. Consider the SIS model, in which infected individuals return to the susceptible state on recovery:
+Un **équilibre** est un état dans lequel toutes les dérivées sont nulles, de sorte que le système n'évolue plus. Considérons le modèle SIS, dans lequel les individus infectés redeviennent sensibles après leur guérison :
 
 $$
 \frac{dI}{dt} = \beta I \frac{N - I}{N} - \gamma I.
 $$
 
-Setting $\frac{dI}{dt} = 0$ gives two equilibria: $I^* = 0$ (no infection) and $I^* = N(1 - \gamma/\beta) = N(1 - 1/R_0)$, with $R_0 = \beta/\gamma$. The second equilibrium exists (is positive) only if $R_0 > 1$.
+En posant $\frac{dI}{dt} = 0$, on obtient deux équilibres : $I^* = 0$ (absence d'infection) et $I^* = N(1 - \gamma/\beta) = N(1 - 1/R_0)$, avec $R_0 = \beta/\gamma$. Le second équilibre n'existe (n'est positif) que si $R_0 > 1$.
 
-An equilibrium is **stable** if the system returns to it after a small perturbation. This can be assessed from the sign of the derivative near the equilibrium: in @fig-phase, $dI/dt$ is positive below the endemic equilibrium and negative above it, so that $I$ moves towards the endemic equilibrium from either side, which is therefore stable; the disease-free equilibrium is unstable when $R_0 > 1$.
+Un équilibre est **stable** si le système y revient après une petite perturbation. On peut le déterminer d'après le signe de la dérivée au voisinage de l'équilibre : dans @fig-phase, $dI/dt$ est positive en dessous de l'équilibre endémique et négative au-dessus, de sorte que $I$ évolue vers l'équilibre endémique de part et d'autre ; celui-ci est donc stable. L'équilibre sans maladie est instable lorsque $R_0 > 1$.
 
 ```{r}
 #| label: fig-phase
 #| echo: false
 #| fig-height: 3
-#| fig-cap: "Rate of change $dI/dt$ as a function of the number of infected individuals $I$ in the SIS model ($\\beta$ = 0.3, $\\gamma$ = 0.1 per day, $N$ = 1,000; $R_0$ = 3). Equilibria (points) occur where $dI/dt = 0$; arrows indicate the direction of change."
+#| fig-cap: "Taux de variation $dI/dt$ en fonction du nombre d'individus infectés $I$ dans le modèle SIS ($\\beta$ = 0,3, $\\gamma$ = 0,1 par jour, $N$ = 1 000 ; $R_0$ = 3). Les équilibres (points) se situent là où $dI/dt = 0$ ; les flèches indiquent le sens de l'évolution."
 tibble(I = seq(0, 1000, 5)) |>
   mutate(dI = 0.3 * I * (1000 - I) / 1000 - 0.1 * I) |>
   ggplot(aes(I, dI)) +
@@ -195,43 +196,43 @@ tibble(I = seq(0, 1000, 5)) |>
            arrow = arrow(length = unit(0.2, "cm"))) +
   annotate("segment", x = 950, xend = 750, y = -8, yend = -8,
            arrow = arrow(length = unit(0.2, "cm"))) +
-  annotate("text", x = 667, y = 14, label = "endemic equilibrium", size = 3.3, hjust = 0.2) +
-  labs(x = "Number of infected individuals I", y = "dI/dt")
+  annotate("text", x = 667, y = 14, label = "équilibre endémique", size = 3.3, hjust = 0.2) +
+  labs(x = "Nombre d'individus infectés I", y = "dI/dt")
 ```
 
-## P3.7 Integrals: from rates to totals {.unnumbered}
+## P3.7 Intégrales : des taux aux totaux {.unnumbered}
 
-The **integral** of a rate over time gives a total. For example, the cumulative number of infections between times 0 and $T$ is the integral of the incidence, i.e. the area under the incidence curve. When a function is available at regular time points, the integral is approximated by the sum of the values multiplied by the time step:
+L'**intégrale** d'un taux sur le temps donne un total. Par exemple, le nombre cumulé d'infections entre les temps 0 et $T$ est l'intégrale de l'incidence, c'est-à-dire l'aire sous la courbe d'incidence. Lorsqu'une fonction est connue à intervalles de temps réguliers, l'intégrale est approchée par la somme des valeurs multipliée par le pas de temps :
 
 ```{r}
 dt <- 0.25
 t <- seq(0, 10, by = dt)
-incidence <- 100 * exp(-0.3 * t)          # new cases per day
-sum(incidence) * dt                        # approximate cumulative cases
-100 / 0.3 * (1 - exp(-0.3 * 10))           # exact integral
+incidence <- 100 * exp(-0.3 * t)          # nouveaux cas par jour
+sum(incidence) * dt                        # nombre cumulé approché de cas
+100 / 0.3 * (1 - exp(-0.3 * 10))           # intégrale exacte
 ```
 
-## P3.8 Vectors and matrices {.unnumbered}
+## P3.8 Vecteurs et matrices {.unnumbered}
 
-Models with several population groups (age groups, districts, risk groups) use **vectors** and **matrices**. A matrix–vector product combines each row of the matrix with the vector: if $C$ is a contact matrix and $\mathbf{y}$ a vector of the proportions infectious in each group, then the product $C\mathbf{y}$ gives the number of infectious contacts made by an individual in each group.
+Les modèles comportant plusieurs groupes de population (groupes d'âge, districts, groupes à risque) utilisent des **vecteurs** et des **matrices**. Le produit d'une matrice par un vecteur combine chaque ligne de la matrice avec le vecteur : si $C$ est une matrice de contacts et $\mathbf{y}$ le vecteur des proportions d'infectieux dans chaque groupe, le produit $C\mathbf{y}$ donne le nombre de contacts infectieux d'un individu de chaque groupe.
 
 ```{r}
-C <- matrix(c(12, 4,          # contacts of children with children, adults
-               3, 8),         # contacts of adults with children, adults
+C <- matrix(c(12, 4,          # contacts des enfants avec les enfants, les adultes
+               3, 8),         # contacts des adultes avec les enfants, les adultes
             nrow = 2, byrow = TRUE,
             dimnames = list(c("children", "adults"), c("children", "adults")))
 prop_infectious <- c(children = 0.02, adults = 0.005)
-C %*% prop_infectious        # infectious contacts per day, by group
+C %*% prop_infectious        # contacts infectieux par jour, par groupe
 ```
 
-For a square matrix $K$, an **eigenvalue** $\rho$ and **eigenvector** $\mathbf{v}$ satisfy $K\mathbf{v} = \rho\mathbf{v}$: multiplication by $K$ only rescales $\mathbf{v}$. If $K$ is the **next-generation matrix**, whose element $K_{ij}$ is the number of infections in group $i$ caused by one infectious individual in group $j$, then repeated multiplication describes successive generations of infection. After a few generations, the number of cases is multiplied in each generation by the **dominant eigenvalue** of $K$, which is therefore the basic reproduction number $R_0$ (@sec-adding-realism).
+Pour une matrice carrée $K$, une **valeur propre** $\rho$ et un **vecteur propre** $\mathbf{v}$ vérifient $K\mathbf{v} = \rho\mathbf{v}$ : la multiplication par $K$ ne fait que changer l'échelle de $\mathbf{v}$. Si $K$ est la **matrice de nouvelle génération**, dont l'élément $K_{ij}$ est le nombre d'infections dans le groupe $i$ causées par un individu infectieux du groupe $j$, des multiplications successives décrivent les générations successives d'infection. Après quelques générations, le nombre de cas est multiplié à chaque génération par la **valeur propre dominante** de $K$, qui est donc le nombre de reproduction de base $R_0$ (@sec-adding-realism).
 
 ```{r}
 K <- matrix(c(2.0, 0.5,
               0.6, 0.8), nrow = 2, byrow = TRUE)
-eigen(K)$values               # the dominant (largest) eigenvalue is R0
+eigen(K)$values               # la valeur propre dominante (la plus grande) est R0
 
-cases <- c(1, 0)              # one infected child
+cases <- c(1, 0)              # un enfant infecté
 for (g in 1:6) {
   new_cases <- K %*% cases
   cat("generation", g, ": ratio =", round(sum(new_cases) / sum(cases), 3), "\n")
@@ -239,28 +240,28 @@ for (g in 1:6) {
 }
 ```
 
-## P3.9 Solving equations and optimisation numerically {.unnumbered}
+## P3.9 Résolution numérique d'équations et optimisation {.unnumbered}
 
-Two numerical tasks occur repeatedly in this book:
+Deux tâches numériques reviennent souvent dans le cours :
 
-- **finding the root** of an equation, i.e. the value at which a function equals zero, with `uniroot()` — for instance the final size equation $z = 1 - e^{-R_0 z}$ (@sec-sir);
-- **minimising or maximising** a function, with `optimize()` (one parameter) or `optim()` (several parameters) — for instance to estimate model parameters by maximum likelihood (@sec-fitting).
+- **trouver la racine** d'une équation, c'est-à-dire la valeur pour laquelle une fonction s'annule, avec `uniroot()` — par exemple l'équation de la taille finale $z = 1 - e^{-R_0 z}$ (@sec-sir) ;
+- **minimiser ou maximiser** une fonction, avec `optimize()` (un paramètre) ou `optim()` (plusieurs paramètres) — par exemple pour estimer les paramètres d'un modèle par maximum de vraisemblance (@sec-fitting).
 
 ```{r}
-# Root: final size for R0 = 2
+# Racine : taille finale pour R0 = 2
 uniroot(function(z) z - (1 - exp(-2 * z)), interval = c(0.01, 1))$root
 
-# Minimisation: the value of a that minimises (a - 3)^2 + 1
+# Minimisation : la valeur de a qui minimise (a - 3)^2 + 1
 optimize(function(a) (a - 3)^2 + 1, interval = c(0, 10))$minimum
 ```
 
 ::: {.callout-tip icon="false"}
-## Exercise
-1. The mean duration of infectiousness of measles is 8 days. Calculate the daily recovery rate and the probability that an infectious person is still infectious after 14 days.
-2. During the early phase of an outbreak, cases double every 4 days. Calculate the growth rate $r$, and the number of cases after 3 weeks if there are 20 cases today.
-3. Apply Euler's method with a step of one day to the equation $\frac{dI}{dt} = -0.2 I$ with $I(0) = 100$, over 20 days, and compare with the exact solution $100 e^{-0.2 t}$.
-4. Calculate the endemic equilibrium of the SIS model for $\beta = 0.25$, $\gamma = 0.2$ and $N = 10{,}000$.
-5. Calculate $R_0$ for the next-generation matrix $K = \begin{pmatrix} 1.5 & 0.3 \\ 0.4 & 0.6 \end{pmatrix}$.
+## Exercice
+1. La durée moyenne de la contagiosité de la rougeole est de 8 jours. Calculer le taux de guérison journalier et la probabilité qu'une personne infectieuse le soit encore après 14 jours.
+2. Au début d'une épidémie, le nombre de cas double tous les 4 jours. Calculer le taux de croissance $r$, et le nombre de cas au bout de 3 semaines s'il y a 20 cas aujourd'hui.
+3. Appliquer la méthode d'Euler avec un pas d'un jour à l'équation $\frac{dI}{dt} = -0{,}2 I$ avec $I(0) = 100$, sur 20 jours, et comparer avec la solution exacte $100 e^{-0{,}2 t}$.
+4. Calculer l'équilibre endémique du modèle SIS pour $\beta = 0{,}25$, $\gamma = 0{,}2$ et $N = 10\,000$.
+5. Calculer $R_0$ pour la matrice de nouvelle génération $K = \begin{pmatrix} 1{,}5 & 0{,}3 \\ 0{,}4 & 0{,}6 \end{pmatrix}$.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -282,22 +283,22 @@ max(eigen(matrix(c(1.5, 0.3, 0.4, 0.6), 2, byrow = TRUE))$values)
 ```
 :::
 
-## P3.10 Self-assessment {.unnumbered}
+## P3.10 Auto-évaluation {.unnumbered}
 
-- [ ] Convert a mean duration into a rate, and a rate into a probability over a given period.
-- [ ] Calculate the probabilities of competing events.
-- [ ] Calculate a doubling time from a growth rate, and vice versa.
-- [ ] Explain in words what $\frac{dS}{dt} = -\beta S I / N$ means.
-- [ ] Explain how a differential equation is solved numerically, and why the step size matters.
-- [ ] Find the equilibria of a one-dimensional model by setting the derivative to zero.
-- [ ] Compute a matrix–vector product and the eigenvalues of a matrix in R.
+- [ ] Convertir une durée moyenne en taux, et un taux en probabilité sur une période donnée.
+- [ ] Calculer les probabilités d'événements concurrents.
+- [ ] Calculer un temps de doublement à partir d'un taux de croissance, et inversement.
+- [ ] Expliquer en mots la signification de $\frac{dS}{dt} = -\beta S I / N$.
+- [ ] Expliquer comment une équation différentielle est résolue numériquement, et pourquoi le pas de temps est important.
+- [ ] Déterminer les équilibres d'un modèle à une dimension en annulant la dérivée.
+- [ ] Calculer dans R le produit d'une matrice par un vecteur et les valeurs propres d'une matrice.
 
-## P3.11 Additional resources {.unnumbered}
+## P3.11 Ressources complémentaires {.unnumbered}
 
-- @vynnycky2010, chapters 2–3 and their online model files — an introduction to the mathematics of infectious disease models, written for epidemiologists.
-- @otto2007: *A Biologist's Guide to Mathematical Modeling in Ecology and Evolution* — a thorough introduction to differential equations, equilibria, stability and matrices for life scientists (chapters 1–5 and the primers on calculus and linear algebra).
-- @bodine2014: *Mathematics for the Life Sciences* — calculus and linear algebra with biological applications.
-- @strogatz2015: *Nonlinear Dynamics and Chaos* — an accessible treatment of equilibria and stability (chapters 1–2) for participants who wish to study further.
-- OpenStax, *Precalculus 2e*, chapter 6 (Exponential and logarithmic functions) — a free introductory textbook (<https://openstax.org/details/books/precalculus-2e>).
-- Imperial College London, *Infectious Disease Modelling* specialisation (Coursera; free to audit), in particular the first course, which introduces differential equations through the SIR model (<https://www.coursera.org/specializations/infectious-disease-modelling>).
-- Khan Academy, courses on exponential functions, logarithms, differential calculus and matrices (<https://www.khanacademy.org/math>).
+- @vynnycky2010, chapitres 2 et 3 et les fichiers de modèles en ligne associés — une introduction aux mathématiques des modèles de maladies infectieuses, écrite pour des épidémiologistes (en anglais).
+- @otto2007 : *A Biologist's Guide to Mathematical Modeling in Ecology and Evolution* — une introduction approfondie aux équations différentielles, aux équilibres, à la stabilité et aux matrices pour les sciences de la vie (chapitres 1 à 5 et annexes sur le calcul différentiel et l'algèbre linéaire).
+- @bodine2014 : *Mathematics for the Life Sciences* — calcul différentiel et algèbre linéaire avec des applications biologiques.
+- @strogatz2015 : *Nonlinear Dynamics and Chaos* — un exposé accessible des équilibres et de la stabilité (chapitres 1 et 2) pour les participants qui souhaitent approfondir.
+- OpenStax, *Precalculus 2e*, chapitre 6 (Exponential and logarithmic functions) — un manuel d'introduction gratuit, en anglais (<https://openstax.org/details/books/precalculus-2e>).
+- Imperial College London, spécialisation *Infectious Disease Modelling* (Coursera ; accès libre en auditeur), en particulier le premier cours, qui introduit les équations différentielles à partir du modèle SIR (<https://www.coursera.org/specializations/infectious-disease-modelling>).
+- Khan Academy, cours sur les fonctions exponentielles, les logarithmes, le calcul différentiel et les matrices, disponibles en français (<https://fr.khanacademy.org/math>).

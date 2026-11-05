@@ -1,9 +1,14 @@
 <!-- Translation of index.qmd (fr). Translate the text only: keep the code, the labels
      ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
-     is complete, remove the box marked .translation-pending and run
+     is complete, remove the box marked .translation-review and run
      py preparatory/translations.py accept fr index.qmd -->
 
 # Bienvenue {.unnumbered}
+
+::: {.callout-note .translation-review}
+## Traduction provisoire
+Ce livre a été traduit de l'anglais et est en cours de relecture. Les remarques sont les bienvenues.
+:::
 
 *Également disponible en : [English](../en/index.html) · [Português](../pt/index.html)*
 

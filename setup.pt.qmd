@@ -1,46 +1,47 @@
-<!-- Translation of setup.qmd (pt). Translate the text only: keep the code, the labels
-     ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
-     is complete, remove the box marked .translation-pending and run
-     py preparatory/translations.py accept pt setup.qmd -->
+<!-- Translation of setup.qmd (pt). Draft translation, under review.
+     Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
+     and file names unchanged. When the review is complete, remove the box marked
+     .translation-review. After changes to the English text:
+     py preparatory/translations.py status --diff -->
 
 # Instalação do R e do RStudio {#sec-setup}
 
-::: {.callout-warning .translation-pending}
-## Tradução em curso
-Este capítulo ainda não foi traduzido: o texto abaixo é a versão inglesa.
+::: {.callout-note .translation-review}
+## Tradução provisória
+Este apêndice foi traduzido do inglês e está em revisão. As observações são bem-vindas.
 :::
 
-## R and RStudio
+## R e RStudio
 
-1. Install **R** (version 4.4 or later) from <https://cran.r-project.org>, selecting the appropriate operating system (for Windows: *Download R for Windows → base*).
-2. Install **RStudio Desktop** (free of charge) from <https://posit.co/download/rstudio-desktop/>.
-3. Open RStudio. R runs within RStudio and does not need to be opened separately.
+1. Instale o **R** (versão 4.4 ou posterior) a partir de <https://cran.r-project.org>, selecionando o sistema operativo adequado (para Windows: *Download R for Windows → base*).
+2. Instale o **RStudio Desktop** (gratuito) a partir de <https://posit.co/download/rstudio-desktop/>.
+3. Abra o RStudio. O R funciona dentro do RStudio e não precisa de ser aberto separadamente.
 
-Where software cannot be installed locally, **Posit Cloud** (<https://posit.cloud>) can be used in a web browser.
+Quando não for possível instalar o *software* localmente, pode utilizar-se o **Posit Cloud** (<https://posit.cloud>) num navegador de Internet.
 
-## Packages
+## Pacotes
 
-The following code installs all packages used in the course. Installation requires an internet connection and takes approximately 5–15 minutes.
+O código seguinte instala todos os pacotes utilizados no curso. A instalação requer ligação à Internet e demora cerca de 5 a 15 minutos.
 
 ```{r}
 #| eval: false
 packages <- c(
-  "tidyverse",     # data management and visualisation
-  "deSolve",       # differential equations (compartmental models)
-  "outbreaks",     # historical outbreak datasets
-  "fitdistrplus",  # fitting of delay distributions
-  "EpiEstim",      # time-varying reproduction number
-  "epichains",     # branching processes
-  "finalsize",     # final size in age-structured populations
-  "socialmixr",    # social contact matrices
-  "coda",          # MCMC diagnostics
-  "patchwork",     # combination of figures
+  "tidyverse",     # gestão e visualização de dados
+  "deSolve",       # equações diferenciais (modelos compartimentais)
+  "outbreaks",     # conjuntos de dados de surtos históricos
+  "fitdistrplus",  # ajustamento de distribuições de atrasos
+  "EpiEstim",      # número de reprodução variável no tempo
+  "epichains",     # processos de ramificação
+  "finalsize",     # dimensão final em populações estruturadas por idade
+  "socialmixr",    # matrizes de contactos sociais
+  "coda",          # diagnósticos de MCMC
+  "patchwork",     # combinação de figuras
   "knitr", "rmarkdown"
 )
 install.packages(setdiff(packages, rownames(installed.packages())))
 ```
 
-The installation can be verified with a small SIR model:
+A instalação pode ser verificada com um pequeno modelo SIR:
 
 ```{r}
 #| eval: false
@@ -53,8 +54,12 @@ out <- ode(y = c(S = 999, I = 1, R = 0), times = 0:50,
 plot(out)
 ```
 
-The installation is successful if three plots (S, I and R against time) are displayed.
+A instalação foi bem-sucedida se forem apresentados três gráficos (S, I e R em função do tempo).
 
-## Course materials
+## Materiais do curso
 
-The materials of the course itself are available at <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*). After unzipping, the folder should be opened as an RStudio Project (*File → New Project → Existing Directory*).
+Os materiais do próprio curso estão disponíveis em <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*). Depois de descomprimida, a pasta deve ser aberta como projeto RStudio (*File → New Project → Existing Directory*).
+
+## Conjuntos de dados
+
+Todos os conjuntos de dados utilizados no Módulo 1 podem ser descarregados como ficheiros CSV num único arquivo, [TIMERA-datasets.zip](https://federica-giardina.github.io/TIMERA-preparatory/datasets/TIMERA-datasets.zip), que contém também uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.

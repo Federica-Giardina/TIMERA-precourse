@@ -1,15 +1,16 @@
-<!-- Translation of 00b-prelim-stats-epi.qmd (pt). Translate the text only: keep the code, the labels
-     ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
-     is complete, remove the box marked .translation-pending and run
-     py preparatory/translations.py accept pt 00b-prelim-stats-epi.qmd -->
+<!-- Translation of 00b-prelim-stats-epi.qmd (pt). Draft translation, under review.
+     Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
+     and file names unchanged. When the review is complete, remove the box marked
+     .translation-review. After changes to the English text:
+     py preparatory/translations.py status --diff -->
 
 # P2 Conceitos estatísticos e epidemiológicos {#sec-prelim-stats .unnumbered}
 
 *Aprendizagem preliminar — estatística e epidemiologia*
 
-::: {.callout-warning .translation-pending}
-## Tradução em curso
-Este capítulo ainda não foi traduzido: o texto abaixo é a versão inglesa.
+::: {.callout-note .translation-review}
+## Tradução provisória
+Este capítulo foi traduzido do inglês e está em revisão. As observações são bem-vindas.
 :::
 
 ```{r}
@@ -18,127 +19,127 @@ source("_common.R")
 ```
 
 ::: {.callout-tip icon="false"}
-## Learning objectives
-By the end of this chapter, participants should be able to:
+## Objetivos de aprendizagem
+No final deste capítulo, os participantes deverão ser capazes de:
 
-1. Define and calculate the principal measures of disease frequency and severity: risk, attack rate, incidence rate, prevalence and case fatality ratio.
-2. Describe the characteristics of surveillance data that affect their analysis: case definitions, under-ascertainment, reporting delays and the type of date.
-3. Identify the probability distributions most frequently used in infectious disease modelling, and evaluate them in R.
-4. Calculate and interpret confidence intervals for proportions and rates.
-5. Explain the concept of likelihood and of the maximum likelihood estimate.
-6. Fit and interpret a Poisson regression model for count data.
+1. Definir e calcular as principais medidas de frequência e de gravidade das doenças: risco, taxa de ataque, taxa de incidência, prevalência e letalidade.
+2. Descrever as características dos dados de vigilância que influenciam a sua análise: definições de caso, subdeteção, atrasos de notificação e tipo de data.
+3. Identificar as distribuições de probabilidade mais utilizadas na modelação de doenças infecciosas e avaliá-las no R.
+4. Calcular e interpretar intervalos de confiança para proporções e taxas.
+5. Explicar o conceito de verosimilhança e de estimativa de máxima verosimilhança.
+6. Ajustar e interpretar um modelo de regressão de Poisson para dados de contagem.
 :::
 
 ```{r}
 library(tidyverse)
 ```
 
-## P2.1 Measures of disease frequency {.unnumbered}
+## P2.1 Medidas de frequência de doença {.unnumbered}
 
-| Measure | Definition | Example |
+| Medida | Definição | Exemplo |
 |---|---|---|
-| **Risk** (cumulative incidence) | number of new cases during a period ÷ population at risk at the start of the period | proportion of children infected during a measles outbreak |
-| **Attack rate** | risk during an outbreak (a proportion, despite its name) | 512 of 763 boys confined to bed: 67% |
-| **Secondary attack rate** | new cases among contacts of a case ÷ number of contacts | proportion of household contacts infected |
-| **Incidence rate** | number of new cases ÷ person-time at risk | 150 tuberculosis cases per 100,000 person-years |
-| **Prevalence** | number of existing cases ÷ population at a given time | proportion of children with malaria parasitaemia in a survey |
-| **Case fatality ratio (CFR)** | deaths among cases ÷ number of cases | proportion of confirmed Ebola cases who die |
-| **Infection fatality ratio (IFR)** | deaths ÷ number of infections (including undetected infections) | proportion of all SARS-CoV-2 infections, estimated from a serological survey, that resulted in death |
-| **Mortality rate** | deaths ÷ person-time in the whole population | 45 malaria deaths per 100,000 person-years among children under five years |
+| **Risco** (incidência cumulativa) | número de casos novos durante um período ÷ população em risco no início do período | proporção de crianças infetadas durante um surto de sarampo |
+| **Taxa de ataque** | risco durante um surto (uma proporção, apesar do nome) | 512 de 763 rapazes acamados: 67% |
+| **Taxa de ataque secundária** | casos novos entre os contactos de um caso ÷ número de contactos | proporção de contactos domiciliários infetados |
+| **Taxa de incidência** | número de casos novos ÷ pessoas-tempo em risco | 150 casos de tuberculose por 100 000 pessoas-ano |
+| **Prevalência** | número de casos existentes ÷ população num dado momento | proporção de crianças com parasitemia de malária num inquérito |
+| **Letalidade** (*case fatality ratio*, CFR) | óbitos entre os casos ÷ número de casos | proporção de casos confirmados de doença por vírus Ébola que morrem |
+| **Letalidade por infeção** (*infection fatality ratio*, IFR) | óbitos ÷ número de infeções (incluindo as infeções não detetadas) | proporção de todas as infeções por SARS-CoV-2, estimadas a partir de um inquérito serológico, que resultaram em óbito |
+| **Taxa de mortalidade** | óbitos ÷ pessoas-tempo em toda a população | 45 óbitos por malária por 100 000 pessoas-ano em crianças com menos de cinco anos |
 
-Prevalence, incidence and duration are related: in a stable situation, and when prevalence is low,
+A prevalência, a incidência e a duração estão relacionadas: numa situação estável, e quando a prevalência é baixa,
 
 $$
-\text{prevalence} \approx \text{incidence rate} \times \text{mean duration of disease}.
+\text{prevalência} \approx \text{taxa de incidência} \times \text{duração média da doença}.
 $$
 
-This relationship reappears in compartmental models, where the number of individuals in a compartment equals the inflow multiplied by the mean time spent in it.
+Esta relação reaparece nos modelos compartimentais, em que o número de indivíduos num compartimento é igual ao fluxo de entrada multiplicado pelo tempo médio passado nesse compartimento.
 
 ```{r}
-# Attack rate in the 1978 boarding school influenza outbreak
+# Taxa de ataque no surto de gripe de 1978 num colégio interno
 attack_rate <- 512 / 763
 attack_rate
 
-# Prevalence from incidence and duration: 150 cases per 100,000 per year,
-# mean duration of untreated tuberculosis about 2 years
-150 / 1e5 * 2 * 1e5     # prevalent cases per 100,000
+# Prevalência a partir da incidência e da duração: 150 casos por 100 000 por ano,
+# duração média da tuberculose não tratada de cerca de 2 anos
+150 / 1e5 * 2 * 1e5     # casos prevalentes por 100 000
 ```
 
-The CFR is a property of *detected cases* and depends on the case definition and on the intensity of testing: if mild cases are not detected, the CFR overestimates the risk of death per infection. During an outbreak, the CFR calculated from reported cases is also biased by the delay between onset and death (@sec-cfr).
+A letalidade é uma propriedade dos *casos detetados* e depende da definição de caso e da intensidade da testagem: se os casos ligeiros não forem detetados, a letalidade sobrestima o risco de morte por infeção. Durante um surto, a letalidade calculada a partir dos casos notificados é também enviesada pelo atraso entre o início dos sintomas e o óbito (@sec-cfr).
 
-## P2.2 Characteristics of surveillance data {.unnumbered}
+## P2.2 Características dos dados de vigilância {.unnumbered}
 
-Models are frequently fitted to routine surveillance data, which have several characteristics that must be taken into account [@cdc2012]:
+Os modelos são frequentemente ajustados a dados de vigilância de rotina, que apresentam várias características a ter em conta [@cdc2012]:
 
-- **Case definitions** distinguish suspected, probable and confirmed cases; changes in the case definition change the reported numbers.
-- **Under-ascertainment**: only a proportion of infections results in symptoms, care seeking, testing and notification. This proportion may change over time, for instance when testing capacity increases.
-- **Reporting delays**: cases are reported days or weeks after symptom onset, so that the most recent counts are incomplete (@sec-nowcasting).
-- **Type of date**: date of infection, symptom onset, consultation, sampling, laboratory confirmation or report. Each date implies a different delay with respect to infection.
-- **Aggregation**: Integrated Disease Surveillance and Response (IDSR) systems and DHIS2 typically report weekly counts by district; line lists contain one row per case.
+- As **definições de caso** distinguem casos suspeitos, prováveis e confirmados; uma alteração da definição de caso altera os números notificados.
+- **Subdeteção**: apenas uma parte das infeções resulta em sintomas, procura de cuidados, testagem e notificação. Esta proporção pode variar ao longo do tempo, por exemplo quando a capacidade de testagem aumenta.
+- **Atrasos de notificação**: os casos são notificados dias ou semanas após o início dos sintomas, pelo que as contagens mais recentes estão incompletas (@sec-nowcasting).
+- **Tipo de data**: data de infeção, de início dos sintomas, de consulta, de colheita, de confirmação laboratorial ou de notificação. Cada data implica um atraso diferente em relação à infeção.
+- **Agregação**: os sistemas de vigilância integrada das doenças e resposta (VIDR) e o DHIS2 reportam geralmente contagens semanais por distrito; as listas nominais têm uma linha por caso.
 
-The **epidemic curve** — the number of cases by date of onset — is the basic description of an outbreak and the principal input for transmission models. Descriptive epidemiology by time, place and person is treated in detail by @cdc2012, lessons 1 and 4–6.
+A **curva epidémica** — o número de casos por data de início dos sintomas — é a descrição básica de um surto e o principal dado de entrada dos modelos de transmissão. A epidemiologia descritiva segundo o tempo, o lugar e a pessoa é tratada em pormenor por @cdc2012, lições 1 e 4 a 6.
 
-## P2.3 Probability distributions {.unnumbered}
+## P2.3 Distribuições de probabilidade {.unnumbered}
 
-Probability distributions describe the variability of counts and durations. The following are used repeatedly in this book:
+As distribuições de probabilidade descrevem a variabilidade das contagens e das durações. As seguintes são utilizadas repetidamente ao longo do curso:
 
-| Distribution | Type | Mean | Variance | Typical use in modelling |
+| Distribuição | Tipo | Média | Variância | Utilização típica na modelação |
 |---|---|---|---|---|
-| **Binomial**($n$, $p$) | counts from 0 to $n$ | $np$ | $np(1-p)$ | number infected among $n$ contacts; number seropositive in a survey |
-| **Poisson**($\lambda$) | counts ≥ 0 | $\lambda$ | $\lambda$ | number of cases per day or week |
-| **Negative binomial**($\mu$, $k$) | counts ≥ 0 | $\mu$ | $\mu + \mu^2/k$ | overdispersed counts; number of secondary cases (superspreading) |
-| **Exponential**(rate $r$) | durations > 0 | $1/r$ | $1/r^2$ | time spent in a compartment of an ODE model |
-| **Gamma**(shape $a$, rate $b$) | durations > 0 | $a/b$ | $a/b^2$ | incubation period, serial and generation intervals, reporting delays |
-| **Lognormal**($\mu$, $\sigma$) | durations > 0 | $e^{\mu + \sigma^2/2}$ | $(e^{\sigma^2} - 1)\, e^{2\mu + \sigma^2}$ | incubation period |
-| **Normal**($\mu$, $\sigma$) | continuous | $\mu$ | $\sigma^2$ | approximations; prior distributions |
-| **Beta**($a$, $b$) | proportions in (0, 1) | $\dfrac{a}{a+b}$ | $\dfrac{ab}{(a+b)^2(a+b+1)}$ | prior distributions for proportions |
+| **Binomial**($n$, $p$) | contagens de 0 a $n$ | $np$ | $np(1-p)$ | número de infetados entre $n$ contactos; número de seropositivos num inquérito |
+| **Poisson**($\lambda$) | contagens ≥ 0 | $\lambda$ | $\lambda$ | número de casos por dia ou por semana |
+| **Binomial negativa**($\mu$, $k$) | contagens ≥ 0 | $\mu$ | $\mu + \mu^2/k$ | contagens sobredispersas; número de casos secundários (supertransmissão) |
+| **Exponencial**(taxa $r$) | durações > 0 | $1/r$ | $1/r^2$ | tempo passado num compartimento de um modelo de EDO |
+| **Gama**(forma $a$, taxa $b$) | durações > 0 | $a/b$ | $a/b^2$ | período de incubação, intervalos serial e de geração, atrasos de notificação |
+| **Log-normal**($\mu$, $\sigma$) | durações > 0 | $e^{\mu + \sigma^2/2}$ | $(e^{\sigma^2} - 1)\, e^{2\mu + \sigma^2}$ | período de incubação |
+| **Normal**($\mu$, $\sigma$) | contínua | $\mu$ | $\sigma^2$ | aproximações; distribuições *a priori* |
+| **Beta**($a$, $b$) | proporções em (0, 1) | $\dfrac{a}{a+b}$ | $\dfrac{ab}{(a+b)^2(a+b+1)}$ | distribuições *a priori* para proporções |
 
 : {tbl-colwidths="[18,14,14,22,32]"}
 
-In R, each distribution has four functions: `d...` (probability or density), `p...` (cumulative distribution function), `q...` (quantile function) and `r...` (random draws), e.g. `dpois()`, `ppois()`, `qpois()`, `rpois()`.
+No R, cada distribuição tem quatro funções: `d...` (probabilidade ou densidade), `p...` (função de distribuição acumulada), `q...` (função quantil) e `r...` (valores aleatórios), p. ex. `dpois()`, `ppois()`, `qpois()`, `rpois()`.
 
 ```{r}
-dbinom(3, size = 20, prob = 0.1)       # P(3 of 20 contacts infected)
-ppois(10, lambda = 6)                  # P(at most 10 cases in a week with mean 6)
-qgamma(0.95, shape = 4, rate = 0.4)    # 95th percentile of a gamma delay with mean 10 days
-pexp(5, rate = 1 / 5)                  # P(leaving a compartment within its mean duration)
+dbinom(3, size = 20, prob = 0.1)       # P(3 de 20 contactos infetados)
+ppois(10, lambda = 6)                  # P(no máximo 10 casos numa semana com média 6)
+qgamma(0.95, shape = 4, rate = 0.4)    # percentil 95 de um atraso gama com média de 10 dias
+pexp(5, rate = 1 / 5)                  # P(sair de um compartimento antes da sua duração média)
 ```
 
-The last result shows an important property of compartmental models based on ordinary differential equations: the time spent in a compartment follows an exponential distribution, so that 63% of individuals leave the compartment before its mean duration and a substantial proportion remains much longer. Real delay distributions are usually less dispersed and are better described by a gamma or lognormal distribution (@fig-exp-gamma).
+O último resultado mostra uma propriedade importante dos modelos compartimentais baseados em equações diferenciais ordinárias: o tempo passado num compartimento segue uma distribuição exponencial, pelo que 63% dos indivíduos saem do compartimento antes da sua duração média e uma parte considerável permanece muito mais tempo. As distribuições reais dos atrasos são geralmente menos dispersas e são mais bem descritas por uma distribuição gama ou log-normal (@fig-exp-gamma).
 
 ```{r}
 #| label: fig-exp-gamma
 #| echo: false
 #| fig-height: 3
-#| fig-cap: "Exponential and gamma distributions with the same mean duration of 5 days. The exponential distribution, implied by a single compartment in an ODE model, assigns high probability to very short and very long durations."
+#| fig-cap: "Distribuições exponencial e gama com a mesma duração média de 5 dias. A distribuição exponencial, implícita num único compartimento de um modelo de EDO, atribui uma probabilidade elevada a durações muito curtas e muito longas."
 tibble(days = seq(0, 20, 0.05)) |>
-  mutate(`Exponential (mean 5)` = dexp(days, 1 / 5),
-         `Gamma, shape 4 (mean 5)` = dgamma(days, 4, 4 / 5)) |>
+  mutate(`Exponencial (média 5)` = dexp(days, 1 / 5),
+         `Gama, forma 4 (média 5)` = dgamma(days, 4, 4 / 5)) |>
   pivot_longer(-days) |>
   ggplot(aes(days, value, colour = name)) +
   geom_line(linewidth = 1) +
-  labs(x = "Duration (days)", y = "Density", colour = NULL)
+  labs(x = "Duração (dias)", y = "Densidade", colour = NULL)
 ```
 
-The negative binomial distribution includes a **dispersion parameter** $k$; as $k$ increases, it approaches the Poisson distribution. Small values of $k$ correspond to counts that are more variable than expected under a Poisson model (**overdispersion**), which is common in surveillance data and in the number of secondary cases per case (@sec-stochastic).
+A distribuição binomial negativa inclui um **parâmetro de dispersão** $k$; à medida que $k$ aumenta, aproxima-se da distribuição de Poisson. Valores pequenos de $k$ correspondem a contagens mais variáveis do que o esperado num modelo de Poisson (**sobredispersão**), o que é frequente nos dados de vigilância e no número de casos secundários por caso (@sec-stochastic).
 
-## P2.4 Estimation and confidence intervals {.unnumbered}
+## P2.4 Estimação e intervalos de confiança {.unnumbered}
 
-A sample statistic, such as a proportion, estimates an unknown population value with sampling error. A **95% confidence interval** is constructed such that, in repeated samples, 95% of such intervals would include the true value.
+Uma estatística amostral, como uma proporção, estima um valor desconhecido da população com erro de amostragem. Um **intervalo de confiança de 95%** é construído de modo que, em amostras repetidas, 95% desses intervalos incluiriam o verdadeiro valor.
 
 ```{r}
-# Seroprevalence: 34 positive of 120 tested (exact binomial confidence interval)
+# Seroprevalência: 34 positivos em 120 testados (intervalo de confiança binomial exato)
 binom.test(34, 120)$conf.int
 
-# Incidence rate: 45 cases in 30,000 person-years (exact Poisson confidence interval)
-poisson.test(45, T = 30000)$conf.int * 1e5    # per 100,000 person-years
+# Taxa de incidência: 45 casos em 30 000 pessoas-ano (intervalo de confiança de Poisson exato)
+poisson.test(45, T = 30000)$conf.int * 1e5    # por 100 000 pessoas-ano
 ```
 
-Confidence intervals reflect random sampling error only; they do not account for systematic errors such as selection bias, misclassification or under-ascertainment.
+Os intervalos de confiança refletem apenas o erro de amostragem aleatório; não têm em conta erros sistemáticos como o viés de seleção, os erros de classificação ou a subdeteção.
 
-## P2.5 Likelihood {.unnumbered}
+## P2.5 Verosimilhança {.unnumbered}
 
-The **likelihood** expresses how probable the observed data are for a given value of a parameter. For 34 positives among 120 tested, the likelihood of a seroprevalence $p$ is the binomial probability $L(p) = \binom{120}{34} p^{34} (1-p)^{86}$. The **maximum likelihood estimate (MLE)** is the value of $p$ that maximises $L(p)$; here it equals the observed proportion $34/120$. In practice the logarithm of the likelihood is used, as it is numerically more convenient.
+A **verosimilhança** exprime quão prováveis são os dados observados para um dado valor de um parâmetro. Para 34 positivos em 120 testados, a verosimilhança de uma seroprevalência $p$ é a probabilidade binomial $L(p) = \binom{120}{34} p^{34} (1-p)^{86}$. A **estimativa de máxima verosimilhança (EMV)** é o valor de $p$ que maximiza $L(p)$; aqui é igual à proporção observada $34/120$. Na prática, utiliza-se o logaritmo da verosimilhança, por ser numericamente mais conveniente.
 
 ```{r}
 log_lik <- function(p) dbinom(34, size = 120, prob = p, log = TRUE)
@@ -150,51 +151,51 @@ c(mle = mle, observed = 34 / 120)
 #| label: fig-likelihood
 #| echo: false
 #| fig-height: 3
-#| fig-cap: "Log-likelihood of the seroprevalence $p$ given 34 positives among 120 tested, relative to its maximum. The maximum likelihood estimate is indicated by the vertical line; values above the dashed line form an approximate 95% confidence interval."
+#| fig-cap: "Log-verosimilhança da seroprevalência $p$ dados 34 positivos em 120 testados, relativa ao seu máximo. A estimativa de máxima verosimilhança é indicada pela linha vertical; os valores acima da linha tracejada formam um intervalo de confiança aproximado de 95%."
 tibble(p = seq(0.15, 0.45, 0.001)) |>
   mutate(ll = map_dbl(p, log_lik), rel = ll - max(ll)) |>
   ggplot(aes(p, rel)) +
   geom_line(linewidth = 1) +
   geom_vline(xintercept = mle) +
   geom_hline(yintercept = -qchisq(0.95, 1) / 2, linetype = 2) +
-  labs(x = "Seroprevalence p", y = "Relative log-likelihood")
+  labs(x = "Seroprevalência p", y = "Log-verosimilhança relativa")
 ```
 
-The same principle is used to estimate the parameters of transmission models: the model predicts the expected number of cases, and the parameters that maximise the likelihood of the observed counts are selected (@sec-fitting). Values of the parameter for which the log-likelihood is within 1.92 units of its maximum form an approximate 95% confidence interval (@fig-likelihood). In **Bayesian** inference, the likelihood is combined with a prior distribution (@sec-bayesian).
+O mesmo princípio é utilizado para estimar os parâmetros dos modelos de transmissão: o modelo prevê o número esperado de casos e selecionam-se os parâmetros que maximizam a verosimilhança das contagens observadas (@sec-fitting). Os valores do parâmetro para os quais a log-verosimilhança se encontra a menos de 1,92 unidades do seu máximo formam um intervalo de confiança aproximado de 95% (@fig-likelihood). Na inferência **bayesiana**, a verosimilhança é combinada com uma distribuição *a priori* (@sec-bayesian).
 
-## P2.6 Regression models for count data {.unnumbered}
+## P2.6 Modelos de regressão para dados de contagem {.unnumbered}
 
-**Poisson regression** models the logarithm of the expected count as a linear function of explanatory variables. An **offset** equal to the logarithm of the population (or person-time) converts counts into rates; exponentiated coefficients are **rate ratios**.
+A **regressão de Poisson** modela o logaritmo da contagem esperada como uma função linear de variáveis explicativas. Um termo de desvio (***offset***) igual ao logaritmo da população (ou das pessoas-tempo) converte contagens em taxas; os coeficientes exponenciados são **razões de taxas**.
 
 ```{r}
 set.seed(1)
 districts <- tibble(
   district = paste("District", 1:12),
   population = round(runif(12, 50000, 300000)),
-  coverage = round(runif(12, 0.5, 0.95), 2)            # vaccination coverage
+  coverage = round(runif(12, 0.5, 0.95), 2)            # cobertura vacinal
 ) |>
   mutate(cases = rpois(12, lambda = population * 2e-4 * exp(-3 * (coverage - 0.7))))
 
 fit <- glm(cases ~ coverage + offset(log(population)), family = poisson, data = districts)
 summary(fit)$coefficients
-exp(coef(fit)[["coverage"]] * 0.1)     # rate ratio per 10-percentage-point increase in coverage
+exp(coef(fit)[["coverage"]] * 0.1)     # razão de taxas por aumento de 10 pontos percentuais na cobertura
 ```
 
-Poisson regression on time is also used to estimate the **growth rate** of an epidemic from early case counts (@sec-growth-rate). When counts are overdispersed, the standard errors of a Poisson model are too small; a **quasi-Poisson** (`family = quasipoisson`) or **negative binomial** model (`MASS::glm.nb()`) should then be used.
+A regressão de Poisson em função do tempo é também utilizada para estimar a **taxa de crescimento** de uma epidemia a partir das primeiras contagens de casos (@sec-growth-rate). Quando as contagens são sobredispersas, os erros-padrão de um modelo de Poisson são demasiado pequenos; deve então utilizar-se um modelo de **quasi-Poisson** (`family = quasipoisson`) ou **binomial negativo** (`MASS::glm.nb()`).
 
 ::: {.callout-tip icon="false"}
-## Exercise
-1. In a district of 80,000 inhabitants, 240 cholera cases and 6 deaths are reported during an outbreak lasting 10 weeks. Calculate the attack rate per 1,000 inhabitants and the CFR, with 95% confidence intervals.
-2. Using `rnbinom()`, simulate 1,000 weekly counts with mean 10 and dispersion $k$ = 2, and compare their variance with that of 1,000 Poisson counts with mean 10.
-3. A gamma distribution has mean 9 days and standard deviation 5 days. Calculate its shape and rate parameters, and the proportion of delays longer than 21 days. (Hint: shape = mean²/SD², rate = mean/SD².)
+## Exercício
+1. Num distrito com 80 000 habitantes, são notificados 240 casos de cólera e 6 óbitos durante um surto de 10 semanas. Calcule a taxa de ataque por 1 000 habitantes e a letalidade, com intervalos de confiança de 95%.
+2. Utilizando `rnbinom()`, simule 1 000 contagens semanais com média 10 e dispersão $k$ = 2 e compare a sua variância com a de 1 000 contagens de Poisson com média 10.
+3. Uma distribuição gama tem média de 9 dias e desvio-padrão de 5 dias. Calcule os seus parâmetros de forma e de taxa e a proporção de atrasos superiores a 21 dias. (Sugestão: forma = média²/DP², taxa = média/DP².)
 :::
 
 ::: {.callout-note collapse="true"}
-## Solution
+## Solução
 
 ```{r}
-binom.test(240, 80000)$conf.int * 1000    # attack rate per 1,000
-binom.test(6, 240)$conf.int               # CFR
+binom.test(240, 80000)$conf.int * 1000    # taxa de ataque por 1 000
+binom.test(6, 240)$conf.int               # letalidade
 
 c(negbin = var(rnbinom(1000, mu = 10, size = 2)), poisson = var(rpois(1000, 10)))
 
@@ -203,22 +204,22 @@ c(shape = shape, rate = rate, p_over_21 = 1 - pgamma(21, shape, rate))
 ```
 :::
 
-## P2.7 Self-assessment {.unnumbered}
+## P2.7 Autoavaliação {.unnumbered}
 
-- [ ] Distinguish risk, incidence rate and prevalence, and calculate each from data.
-- [ ] Explain why the case fatality ratio depends on case ascertainment.
-- [ ] Describe at least three characteristics of surveillance data that may bias analyses.
-- [ ] Choose an appropriate distribution for a count or a delay, and evaluate it in R.
-- [ ] Interpret a 95% confidence interval.
-- [ ] Explain what a likelihood and a maximum likelihood estimate are.
-- [ ] Interpret the coefficient of a Poisson regression model as a rate ratio.
+- [ ] Distinguir risco, taxa de incidência e prevalência, e calcular cada um a partir de dados.
+- [ ] Explicar por que razão a letalidade depende da deteção dos casos.
+- [ ] Descrever pelo menos três características dos dados de vigilância que podem enviesar as análises.
+- [ ] Escolher uma distribuição adequada para uma contagem ou um atraso e avaliá-la no R.
+- [ ] Interpretar um intervalo de confiança de 95%.
+- [ ] Explicar o que são uma verosimilhança e uma estimativa de máxima verosimilhança.
+- [ ] Interpretar o coeficiente de um modelo de regressão de Poisson como uma razão de taxas.
 
-## P2.8 Additional resources {.unnumbered}
+## P2.8 Recursos adicionais {.unnumbered}
 
-- @cdc2012: *Principles of Epidemiology in Public Health Practice*, a free self-study course of the US Centers for Disease Control and Prevention (lessons 1–3 and 5 are particularly relevant).
-- @giesecke2017: *Modern Infectious Disease Epidemiology* — an introduction to the epidemiology of infectious diseases, including outbreak investigation and basic transmission concepts.
-- @rothman2012: *Epidemiology: An Introduction* — measures of disease frequency and effect.
-- @kirkwood2003: *Essential Medical Statistics* — confidence intervals, rates, Poisson regression and likelihood (chapters on rates and on likelihood).
-- @diez2019: *OpenIntro Statistics* — a free introductory statistics textbook (<https://www.openintro.org/book/os/>).
-- @pawitan2001: *In All Likelihood* — an advanced treatment of likelihood-based inference.
-- PATH/MACEPA *Foundational Epidemiology Knowledge* (<https://path-global-health.github.io/df-foundational-epi-skills/>) — a short refresher on measures of disease frequency and association, study designs, measures of disease detection, standardisation and confounding, with a quiz and problem sets.
+- @cdc2012: *Principles of Epidemiology in Public Health Practice*, curso gratuito de autoaprendizagem dos Centers for Disease Control and Prevention dos Estados Unidos (em inglês; as lições 1 a 3 e 5 são particularmente relevantes).
+- @giesecke2017: *Modern Infectious Disease Epidemiology* — uma introdução à epidemiologia das doenças infecciosas, incluindo a investigação de surtos e conceitos básicos de transmissão.
+- @rothman2012: *Epidemiology: An Introduction* — medidas de frequência de doença e de efeito.
+- @kirkwood2003: *Essential Medical Statistics* — intervalos de confiança, taxas, regressão de Poisson e verosimilhança (capítulos sobre taxas e sobre verosimilhança).
+- @diez2019: *OpenIntro Statistics* — um manual gratuito de introdução à estatística (<https://www.openintro.org/book/os/>).
+- @pawitan2001: *In All Likelihood* — uma exposição avançada da inferência baseada na verosimilhança.
+- PATH/MACEPA, *Foundational Epidemiology Knowledge* (<https://path-global-health.github.io/df-foundational-epi-skills/>, em inglês) — uma breve revisão sobre medidas de frequência e de associação, desenhos de estudo, medidas de deteção de doença, padronização e confundimento, com um questionário e séries de exercícios.

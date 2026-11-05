@@ -1,0 +1,28 @@
+/* Diagrams are drawn on a transparent background; invert them in dark mode */
+body.quarto-dark img.diagram {
+  filter: invert(0.9) hue-rotate(180deg);
+}
+figure img.diagram {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Dividers between lectures and practical sessions within a chapter */
+.session-marker {
+  margin: 2.5em 0 1em 0;
+  padding: 0.35em 0.8em;
+  border-left: 6px solid #0072B2;
+  background: rgba(0, 114, 178, 0.08);
+  font-weight: 600;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Compact tables (e.g. the Module 1 programme) */
+.small-table table {
+  font-size: 0.82em;
+}
+.small-table td, .small-table th {
+  padding: 0.3em 0.4em;
+}

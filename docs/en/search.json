@@ -1,0 +1,478 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Preliminary learning",
+    "section": "",
+    "text": "Welcome\nAlso available in: Français · Português\nThis book contains the preliminary learning material of TIMERA, the Training Initiative for Modelling Epidemic Response in Africa. It summarises the background knowledge assumed in the course and is intended for self-study before the first face-to-face module, and as a reference during the programme.\nEach chapter contains a concise presentation of the material, exercises with solutions, a self-assessment checklist and references to additional sources.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#preparation-before-the-first-module",
+    "href": "index.html#preparation-before-the-first-module",
+    "title": "Preliminary learning",
+    "section": "Preparation before the first module",
+    "text": "Preparation before the first module\n\nInstall R, RStudio and the packages used in the course (Appendix A — Installation of R and RStudio).\nStudy the three chapters of this book. Participants without previous experience in R should begin with the interactive tutorials referred to in P1, as the exercises in the other two chapters also use R.\nUse the self-assessment checklist at the end of each chapter to decide whether further study is required.\nIdentify a public health question from your own professional context that could be addressed with a model. This question forms the basis of the course project.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#conventions",
+    "href": "index.html#conventions",
+    "title": "Preliminary learning",
+    "section": "Conventions",
+    "text": "Conventions\nCode is displayed in grey boxes; the output appears underneath, preceded by ##. Typing the code, rather than copying it, is recommended, as it encourages careful reading of each line. Exercises are presented in green boxes; solutions are collapsed and can be expanded.\nReferences in italics to chapters of the TIMERA course book indicate where a topic is developed further during the course. The course book is available at https://github.com/Federica-Giardina/TIMERA.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#licence",
+    "href": "index.html#licence",
+    "title": "Preliminary learning",
+    "section": "Licence",
+    "text": "Licence\nThis book is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html",
+    "href": "00a-prelim-r.html",
+    "title": "P1 Introduction to R",
+    "section": "",
+    "text": "P1.1 Interactive tutorials\nPreliminary learning — R and RStudio basics\nThis chapter introduces the basic elements of the R language. It does not assume previous programming experience. The application of R to the analysis of outbreak data and to modelling is the subject of course book: Own data and programming models in R in Module 1, and R is used in the practical sessions of every chapter of the book. Installation instructions are given in Appendix A — Installation of R and RStudio.\nParticipants without previous experience in R are expected to complete the Applied Epi interactive R tutorials (sessions 1–6), which are available free of charge in English, French, Portuguese and Spanish at https://www.appliedepi.org/resources/tutorials.html. Each session requires approximately 2–4 hours:\nThe remainder of this chapter summarises the same material in a compact form, for reference.",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.1-interactive-tutorials",
+    "href": "00a-prelim-r.html#p1.1-interactive-tutorials",
+    "title": "P1 Introduction to R",
+    "section": "",
+    "text": "Session\nTopic\n\n\n\n\n1\nInstallation of R and RStudio\n\n\n2\nData preparation\n\n\n3\nR syntax\n\n\n4\nData cleaning\n\n\n5\nSummary tables\n\n\n6\nData visualisation with ggplot2\n\n\n7 (optional)\nObtaining help and using AI tools",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.2-rstudio-and-projects",
+    "href": "00a-prelim-r.html#p1.2-rstudio-and-projects",
+    "title": "P1 Introduction to R",
+    "section": "P1.2 RStudio and projects",
+    "text": "P1.2 RStudio and projects\nRStudio has four panels: the script editor (top left), in which code is written and saved; the console (bottom left), in which code is executed; the environment (top right), which lists the objects in memory; and the files, plots and help panel (bottom right). A line of code in a script is executed with Ctrl + Enter (Cmd + Enter on macOS); text after # is a comment and is not executed.\nWork should be organised in an RStudio Project (File → New Project). All file paths are then relative to the project folder, so that the analysis can be moved to another computer without modification.",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.3-r-as-a-calculator",
+    "href": "00a-prelim-r.html#p1.3-r-as-a-calculator",
+    "title": "P1 Introduction to R",
+    "section": "P1.3 R as a calculator",
+    "text": "P1.3 R as a calculator\n\n3 + 4 * 2          # multiplication before addition\n\n## [1] 11\n\n(3 + 4) * 2\n\n## [1] 14\n\n10 / 4\n\n## [1] 2.5\n\n2^10               # power\n\n## [1] 1024\n\nsqrt(16)\n\n## [1] 4\n\nexp(1)             # the number e\n\n## [1] 2.718282\n\nlog(100)           # natural logarithm\n\n## [1] 4.60517\n\nlog10(100)         # logarithm with base 10\n\n## [1] 2\n\nround(3.14159, 2)\n\n## [1] 3.14",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.4-objects-and-assignment",
+    "href": "00a-prelim-r.html#p1.4-objects-and-assignment",
+    "title": "P1 Introduction to R",
+    "section": "P1.4 Objects and assignment",
+    "text": "P1.4 Objects and assignment\nValues are stored in objects with the assignment operator &lt;-. Object names are case-sensitive, cannot start with a number, and should be informative.\n\npopulation &lt;- 250000\ncases &lt;- 375\nincidence &lt;- cases / population * 100000\nincidence\n\n## [1] 150",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.5-data-types-and-vectors",
+    "href": "00a-prelim-r.html#p1.5-data-types-and-vectors",
+    "title": "P1 Introduction to R",
+    "section": "P1.5 Data types and vectors",
+    "text": "P1.5 Data types and vectors\nA vector is an ordered collection of values of the same type, created with c(). The principal types are numeric, character (text), logical (TRUE/FALSE), factor (categorical variable with defined levels) and date.\n\nage &lt;- c(4, 12, 35, 67, 23)                              # numeric\nsex &lt;- c(\"female\", \"male\", \"male\", \"female\", \"female\")   # character\nvaccinated &lt;- c(TRUE, FALSE, TRUE, TRUE, FALSE)          # logical\nage_group &lt;- factor(c(\"0-14\", \"0-14\", \"15-64\", \"65+\", \"15-64\"),\n                    levels = c(\"0-14\", \"15-64\", \"65+\"))  # factor\nvisit &lt;- as.Date(c(\"2026-03-01\", \"2026-03-04\", \"2026-03-04\", \"2026-03-09\", \"2026-03-12\"))\n\nclass(age); class(sex); class(vaccinated); class(age_group); class(visit)\n\n## [1] \"numeric\"\n\n\n## [1] \"character\"\n\n\n## [1] \"logical\"\n\n\n## [1] \"factor\"\n\n\n## [1] \"Date\"\n\nlength(age)\n\n## [1] 5\n\n\nArithmetic and comparisons are vectorised: they are applied to each element.\n\nage * 12                   # age in months\n\n## [1]  48 144 420 804 276\n\nage &gt;= 15                  # logical vector\n\n## [1] FALSE FALSE  TRUE  TRUE  TRUE\n\nsum(vaccinated)            # TRUE counts as 1\n\n## [1] 3\n\nmean(vaccinated)           # proportion vaccinated\n\n## [1] 0.6\n\ntable(age_group)\n\n## age_group\n##  0-14 15-64   65+ \n##     2     2     1\n\n\n\nP1.5.1 Selecting elements\n\nage[2]                     # second element\n\n## [1] 12\n\nage[c(1, 3)]               # first and third elements\n\n## [1]  4 35\n\nage[-1]                    # all except the first\n\n## [1] 12 35 67 23\n\nage[age &gt;= 15]             # elements meeting a condition\n\n## [1] 35 67 23\n\nsex[vaccinated]            # sex of vaccinated persons\n\n## [1] \"female\" \"male\"   \"female\"\n\n\n\n\nP1.5.2 Missing values\nMissing values are represented by NA. Most summary functions return NA if any value is missing, unless na.rm = TRUE is specified.\n\nweight &lt;- c(12.5, NA, 70.2, 64.0, 58.3)\nmean(weight)\n\n## [1] NA\n\nmean(weight, na.rm = TRUE)\n\n## [1] 51.25\n\nis.na(weight)\n\n## [1] FALSE  TRUE FALSE FALSE FALSE\n\nsum(is.na(weight))\n\n## [1] 1\n\n\n\n\nP1.5.3 Operators\n\n\n\n\n\n\n\nOperator\nMeaning\n\n\n\n\n&lt;-\nassignment\n\n\n+ - * / ^\narithmetic\n\n\n== != &lt; &gt; &lt;= &gt;=\ncomparison\n\n\n& | !\nlogical and, or, not\n\n\n%in%\nmembership, e.g. sex %in% c(\"female\")\n\n\n$\nextraction of a column from a data frame\n\n\n|&gt;\npipe: passes the result on the left to the function on the right",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.6-functions-and-packages",
+    "href": "00a-prelim-r.html#p1.6-functions-and-packages",
+    "title": "P1 Introduction to R",
+    "section": "P1.6 Functions and packages",
+    "text": "P1.6 Functions and packages\nA function takes inputs (arguments) and returns an output. Arguments can be given by position or by name; arguments with default values can be omitted.\n\nround(123.456, digits = 1)\n\n## [1] 123.5\n\nseq(from = 0, to = 20, by = 5)\n\n## [1]  0  5 10 15 20\n\nrep(\"A\", times = 3)\n\n## [1] \"A\" \"A\" \"A\"\n\npaste(\"District\", 1:3)\n\n## [1] \"District 1\" \"District 2\" \"District 3\"\n\n\nAdditional functions are provided by packages. A package is installed once with install.packages(\"name\") and loaded in each session with library(name). The help page of a function is displayed with ?function_name, e.g. ?seq.\n\nP1.6.1 Writing functions\nUser-defined functions avoid repeating code:\n\nincidence_per_100k &lt;- function(cases, population) {\n  cases / population * 100000\n}\nincidence_per_100k(cases = 375, population = 250000)\n\n## [1] 150\n\nincidence_per_100k(cases = c(10, 50, 120), population = c(20000, 80000, 150000))\n\n## [1] 50.0 62.5 80.0",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.7-conditional-statements-and-loops",
+    "href": "00a-prelim-r.html#p1.7-conditional-statements-and-loops",
+    "title": "P1 Introduction to R",
+    "section": "P1.7 Conditional statements and loops",
+    "text": "P1.7 Conditional statements and loops\nif executes code only when a condition is true; ifelse() applies a condition to every element of a vector.\n\ncoverage &lt;- 0.82\nif (coverage &gt;= 0.95) {\n  message(\"Coverage target reached\")\n} else {\n  message(\"Coverage below target\")\n}\n\nifelse(age &gt;= 15, \"adult\", \"child\")\n\n## [1] \"child\" \"child\" \"adult\" \"adult\" \"adult\"\n\n\nA for loop repeats a block of code for each value of a sequence:\n\nsavings &lt;- numeric(5)        # empty vector of length 5\nsavings[1] &lt;- 100\nfor (year in 2:5) {\n  savings[year] &lt;- savings[year - 1] * 1.10   # 10% interest per year\n}\nsavings\n\n## [1] 100.00 110.00 121.00 133.10 146.41",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.8-lists",
+    "href": "00a-prelim-r.html#p1.8-lists",
+    "title": "P1 Introduction to R",
+    "section": "P1.8 Lists",
+    "text": "P1.8 Lists\nA list can contain objects of different types and lengths, and is often used to store parameters or the results of an analysis.\n\nparameters &lt;- list(country = \"Mozambique\", year = 2026, rates = c(0.1, 0.25))\nparameters$country\n\n## [1] \"Mozambique\"\n\nparameters[[\"rates\"]]\n\n## [1] 0.10 0.25",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.9-data-frames",
+    "href": "00a-prelim-r.html#p1.9-data-frames",
+    "title": "P1 Introduction to R",
+    "section": "P1.9 Data frames",
+    "text": "P1.9 Data frames\nA data frame is a table in which each column is a vector and each row an observation. A tibble is the tidyverse version of a data frame.\n\nlibrary(tidyverse)\n\npatients &lt;- tibble(\n  id = 1:5,\n  age = age,\n  sex = sex,\n  vaccinated = vaccinated,\n  visit = visit\n)\npatients\n\n## # A tibble: 5 × 5\n##      id   age sex    vaccinated visit     \n##   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;lgl&gt;      &lt;date&gt;    \n## 1     1     4 female TRUE       2026-03-01\n## 2     2    12 male   FALSE      2026-03-04\n## 3     3    35 male   TRUE       2026-03-04\n## 4     4    67 female TRUE       2026-03-09\n## 5     5    23 female FALSE      2026-03-12\n\npatients$age            # one column\n\n## [1]  4 12 35 67 23\n\nnrow(patients); ncol(patients)\n\n## [1] 5\n\n\n## [1] 5\n\nsummary(patients$age)\n\n##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n##     4.0    12.0    23.0    28.2    35.0    67.0\n\n\n\nP1.9.1 Data manipulation with dplyr\nThe principal functions of the dplyr package each perform one operation and are combined with the pipe |&gt;:\n\n\n\nFunction\nOperation\n\n\n\n\nfilter()\nselect rows\n\n\nselect()\nselect columns\n\n\nmutate()\ncreate or modify columns\n\n\narrange()\nsort rows\n\n\ngroup_by() and summarise()\nsummarise by group\n\n\ncount()\ncount rows by group\n\n\nleft_join()\ncombine two tables by a common column\n\n\n\n\npatients |&gt;\n  filter(age &gt;= 15) |&gt;\n  mutate(age_months = age * 12) |&gt;\n  select(id, sex, age, age_months) |&gt;\n  arrange(desc(age))\n\n## # A tibble: 3 × 4\n##      id sex      age age_months\n##   &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n## 1     4 female    67        804\n## 2     3 male      35        420\n## 3     5 female    23        276\n\npatients |&gt;\n  group_by(sex) |&gt;\n  summarise(n = n(), mean_age = mean(age), prop_vaccinated = mean(vaccinated))\n\n## # A tibble: 2 × 4\n##   sex        n mean_age prop_vaccinated\n##   &lt;chr&gt;  &lt;int&gt;    &lt;dbl&gt;           &lt;dbl&gt;\n## 1 female     3     31.3           0.667\n## 2 male       2     23.5           0.5\n\n\n\n\nP1.9.2 Long and wide formats\nData in wide format have one column per variable or time point; data in long format have one row per observation and a column identifying the variable. Long format is required by ggplot2.\n\nwide &lt;- tibble(district = c(\"A\", \"B\"), `2024` = c(120, 85), `2025` = c(140, 60))\nlong &lt;- wide |&gt; pivot_longer(-district, names_to = \"year\", values_to = \"cases\")\nlong\n\n## # A tibble: 4 × 3\n##   district year  cases\n##   &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt;\n## 1 A        2024    120\n## 2 A        2025    140\n## 3 B        2024     85\n## 4 B        2025     60\n\nlong |&gt; pivot_wider(names_from = year, values_from = cases)\n\n## # A tibble: 2 × 3\n##   district `2024` `2025`\n##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;\n## 1 A           120    140\n## 2 B            85     60",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.10-importing-and-exporting-data",
+    "href": "00a-prelim-r.html#p1.10-importing-and-exporting-data",
+    "title": "P1 Introduction to R",
+    "section": "P1.10 Importing and exporting data",
+    "text": "P1.10 Importing and exporting data\nThe code below illustrates the import and export of files. The names my_data.csv, my_data.xlsx and my_data_clean.csv are hypothetical examples, to be replaced by the names of actual data files stored in the data/ folder of the project.\n\n# \"my_data\" is a placeholder: replace it with the name of your own file\nlibrary(readr)\ndata &lt;- read_csv(\"data/my_data.csv\")          # text files with comma-separated values\nlibrary(readxl)\ndata &lt;- read_excel(\"data/my_data.xlsx\")       # Excel files\nwrite_csv(data, \"output/my_data_clean.csv\")   # export\n\nAfter importing a dataset, it should be inspected with head(), glimpse(), summary() and View().",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.11-graphs-with-ggplot2",
+    "href": "00a-prelim-r.html#p1.11-graphs-with-ggplot2",
+    "title": "P1 Introduction to R",
+    "section": "P1.11 Graphs with ggplot2",
+    "text": "P1.11 Graphs with ggplot2\nA ggplot2 graph is constructed from three components: a data frame, an aesthetic mapping of variables to visual properties with aes(), and one or more geometries (geom_point(), geom_line(), geom_col(), geom_histogram(), etc.). Labels are added with labs() and panels with facet_wrap().\n\nggplot(long, aes(x = year, y = cases, fill = district)) +\n  geom_col(position = \"dodge\") +\n  labs(x = \"Year\", y = \"Number of cases\", fill = \"District\")\n\n\n\n\n\n\n\n\n\ngrowth &lt;- tibble(day = 0:30, children = 50 * 1.08^(0:30), adults = 30 * 1.05^(0:30)) |&gt;\n  pivot_longer(-day, names_to = \"group\", values_to = \"cases\")\n\nggplot(growth, aes(day, cases, colour = group)) +\n  geom_line(linewidth = 1) +\n  labs(x = \"Day\", y = \"Cases\", colour = \"Age group\")",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.12-random-numbers",
+    "href": "00a-prelim-r.html#p1.12-random-numbers",
+    "title": "P1 Introduction to R",
+    "section": "P1.12 Random numbers",
+    "text": "P1.12 Random numbers\nR generates random numbers from many probability distributions, for example runif() (uniform), rnorm() (normal), rbinom() (binomial) and rpois() (Poisson). set.seed() makes the results reproducible.\n\nset.seed(2027)\nrnorm(3, mean = 0, sd = 1)\n\n## [1] -0.9348780 -0.6938629 -0.5479451\n\nrbinom(5, size = 10, prob = 0.3)\n\n## [1] 4 2 6 5 4\n\nsample(1:6, size = 4, replace = TRUE)   # four throws of a die\n\n## [1] 4 1 6 4",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.13-errors-and-help",
+    "href": "00a-prelim-r.html#p1.13-errors-and-help",
+    "title": "P1 Introduction to R",
+    "section": "P1.13 Errors and help",
+    "text": "P1.13 Errors and help\nError messages indicate where execution failed. Common causes include misspelled object names (object 'x' not found), packages that have not been loaded (could not find function), unmatched brackets or quotes, and code executed in the wrong order. Further help is available from the help pages (?function), the package documentation (reference manuals and vignettes on CRAN, https://cran.r-project.org/web/packages/), the Epidemiologist R Handbook and online forums such as Stack Overflow and Posit Community. AI assistants can explain error messages and suggest code, but their suggestions must be checked and understood before use.\n\n\n\n\n\n\nTipExercise\n\n\n\n\nCreate a vector with the weekly numbers of cases 3, 7, 12, 25, 31 and 28. Calculate the total, the mean and the week with the highest number of cases.\nWrite a function percent_change(old, new) that returns the percentage change between two values, and apply it to consecutive weeks of the vector above (hint: x[-1] and x[-length(x)]).\nUsing the patients data frame, calculate the proportion vaccinated among children and adults.\nCreate a data frame with two columns, week (1–6) and cases (the vector of question 1), and plot the cases as a bar chart.\n\n\n\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\n\nx &lt;- c(3, 7, 12, 25, 31, 28)\nc(total = sum(x), mean = mean(x), peak_week = which.max(x))\n\n##     total      mean peak_week \n## 106.00000  17.66667   5.00000\n\npercent_change &lt;- function(old, new) (new - old) / old * 100\nround(percent_change(x[-length(x)], x[-1]), 1)\n\n## [1] 133.3  71.4 108.3  24.0  -9.7\n\npatients |&gt;\n  mutate(group = ifelse(age &gt;= 15, \"adult\", \"child\")) |&gt;\n  group_by(group) |&gt;\n  summarise(prop_vaccinated = mean(vaccinated))\n\n## # A tibble: 2 × 2\n##   group prop_vaccinated\n##   &lt;chr&gt;           &lt;dbl&gt;\n## 1 adult           0.667\n## 2 child           0.5\n\ntibble(week = 1:6, cases = x) |&gt;\n  ggplot(aes(week, cases)) +\n  geom_col(fill = \"steelblue\") +\n  labs(x = \"Week\", y = \"Cases\")",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.14-self-assessment",
+    "href": "00a-prelim-r.html#p1.14-self-assessment",
+    "title": "P1 Introduction to R",
+    "section": "P1.14 Self-assessment",
+    "text": "P1.14 Self-assessment\nParticipants should be able to perform the following tasks without assistance before the first module:\n\nCreate an RStudio Project, open a script and execute it line by line.\nInstall and load a package, and consult the help page of a function.\nCreate vectors of different types, select elements and handle missing values.\nWrite a function with two arguments.\nImport a CSV file and inspect it with head(), glimpse() and summary().\nUse filter(), select(), mutate(), group_by() and summarise().\nConvert a table between wide and long formats.\nProduce a bar chart and a line graph with ggplot2.\nWrite an if statement and a for loop.",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00a-prelim-r.html#p1.15-additional-resources",
+    "href": "00a-prelim-r.html#p1.15-additional-resources",
+    "title": "P1 Introduction to R",
+    "section": "P1.15 Additional resources",
+    "text": "P1.15 Additional resources\n\nApplied Epi interactive R tutorials (English, French, Portuguese, Spanish): https://www.appliedepi.org/resources/tutorials.html.\nThe Epidemiologist R Handbook (available in several languages): https://www.epirhandbook.com — in particular the chapters on R basics, data cleaning, dates, grouping and ggplot2.\nR for Data Science, 2nd edition (Wickham H., Çetinkaya-Rundel M., Grolemund G.): https://r4ds.hadley.nz.\nHands-On Programming with R (Grolemund G.): https://rstudio-education.github.io/hopr/ — objects, functions and loops.\nPATH/MACEPA Data Fellowship materials, developed for public health staff in Africa and based on routine (DHIS2-type) malaria data; overview at https://path-global-health.github.io/macepa-tech-training/:\n\nFoundational R Skills (https://path-global-health.github.io/df_foundational_r/): R and RStudio, dplyr/tidyr, ggplot2, messy data and joins;\nSecondary Topics for Data Analysis in R (https://path-global-health.github.io/df_secondary-r/): functions, loops, error messages, maps, data completeness and time series plots;\nFoundational Data Skills (https://path-global-health.github.io/df_data-skills/): organisation of project folders, version control with Git and GitHub.\n\nAMMnet Hackathon live sessions (Applied Malaria Modeling Network), with recordings, code and data: https://ammnet.github.io/ammnet-hackathon/ — data visualisation, data wrangling and mapping in R, some sessions in French and Portuguese.",
+    "crumbs": [
+      "P1 Introduction to R"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html",
+    "href": "00b-prelim-stats-epi.html",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "",
+    "text": "P2.1 Measures of disease frequency\nPreliminary learning — statistics and epidemiology\nPrevalence, incidence and duration are related: in a stable situation, and when prevalence is low,\n\\[\n\\text{prevalence} \\approx \\text{incidence rate} \\times \\text{mean duration of disease}.\n\\]\nThis relationship reappears in compartmental models, where the number of individuals in a compartment equals the inflow multiplied by the mean time spent in it.\n# Attack rate in the 1978 boarding school influenza outbreak\nattack_rate &lt;- 512 / 763\nattack_rate\n\n## [1] 0.6710354\n\n# Prevalence from incidence and duration: 150 cases per 100,000 per year,\n# mean duration of untreated tuberculosis about 2 years\n150 / 1e5 * 2 * 1e5     # prevalent cases per 100,000\n\n## [1] 300\nThe CFR is a property of detected cases and depends on the case definition and on the intensity of testing: if mild cases are not detected, the CFR overestimates the risk of death per infection. During an outbreak, the CFR calculated from reported cases is also biased by the delay between onset and death (course book: Severity: the case fatality ratio).",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html#p2.1-measures-of-disease-frequency",
+    "href": "00b-prelim-stats-epi.html#p2.1-measures-of-disease-frequency",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "",
+    "text": "Measure\nDefinition\nExample\n\n\n\n\nRisk (cumulative incidence)\nnumber of new cases during a period ÷ population at risk at the start of the period\nproportion of children infected during a measles outbreak\n\n\nAttack rate\nrisk during an outbreak (a proportion, despite its name)\n512 of 763 boys confined to bed: 67%\n\n\nSecondary attack rate\nnew cases among contacts of a case ÷ number of contacts\nproportion of household contacts infected\n\n\nIncidence rate\nnumber of new cases ÷ person-time at risk\n150 tuberculosis cases per 100,000 person-years\n\n\nPrevalence\nnumber of existing cases ÷ population at a given time\nproportion of children with malaria parasitaemia in a survey\n\n\nCase fatality ratio (CFR)\ndeaths among cases ÷ number of cases\nproportion of confirmed Ebola cases who die\n\n\nInfection fatality ratio (IFR)\ndeaths ÷ number of infections (including undetected infections)\nproportion of all SARS-CoV-2 infections, estimated from a serological survey, that resulted in death\n\n\nMortality rate\ndeaths ÷ person-time in the whole population\n45 malaria deaths per 100,000 person-years among children under five years",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html#p2.2-characteristics-of-surveillance-data",
+    "href": "00b-prelim-stats-epi.html#p2.2-characteristics-of-surveillance-data",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "P2.2 Characteristics of surveillance data",
+    "text": "P2.2 Characteristics of surveillance data\nModels are frequently fitted to routine surveillance data, which have several characteristics that must be taken into account (Centers for Disease Control and Prevention 2012):\n\nCase definitions distinguish suspected, probable and confirmed cases; changes in the case definition change the reported numbers.\nUnder-ascertainment: only a proportion of infections results in symptoms, care seeking, testing and notification. This proportion may change over time, for instance when testing capacity increases.\nReporting delays: cases are reported days or weeks after symptom onset, so that the most recent counts are incomplete (course book: Reporting delays and nowcasting).\nType of date: date of infection, symptom onset, consultation, sampling, laboratory confirmation or report. Each date implies a different delay with respect to infection.\nAggregation: Integrated Disease Surveillance and Response (IDSR) systems and DHIS2 typically report weekly counts by district; line lists contain one row per case.\n\nThe epidemic curve — the number of cases by date of onset — is the basic description of an outbreak and the principal input for transmission models. Descriptive epidemiology by time, place and person is treated in detail by Centers for Disease Control and Prevention (2012), lessons 1 and 4–6.",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html#p2.3-probability-distributions",
+    "href": "00b-prelim-stats-epi.html#p2.3-probability-distributions",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "P2.3 Probability distributions",
+    "text": "P2.3 Probability distributions\nProbability distributions describe the variability of counts and durations. The following are used repeatedly in this book:\n\n\n\n\n\n\n\n\n\n\nDistribution\nType\nMean\nVariance\nTypical use in modelling\n\n\n\n\nBinomial(\\(n\\), \\(p\\))\ncounts from 0 to \\(n\\)\n\\(np\\)\n\\(np(1-p)\\)\nnumber infected among \\(n\\) contacts; number seropositive in a survey\n\n\nPoisson(\\(\\lambda\\))\ncounts ≥ 0\n\\(\\lambda\\)\n\\(\\lambda\\)\nnumber of cases per day or week\n\n\nNegative binomial(\\(\\mu\\), \\(k\\))\ncounts ≥ 0\n\\(\\mu\\)\n\\(\\mu + \\mu^2/k\\)\noverdispersed counts; number of secondary cases (superspreading)\n\n\nExponential(rate \\(r\\))\ndurations &gt; 0\n\\(1/r\\)\n\\(1/r^2\\)\ntime spent in a compartment of an ODE model\n\n\nGamma(shape \\(a\\), rate \\(b\\))\ndurations &gt; 0\n\\(a/b\\)\n\\(a/b^2\\)\nincubation period, serial and generation intervals, reporting delays\n\n\nLognormal(\\(\\mu\\), \\(\\sigma\\))\ndurations &gt; 0\n\\(e^{\\mu + \\sigma^2/2}\\)\n\\((e^{\\sigma^2} - 1)\\, e^{2\\mu + \\sigma^2}\\)\nincubation period\n\n\nNormal(\\(\\mu\\), \\(\\sigma\\))\ncontinuous\n\\(\\mu\\)\n\\(\\sigma^2\\)\napproximations; prior distributions\n\n\nBeta(\\(a\\), \\(b\\))\nproportions in (0, 1)\n\\(\\dfrac{a}{a+b}\\)\n\\(\\dfrac{ab}{(a+b)^2(a+b+1)}\\)\nprior distributions for proportions\n\n\n\nIn R, each distribution has four functions: d... (probability or density), p... (cumulative distribution function), q... (quantile function) and r... (random draws), e.g. dpois(), ppois(), qpois(), rpois().\n\ndbinom(3, size = 20, prob = 0.1)       # P(3 of 20 contacts infected)\n\n## [1] 0.1901199\n\nppois(10, lambda = 6)                  # P(at most 10 cases in a week with mean 6)\n\n## [1] 0.9573791\n\nqgamma(0.95, shape = 4, rate = 0.4)    # 95th percentile of a gamma delay with mean 10 days\n\n## [1] 19.38414\n\npexp(5, rate = 1 / 5)                  # P(leaving a compartment within its mean duration)\n\n## [1] 0.6321206\n\n\nThe last result shows an important property of compartmental models based on ordinary differential equations: the time spent in a compartment follows an exponential distribution, so that 63% of individuals leave the compartment before its mean duration and a substantial proportion remains much longer. Real delay distributions are usually less dispersed and are better described by a gamma or lognormal distribution (Figure 1).\n\n\n\n\n\n\n\n\nFigure 1: Exponential and gamma distributions with the same mean duration of 5 days. The exponential distribution, implied by a single compartment in an ODE model, assigns high probability to very short and very long durations.\n\n\n\n\n\nThe negative binomial distribution includes a dispersion parameter \\(k\\); as \\(k\\) increases, it approaches the Poisson distribution. Small values of \\(k\\) correspond to counts that are more variable than expected under a Poisson model (overdispersion), which is common in surveillance data and in the number of secondary cases per case (course book: Stochastic models).",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html#p2.4-estimation-and-confidence-intervals",
+    "href": "00b-prelim-stats-epi.html#p2.4-estimation-and-confidence-intervals",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "P2.4 Estimation and confidence intervals",
+    "text": "P2.4 Estimation and confidence intervals\nA sample statistic, such as a proportion, estimates an unknown population value with sampling error. A 95% confidence interval is constructed such that, in repeated samples, 95% of such intervals would include the true value.\n\n# Seroprevalence: 34 positive of 120 tested (exact binomial confidence interval)\nbinom.test(34, 120)$conf.int\n\n## [1] 0.2048557 0.3728205\n## attr(,\"conf.level\")\n## [1] 0.95\n\n# Incidence rate: 45 cases in 30,000 person-years (exact Poisson confidence interval)\npoisson.test(45, T = 30000)$conf.int * 1e5    # per 100,000 person-years\n\n## [1] 109.4110 200.7118\n## attr(,\"conf.level\")\n## [1] 0.95\n\n\nConfidence intervals reflect random sampling error only; they do not account for systematic errors such as selection bias, misclassification or under-ascertainment.",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html#p2.5-likelihood",
+    "href": "00b-prelim-stats-epi.html#p2.5-likelihood",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "P2.5 Likelihood",
+    "text": "P2.5 Likelihood\nThe likelihood expresses how probable the observed data are for a given value of a parameter. For 34 positives among 120 tested, the likelihood of a seroprevalence \\(p\\) is the binomial probability \\(L(p) = \\binom{120}{34} p^{34} (1-p)^{86}\\). The maximum likelihood estimate (MLE) is the value of \\(p\\) that maximises \\(L(p)\\); here it equals the observed proportion \\(34/120\\). In practice the logarithm of the likelihood is used, as it is numerically more convenient.\n\nlog_lik &lt;- function(p) dbinom(34, size = 120, prob = p, log = TRUE)\nmle &lt;- optimize(log_lik, interval = c(0.001, 0.999), maximum = TRUE)$maximum\nc(mle = mle, observed = 34 / 120)\n\n##       mle  observed \n## 0.2833345 0.2833333\n\n\n\n\n\n\n\n\n\n\nFigure 2: Log-likelihood of the seroprevalence \\(p\\) given 34 positives among 120 tested, relative to its maximum. The maximum likelihood estimate is indicated by the vertical line; values above the dashed line form an approximate 95% confidence interval.\n\n\n\n\n\nThe same principle is used to estimate the parameters of transmission models: the model predicts the expected number of cases, and the parameters that maximise the likelihood of the observed counts are selected (course book: Linking models to data). Values of the parameter for which the log-likelihood is within 1.92 units of its maximum form an approximate 95% confidence interval (Figure 2). In Bayesian inference, the likelihood is combined with a prior distribution (course book: Bayesian model fitting).",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html#p2.6-regression-models-for-count-data",
+    "href": "00b-prelim-stats-epi.html#p2.6-regression-models-for-count-data",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "P2.6 Regression models for count data",
+    "text": "P2.6 Regression models for count data\nPoisson regression models the logarithm of the expected count as a linear function of explanatory variables. An offset equal to the logarithm of the population (or person-time) converts counts into rates; exponentiated coefficients are rate ratios.\n\nset.seed(1)\ndistricts &lt;- tibble(\n  district = paste(\"District\", 1:12),\n  population = round(runif(12, 50000, 300000)),\n  coverage = round(runif(12, 0.5, 0.95), 2)            # vaccination coverage\n) |&gt;\n  mutate(cases = rpois(12, lambda = population * 2e-4 * exp(-3 * (coverage - 0.7))))\n\nfit &lt;- glm(cases ~ coverage + offset(log(population)), family = poisson, data = districts)\nsummary(fit)$coefficients\n\n##              Estimate Std. Error    z value     Pr(&gt;|z|)\n## (Intercept) -6.566844  0.3575204 -18.367747 2.380913e-75\n## coverage    -2.773596  0.4703854  -5.896434 3.714418e-09\n\nexp(coef(fit)[[\"coverage\"]] * 0.1)     # rate ratio per 10-percentage-point increase in coverage\n\n## [1] 0.7577819\n\n\nPoisson regression on time is also used to estimate the growth rate of an epidemic from early case counts (course book: Estimation of the reproduction number from the growth rate). When counts are overdispersed, the standard errors of a Poisson model are too small; a quasi-Poisson (family = quasipoisson) or negative binomial model (MASS::glm.nb()) should then be used.\n\n\n\n\n\n\nTipExercise\n\n\n\n\nIn a district of 80,000 inhabitants, 240 cholera cases and 6 deaths are reported during an outbreak lasting 10 weeks. Calculate the attack rate per 1,000 inhabitants and the CFR, with 95% confidence intervals.\nUsing rnbinom(), simulate 1,000 weekly counts with mean 10 and dispersion \\(k\\) = 2, and compare their variance with that of 1,000 Poisson counts with mean 10.\nA gamma distribution has mean 9 days and standard deviation 5 days. Calculate its shape and rate parameters, and the proportion of delays longer than 21 days. (Hint: shape = mean²/SD², rate = mean/SD².)\n\n\n\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\n\nbinom.test(240, 80000)$conf.int * 1000    # attack rate per 1,000\n\n## [1] 2.632897 3.403844\n## attr(,\"conf.level\")\n## [1] 0.95\n\nbinom.test(6, 240)$conf.int               # CFR\n\n## [1] 0.009228601 0.053617475\n## attr(,\"conf.level\")\n## [1] 0.95\n\nc(negbin = var(rnbinom(1000, mu = 10, size = 2)), poisson = var(rpois(1000, 10)))\n\n##    negbin   poisson \n## 61.016792  9.199243\n\nshape &lt;- 9^2 / 5^2; rate &lt;- 9 / 5^2\nc(shape = shape, rate = rate, p_over_21 = 1 - pgamma(21, shape, rate))\n\n##      shape       rate  p_over_21 \n## 3.24000000 0.36000000 0.02580851",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html#p2.7-self-assessment",
+    "href": "00b-prelim-stats-epi.html#p2.7-self-assessment",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "P2.7 Self-assessment",
+    "text": "P2.7 Self-assessment\n\nDistinguish risk, incidence rate and prevalence, and calculate each from data.\nExplain why the case fatality ratio depends on case ascertainment.\nDescribe at least three characteristics of surveillance data that may bias analyses.\nChoose an appropriate distribution for a count or a delay, and evaluate it in R.\nInterpret a 95% confidence interval.\nExplain what a likelihood and a maximum likelihood estimate are.\nInterpret the coefficient of a Poisson regression model as a rate ratio.",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00b-prelim-stats-epi.html#p2.8-additional-resources",
+    "href": "00b-prelim-stats-epi.html#p2.8-additional-resources",
+    "title": "P2 Statistical and epidemiological concepts",
+    "section": "P2.8 Additional resources",
+    "text": "P2.8 Additional resources\n\nCenters for Disease Control and Prevention (2012): Principles of Epidemiology in Public Health Practice, a free self-study course of the US Centers for Disease Control and Prevention (lessons 1–3 and 5 are particularly relevant).\nGiesecke (2017): Modern Infectious Disease Epidemiology — an introduction to the epidemiology of infectious diseases, including outbreak investigation and basic transmission concepts.\nRothman (2012): Epidemiology: An Introduction — measures of disease frequency and effect.\nKirkwood and Sterne (2003): Essential Medical Statistics — confidence intervals, rates, Poisson regression and likelihood (chapters on rates and on likelihood).\nDiez et al. (2019): OpenIntro Statistics — a free introductory statistics textbook (https://www.openintro.org/book/os/).\nPawitan (2001): In All Likelihood — an advanced treatment of likelihood-based inference.\nPATH/MACEPA Foundational Epidemiology Knowledge (https://path-global-health.github.io/df-foundational-epi-skills/) — a short refresher on measures of disease frequency and association, study designs, measures of disease detection, standardisation and confounding, with a quiz and problem sets.\n\n\n\n\n\nCenters for Disease Control and Prevention. 2012. Principles of Epidemiology in Public Health Practice: An Introduction to Applied Epidemiology and Biostatistics. 3rd ed. U.S. Department of Health; Human Services, CDC.\n\n\nDiez, David, Mine Çetinkaya-Rundel, and Christopher D. Barr. 2019. OpenIntro Statistics. 4th ed. OpenIntro. https://www.openintro.org/book/os/.\n\n\nGiesecke, Johan. 2017. Modern Infectious Disease Epidemiology. 3rd ed. CRC Press.\n\n\nKirkwood, Betty R., and Jonathan A. C. Sterne. 2003. Essential Medical Statistics. 2nd ed. Blackwell Science.\n\n\nPawitan, Yudi. 2001. In All Likelihood: Statistical Modelling and Inference Using Likelihood. Oxford University Press.\n\n\nRothman, Kenneth J. 2012. Epidemiology: An Introduction. 2nd ed. Oxford University Press.",
+    "crumbs": [
+      "P2 Statistical and epidemiological concepts"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html",
+    "href": "00c-prelim-maths.html",
+    "title": "P3 Mathematical background",
+    "section": "",
+    "text": "P3.1 Notation, exponentials and logarithms\nPreliminary learning — mathematics for infectious disease modelling\nNo mathematics beyond secondary-school level is assumed. The emphasis is on interpretation rather than on derivation: in this book, all equations are solved numerically in R.\nUseful properties of logarithms are \\(\\ln(ab) = \\ln a + \\ln b\\), \\(\\ln(a^b) = b \\ln a\\) and \\(\\ln 2 \\approx 0.693\\). In R, log() is the natural logarithm and log10() the logarithm with base 10.",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.1-notation-exponentials-and-logarithms",
+    "href": "00c-prelim-maths.html#p3.1-notation-exponentials-and-logarithms",
+    "title": "P3 Mathematical background",
+    "section": "",
+    "text": "Notation\nMeaning\n\n\n\n\n\\(\\sum_{i=1}^{n} x_i\\)\nthe sum \\(x_1 + x_2 + \\dots + x_n\\)\n\n\n\\(e^{x}\\), exp(x)\nthe exponential function, with \\(e \\approx 2.718\\)\n\n\n\\(\\ln x\\), log(x)\nthe natural logarithm, the inverse of the exponential: \\(\\ln(e^x) = x\\)\n\n\n\\(\\frac{dx}{dt}\\)\nthe derivative of \\(x\\) with respect to time: the rate of change of \\(x\\)\n\n\n\\(\\int_0^T f(t)\\, dt\\)\nthe integral of \\(f\\) from 0 to \\(T\\): the area under the curve\n\n\n\\(\\lambda\\), \\(\\beta\\), \\(\\gamma\\), \\(\\sigma\\), \\(\\mu\\)\nGreek letters commonly used for rates (lambda, beta, gamma, sigma, mu)",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.2-rates-probabilities-and-durations",
+    "href": "00c-prelim-maths.html#p3.2-rates-probabilities-and-durations",
+    "title": "P3 Mathematical background",
+    "section": "P3.2 Rates, probabilities and durations",
+    "text": "P3.2 Rates, probabilities and durations\nA rate is the number of events per unit of time per individual at risk (e.g. recoveries per infectious person per day). A probability is dimensionless and refers to a specified period. If events occur at a constant rate \\(r\\), then:\n\nthe probability that the event occurs within a period \\(t\\) is \\(p = 1 - e^{-r t}\\);\nthe mean time until the event is \\(1/r\\);\nconversely, a probability \\(p\\) over a period \\(t\\) corresponds to the rate \\(r = -\\ln(1-p)/t\\).\n\nFor small values of \\(r t\\), \\(p \\approx r t\\).\n\ngamma &lt;- 1 / 7                     # recovery rate: mean infectious period of 7 days\n1 - exp(-gamma * 1)                # probability of recovery within one day\n\n## [1] 0.1331221\n\n1 - exp(-gamma * 7)                # probability of recovery within 7 days (not 1!)\n\n## [1] 0.6321206\n\np_annual &lt;- 0.05                   # 5% annual probability of an event\n-log(1 - p_annual)                 # corresponding annual rate\n\n## [1] 0.05129329\n\n\nWhen an individual can leave a state through several routes with rates \\(r_1, r_2, \\dots\\) (competing events), the total exit rate is \\(r_1 + r_2 + \\dots\\), the mean time in the state is \\(1/(r_1 + r_2 + \\dots)\\), and the probability of leaving through route \\(i\\) is \\(r_i / (r_1 + r_2 + \\dots)\\). For instance, if patients with active tuberculosis self-cure at rate 0.2 per year, die at rate 0.2 per year and are diagnosed and treated at rate 0.6 per year:\n\nrates &lt;- c(selfcure = 0.2, death = 0.2, diagnosis = 0.6)\n1 / sum(rates)            # mean duration of disease (years)\n\n## [1] 1\n\nrates / sum(rates)        # probability of each outcome\n\n##  selfcure     death diagnosis \n##       0.2       0.2       0.6",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.3-exponential-growth-and-decay",
+    "href": "00c-prelim-maths.html#p3.3-exponential-growth-and-decay",
+    "title": "P3 Mathematical background",
+    "section": "P3.3 Exponential growth and decay",
+    "text": "P3.3 Exponential growth and decay\nIf each individual generates new individuals at a constant per capita rate \\(r\\), the number grows exponentially:\n\\[\nN(t) = N_0 \\, e^{r t}.\n\\]\nWith \\(r &lt; 0\\) the number declines (exponential decay). Taking logarithms gives \\(\\ln N(t) = \\ln N_0 + r t\\), a straight line with slope \\(r\\). This is why epidemic curves are often displayed on a logarithmic scale, and why the growth rate is estimated by regression of the logarithm of the counts on time (course book: Estimation of the reproduction number from the growth rate). The doubling time follows from \\(e^{r T_d} = 2\\):\n\\[\nT_d = \\frac{\\ln 2}{r}.\n\\]\n\nr &lt;- 0.1                  # growth rate per day\nlog(2) / r                # doubling time (days)\n\n## [1] 6.931472\n\nexp(r * 30)               # multiplication factor after 30 days\n\n## [1] 20.08554\n\n\n\n\n\n\n\n\n\n\nFigure 1: Exponential growth with \\(r\\) = 0.1 per day on a linear scale (A) and a logarithmic scale (B). On the logarithmic scale, exponential growth appears as a straight line with slope \\(r\\).",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.4-derivatives-rates-of-change",
+    "href": "00c-prelim-maths.html#p3.4-derivatives-rates-of-change",
+    "title": "P3 Mathematical background",
+    "section": "P3.4 Derivatives: rates of change",
+    "text": "P3.4 Derivatives: rates of change\nThe derivative \\(\\frac{dx}{dt}\\) is the instantaneous rate of change of a quantity \\(x\\) with respect to time: the slope of the curve \\(x(t)\\) at time \\(t\\). It can be approximated by the change over a short interval \\(h\\):\n\\[\n\\frac{dx}{dt} \\approx \\frac{x(t + h) - x(t)}{h}.\n\\]\nTwo results are sufficient for this book:\n\nthe derivative of a constant is zero;\nthe derivative of \\(N_0 e^{r t}\\) is \\(r N_0 e^{r t}\\), i.e. \\(r\\) times the function itself. Exponential growth is therefore the solution of \\(\\frac{dN}{dt} = r N\\).\n\n\nN_fun &lt;- function(t) 10 * exp(0.1 * t)\nh &lt;- 1e-4\n(N_fun(20 + h) - N_fun(20)) / h     # numerical derivative at t = 20\n\n## [1] 7.389093\n\n0.1 * N_fun(20)                     # exact derivative: r * N(20)\n\n## [1] 7.389056",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.5-differential-equations-and-their-numerical-solution",
+    "href": "00c-prelim-maths.html#p3.5-differential-equations-and-their-numerical-solution",
+    "title": "P3 Mathematical background",
+    "section": "P3.5 Differential equations and their numerical solution",
+    "text": "P3.5 Differential equations and their numerical solution\nA differential equation specifies the rate of change of a quantity as a function of the quantity itself and of time, for instance \\(\\frac{dI}{dt} = \\beta S I / N - \\gamma I\\). Its solution is the function \\(I(t)\\) that satisfies the equation for given initial values. Compartmental models consist of a system of such equations, one for each compartment (course book: The SIR model).\nMost systems of differential equations cannot be solved analytically and are solved numerically. The simplest method, Euler’s method, advances the solution in small time steps \\(h\\), using the derivative to approximate the change during each step:\n\\[\nx(t + h) \\approx x(t) + h \\, \\frac{dx}{dt}(t).\n\\]\nThe following code applies Euler’s method to \\(\\frac{dN}{dt} = 0.1 N\\), for which the exact solution \\(N(t) = 10 e^{0.1 t}\\) is known:\n\neuler &lt;- function(h, t_end = 30, N0 = 10, r = 0.1) {\n  times &lt;- seq(0, t_end, by = h)\n  N &lt;- numeric(length(times)); N[1] &lt;- N0\n  for (k in 2:length(times)) {\n    N[k] &lt;- N[k - 1] + h * r * N[k - 1]      # x(t + h) = x(t) + h * dx/dt\n  }\n  tibble(time = times, N = N, step = paste(\"h =\", h))\n}\nc(euler_h5 = last(euler(5)$N), euler_h1 = last(euler(1)$N),\n  euler_h0.1 = last(euler(0.1)$N), exact = 10 * exp(0.1 * 30))\n\n##   euler_h5   euler_h1 euler_h0.1      exact \n##   113.9062   174.4940   197.8847   200.8554\n\n\n\n\n\n\n\n\n\n\nFigure 2: Numerical solution of \\(dN/dt = 0.1 N\\) by Euler’s method with step sizes of 5 and 1 days, compared with the exact solution. Smaller steps give more accurate solutions.\n\n\n\n\n\nThe error of Euler’s method decreases as the step size decreases. The function ode() of the deSolve package, used throughout this book, applies more accurate methods that adapt the step size automatically (course book: Solving the SIR model in R). The discrete-time SIR model of course book: From model equations to code is equivalent to Euler’s method with a step of one day.",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.6-equilibria-and-stability",
+    "href": "00c-prelim-maths.html#p3.6-equilibria-and-stability",
+    "title": "P3 Mathematical background",
+    "section": "P3.6 Equilibria and stability",
+    "text": "P3.6 Equilibria and stability\nAn equilibrium is a state in which all derivatives are zero, so that the system no longer changes. Consider the SIS model, in which infected individuals return to the susceptible state on recovery:\n\\[\n\\frac{dI}{dt} = \\beta I \\frac{N - I}{N} - \\gamma I.\n\\]\nSetting \\(\\frac{dI}{dt} = 0\\) gives two equilibria: \\(I^* = 0\\) (no infection) and \\(I^* = N(1 - \\gamma/\\beta) = N(1 - 1/R_0)\\), with \\(R_0 = \\beta/\\gamma\\). The second equilibrium exists (is positive) only if \\(R_0 &gt; 1\\).\nAn equilibrium is stable if the system returns to it after a small perturbation. This can be assessed from the sign of the derivative near the equilibrium: in Figure 3, \\(dI/dt\\) is positive below the endemic equilibrium and negative above it, so that \\(I\\) moves towards the endemic equilibrium from either side, which is therefore stable; the disease-free equilibrium is unstable when \\(R_0 &gt; 1\\).\n\n\n\n\n\n\n\n\nFigure 3: Rate of change \\(dI/dt\\) as a function of the number of infected individuals \\(I\\) in the SIS model (\\(\\beta\\) = 0.3, \\(\\gamma\\) = 0.1 per day, \\(N\\) = 1,000; \\(R_0\\) = 3). Equilibria (points) occur where \\(dI/dt = 0\\); arrows indicate the direction of change.",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.7-integrals-from-rates-to-totals",
+    "href": "00c-prelim-maths.html#p3.7-integrals-from-rates-to-totals",
+    "title": "P3 Mathematical background",
+    "section": "P3.7 Integrals: from rates to totals",
+    "text": "P3.7 Integrals: from rates to totals\nThe integral of a rate over time gives a total. For example, the cumulative number of infections between times 0 and \\(T\\) is the integral of the incidence, i.e. the area under the incidence curve. When a function is available at regular time points, the integral is approximated by the sum of the values multiplied by the time step:\n\ndt &lt;- 0.25\nt &lt;- seq(0, 10, by = dt)\nincidence &lt;- 100 * exp(-0.3 * t)          # new cases per day\nsum(incidence) * dt                        # approximate cumulative cases\n\n## [1] 330.0084\n\n100 / 0.3 * (1 - exp(-0.3 * 10))           # exact integral\n\n## [1] 316.7376",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.8-vectors-and-matrices",
+    "href": "00c-prelim-maths.html#p3.8-vectors-and-matrices",
+    "title": "P3 Mathematical background",
+    "section": "P3.8 Vectors and matrices",
+    "text": "P3.8 Vectors and matrices\nModels with several population groups (age groups, districts, risk groups) use vectors and matrices. A matrix–vector product combines each row of the matrix with the vector: if \\(C\\) is a contact matrix and \\(\\mathbf{y}\\) a vector of the proportions infectious in each group, then the product \\(C\\mathbf{y}\\) gives the number of infectious contacts made by an individual in each group.\n\nC &lt;- matrix(c(12, 4,          # contacts of children with children, adults\n               3, 8),         # contacts of adults with children, adults\n            nrow = 2, byrow = TRUE,\n            dimnames = list(c(\"children\", \"adults\"), c(\"children\", \"adults\")))\nprop_infectious &lt;- c(children = 0.02, adults = 0.005)\nC %*% prop_infectious        # infectious contacts per day, by group\n\n##          [,1]\n## children 0.26\n## adults   0.10\n\n\nFor a square matrix \\(K\\), an eigenvalue \\(\\rho\\) and eigenvector \\(\\mathbf{v}\\) satisfy \\(K\\mathbf{v} = \\rho\\mathbf{v}\\): multiplication by \\(K\\) only rescales \\(\\mathbf{v}\\). If \\(K\\) is the next-generation matrix, whose element \\(K_{ij}\\) is the number of infections in group \\(i\\) caused by one infectious individual in group \\(j\\), then repeated multiplication describes successive generations of infection. After a few generations, the number of cases is multiplied in each generation by the dominant eigenvalue of \\(K\\), which is therefore the basic reproduction number \\(R_0\\) (course book: Adding realism to models).\n\nK &lt;- matrix(c(2.0, 0.5,\n              0.6, 0.8), nrow = 2, byrow = TRUE)\neigen(K)$values               # the dominant (largest) eigenvalue is R0\n\n## [1] 2.2124038 0.5875962\n\ncases &lt;- c(1, 0)              # one infected child\nfor (g in 1:6) {\n  new_cases &lt;- K %*% cases\n  cat(\"generation\", g, \": ratio =\", round(sum(new_cases) / sum(cases), 3), \"\\n\")\n  cases &lt;- new_cases\n}\n\n## generation 1 : ratio = 2.6 \n## generation 2 : ratio = 2.3 \n## generation 3 : ratio = 2.235 \n## generation 4 : ratio = 2.218 \n## generation 5 : ratio = 2.214 \n## generation 6 : ratio = 2.213",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.9-solving-equations-and-optimisation-numerically",
+    "href": "00c-prelim-maths.html#p3.9-solving-equations-and-optimisation-numerically",
+    "title": "P3 Mathematical background",
+    "section": "P3.9 Solving equations and optimisation numerically",
+    "text": "P3.9 Solving equations and optimisation numerically\nTwo numerical tasks occur repeatedly in this book:\n\nfinding the root of an equation, i.e. the value at which a function equals zero, with uniroot() — for instance the final size equation \\(z = 1 - e^{-R_0 z}\\) (course book: The SIR model);\nminimising or maximising a function, with optimize() (one parameter) or optim() (several parameters) — for instance to estimate model parameters by maximum likelihood (course book: Linking models to data).\n\n\n# Root: final size for R0 = 2\nuniroot(function(z) z - (1 - exp(-2 * z)), interval = c(0.01, 1))$root\n\n## [1] 0.7968216\n\n# Minimisation: the value of a that minimises (a - 3)^2 + 1\noptimize(function(a) (a - 3)^2 + 1, interval = c(0, 10))$minimum\n\n## [1] 3\n\n\n\n\n\n\n\n\nTipExercise\n\n\n\n\nThe mean duration of infectiousness of measles is 8 days. Calculate the daily recovery rate and the probability that an infectious person is still infectious after 14 days.\nDuring the early phase of an outbreak, cases double every 4 days. Calculate the growth rate \\(r\\), and the number of cases after 3 weeks if there are 20 cases today.\nApply Euler’s method with a step of one day to the equation \\(\\frac{dI}{dt} = -0.2 I\\) with \\(I(0) = 100\\), over 20 days, and compare with the exact solution \\(100 e^{-0.2 t}\\).\nCalculate the endemic equilibrium of the SIS model for \\(\\beta = 0.25\\), \\(\\gamma = 0.2\\) and \\(N = 10{,}000\\).\nCalculate \\(R_0\\) for the next-generation matrix \\(K = \\begin{pmatrix} 1.5 & 0.3 \\\\ 0.4 & 0.6 \\end{pmatrix}\\).\n\n\n\n\n\n\n\n\n\nNoteSolution\n\n\n\n\n\n\n# 1\nrate &lt;- 1 / 8; c(rate = rate, p_still_infectious = exp(-rate * 14))\n\n##               rate p_still_infectious \n##          0.1250000          0.1737739\n\n# 2\nr &lt;- log(2) / 4; c(r = r, cases_after_21_days = 20 * exp(r * 21))\n\n##                   r cases_after_21_days \n##           0.1732868         761.0925536\n\n# 3\nI &lt;- numeric(21); I[1] &lt;- 100\nfor (k in 2:21) I[k] &lt;- I[k - 1] + 1 * (-0.2 * I[k - 1])\nc(euler = I[21], exact = 100 * exp(-0.2 * 20))\n\n##    euler    exact \n## 1.152922 1.831564\n\n# 4\n10000 * (1 - 0.2 / 0.25)\n\n## [1] 2000\n\n# 5\nmax(eigen(matrix(c(1.5, 0.3, 0.4, 0.6), 2, byrow = TRUE))$values)\n\n## [1] 1.617891",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.10-self-assessment",
+    "href": "00c-prelim-maths.html#p3.10-self-assessment",
+    "title": "P3 Mathematical background",
+    "section": "P3.10 Self-assessment",
+    "text": "P3.10 Self-assessment\n\nConvert a mean duration into a rate, and a rate into a probability over a given period.\nCalculate the probabilities of competing events.\nCalculate a doubling time from a growth rate, and vice versa.\nExplain in words what \\(\\frac{dS}{dt} = -\\beta S I / N\\) means.\nExplain how a differential equation is solved numerically, and why the step size matters.\nFind the equilibria of a one-dimensional model by setting the derivative to zero.\nCompute a matrix–vector product and the eigenvalues of a matrix in R.",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "00c-prelim-maths.html#p3.11-additional-resources",
+    "href": "00c-prelim-maths.html#p3.11-additional-resources",
+    "title": "P3 Mathematical background",
+    "section": "P3.11 Additional resources",
+    "text": "P3.11 Additional resources\n\nVynnycky and White (2010), chapters 2–3 and their online model files — an introduction to the mathematics of infectious disease models, written for epidemiologists.\nOtto and Day (2007): A Biologist’s Guide to Mathematical Modeling in Ecology and Evolution — a thorough introduction to differential equations, equilibria, stability and matrices for life scientists (chapters 1–5 and the primers on calculus and linear algebra).\nBodine et al. (2014): Mathematics for the Life Sciences — calculus and linear algebra with biological applications.\nStrogatz (2015): Nonlinear Dynamics and Chaos — an accessible treatment of equilibria and stability (chapters 1–2) for participants who wish to study further.\nOpenStax, Precalculus 2e, chapter 6 (Exponential and logarithmic functions) — a free introductory textbook (https://openstax.org/details/books/precalculus-2e).\nImperial College London, Infectious Disease Modelling specialisation (Coursera; free to audit), in particular the first course, which introduces differential equations through the SIR model (https://www.coursera.org/specializations/infectious-disease-modelling).\nKhan Academy, courses on exponential functions, logarithms, differential calculus and matrices (https://www.khanacademy.org/math).\n\n\n\n\n\nBodine, Erin N., Suzanne Lenhart, and Louis J. Gross. 2014. Mathematics for the Life Sciences. Princeton University Press.\n\n\nOtto, Sarah P., and Troy Day. 2007. A Biologist’s Guide to Mathematical Modeling in Ecology and Evolution. Princeton University Press.\n\n\nStrogatz, Steven H. 2015. Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering. 2nd ed. CRC Press.\n\n\nVynnycky, Emilia, and Richard G. White. 2010. An Introduction to Infectious Disease Modelling. Oxford University Press.",
+    "crumbs": [
+      "P3 Mathematical background"
+    ]
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Appendix A — Installation of R and RStudio",
+    "section": "",
+    "text": "A.1 R and RStudio\nWhere software cannot be installed locally, Posit Cloud (https://posit.cloud) can be used in a web browser.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation of R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#r-and-rstudio",
+    "href": "setup.html#r-and-rstudio",
+    "title": "Appendix A — Installation of R and RStudio",
+    "section": "",
+    "text": "Install R (version 4.4 or later) from https://cran.r-project.org, selecting the appropriate operating system (for Windows: Download R for Windows → base).\nInstall RStudio Desktop (free of charge) from https://posit.co/download/rstudio-desktop/.\nOpen RStudio. R runs within RStudio and does not need to be opened separately.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation of R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#packages",
+    "href": "setup.html#packages",
+    "title": "Appendix A — Installation of R and RStudio",
+    "section": "A.2 Packages",
+    "text": "A.2 Packages\nThe following code installs all packages used in the course. Installation requires an internet connection and takes approximately 5–15 minutes.\n\npackages &lt;- c(\n  \"tidyverse\",     # data management and visualisation\n  \"deSolve\",       # differential equations (compartmental models)\n  \"outbreaks\",     # historical outbreak datasets\n  \"fitdistrplus\",  # fitting of delay distributions\n  \"EpiEstim\",      # time-varying reproduction number\n  \"epichains\",     # branching processes\n  \"finalsize\",     # final size in age-structured populations\n  \"socialmixr\",    # social contact matrices\n  \"coda\",          # MCMC diagnostics\n  \"patchwork\",     # combination of figures\n  \"knitr\", \"rmarkdown\"\n)\ninstall.packages(setdiff(packages, rownames(installed.packages())))\n\nThe installation can be verified with a small SIR model:\n\nlibrary(deSolve)\nout &lt;- ode(y = c(S = 999, I = 1, R = 0), times = 0:50,\n           func = function(t, y, p) with(as.list(c(y, p)), {\n             list(c(-b * S * I / 1000, b * S * I / 1000 - g * I, g * I))\n           }),\n           parms = c(b = 0.5, g = 0.25))\nplot(out)\n\nThe installation is successful if three plots (S, I and R against time) are displayed.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation of R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#course-materials",
+    "href": "setup.html#course-materials",
+    "title": "Appendix A — Installation of R and RStudio",
+    "section": "A.3 Course materials",
+    "text": "A.3 Course materials\nThe materials of the course itself are available at https://github.com/Federica-Giardina/TIMERA (Code → Download ZIP). After unzipping, the folder should be opened as an RStudio Project (File → New Project → Existing Directory).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation of R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#datasets",
+    "href": "setup.html#datasets",
+    "title": "Appendix A — Installation of R and RStudio",
+    "section": "A.4 Datasets",
+    "text": "A.4 Datasets\nAll datasets used in Module 1 can be downloaded as CSV files in a single archive, TIMERA-datasets.zip, which also contains a description of each dataset and its source. The CSV files can be opened in R, Excel or any statistical software.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation of R and RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Bodine, Erin N., Suzanne Lenhart, and Louis J. Gross. 2014.\nMathematics for the Life Sciences. Princeton University Press.\n\n\nCenters for Disease Control and Prevention. 2012. Principles of\nEpidemiology in Public Health Practice: An Introduction to Applied\nEpidemiology and Biostatistics. 3rd ed. U.S. Department of Health;\nHuman Services, CDC.\n\n\nDiez, David, Mine Çetinkaya-Rundel, and Christopher D. Barr. 2019.\nOpenIntro Statistics. 4th ed. OpenIntro. https://www.openintro.org/book/os/.\n\n\nGiesecke, Johan. 2017. Modern Infectious Disease Epidemiology.\n3rd ed. CRC Press.\n\n\nKirkwood, Betty R., and Jonathan A. C. Sterne. 2003. Essential\nMedical Statistics. 2nd ed. Blackwell Science.\n\n\nOtto, Sarah P., and Troy Day. 2007. A Biologist’s Guide to\nMathematical Modeling in Ecology and Evolution. Princeton\nUniversity Press.\n\n\nPawitan, Yudi. 2001. In All Likelihood: Statistical Modelling and\nInference Using Likelihood. Oxford University Press.\n\n\nRothman, Kenneth J. 2012. Epidemiology: An Introduction. 2nd\ned. Oxford University Press.\n\n\nStrogatz, Steven H. 2015. Nonlinear Dynamics and Chaos: With\nApplications to Physics, Biology, Chemistry, and Engineering. 2nd\ned. CRC Press.\n\n\nVynnycky, Emilia, and Richard G. White. 2010. An Introduction to\nInfectious Disease Modelling. Oxford University Press.",
+    "crumbs": [
+      "Appendices",
+      "References"
+    ]
+  }
+]

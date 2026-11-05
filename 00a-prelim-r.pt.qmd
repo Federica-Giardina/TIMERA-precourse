@@ -1,15 +1,16 @@
-<!-- Translation of 00a-prelim-r.qmd (pt). Translate the text only: keep the code, the labels
-     ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
-     is complete, remove the box marked .translation-pending and run
-     py preparatory/translations.py accept pt 00a-prelim-r.qmd -->
+<!-- Translation of 00a-prelim-r.qmd (pt). Draft translation, under review.
+     Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
+     and file names unchanged. When the review is complete, remove the box marked
+     .translation-review. After changes to the English text:
+     py preparatory/translations.py status --diff -->
 
 # P1 Introdução ao R {#sec-r .unnumbered}
 
 *Aprendizagem preliminar — noções básicas de R e RStudio*
 
-::: {.callout-warning .translation-pending}
-## Tradução em curso
-Este capítulo ainda não foi traduzido: o texto abaixo é a versão inglesa.
+::: {.callout-note .translation-review}
+## Tradução provisória
+Este capítulo foi traduzido do inglês e está em revisão. As observações são bem-vindas.
 :::
 
 ```{r}
@@ -18,58 +19,58 @@ source("_common.R")
 ```
 
 ::: {.callout-tip icon="false"}
-## Learning objectives
-By the end of this chapter, participants should be able to:
+## Objetivos de aprendizagem
+No final deste capítulo, os participantes deverão ser capazes de:
 
-1. Use the RStudio interface, create and save scripts, and work within an RStudio Project.
-2. Create objects of the principal data types, and select elements of vectors and data frames.
-3. Use built-in functions and packages, consult help pages and write simple functions.
-4. Import a dataset and manipulate it with the principal `tidyverse` functions.
-5. Produce basic graphs with `ggplot2`.
-6. Use conditional statements and `for` loops.
+1. Utilizar a interface do RStudio, criar e guardar *scripts* e trabalhar num projeto RStudio.
+2. Criar objetos dos principais tipos de dados e selecionar elementos de vetores e de *data frames*.
+3. Utilizar funções incorporadas e pacotes, consultar as páginas de ajuda e escrever funções simples.
+4. Importar um conjunto de dados e manipulá-lo com as principais funções do `tidyverse`.
+5. Produzir gráficos simples com o `ggplot2`.
+6. Utilizar instruções condicionais e ciclos `for`.
 :::
 
-This chapter introduces the basic elements of the R language. It does not assume previous programming experience. The application of R to the analysis of outbreak data and to modelling is the subject of @sec-r-epi in Module 1, and R is used in the practical sessions of every chapter of the book. Installation instructions are given in @sec-setup.
+Este capítulo apresenta os elementos básicos da linguagem R. Não pressupõe experiência prévia de programação. A aplicação do R à análise de dados de surtos e à modelação é o tema de @sec-r-epi no Módulo 1, e o R é utilizado nas sessões práticas de todos os capítulos do livro. As instruções de instalação encontram-se em @sec-setup.
 
-## P1.1 Interactive tutorials {.unnumbered .keep-short}
+## P1.1 Tutoriais interativos {.unnumbered .keep-short}
 
-Participants without previous experience in R are expected to complete the **Applied Epi interactive R tutorials** (sessions 1–6), which are available free of charge in English, French, Portuguese and Spanish at <https://www.appliedepi.org/resources/tutorials.html>. Each session requires approximately 2–4 hours:
+Os participantes sem experiência prévia em R devem completar os **tutoriais interativos de R da Applied Epi** (sessões 1 a 6), disponíveis gratuitamente em inglês, francês, português e espanhol em <https://www.appliedepi.org/resources/tutorials.html>. Cada sessão requer cerca de 2 a 4 horas:
 
-| Session | Topic |
+| Sessão | Tema |
 |---|---|
-| 1 | Installation of R and RStudio |
-| 2 | Data preparation |
-| 3 | R syntax |
-| 4 | Data cleaning |
-| 5 | Summary tables |
-| 6 | Data visualisation with `ggplot2` |
-| 7 (optional) | Obtaining help and using AI tools |
+| 1 | Instalação do R e do RStudio |
+| 2 | Preparação dos dados |
+| 3 | Sintaxe do R |
+| 4 | Limpeza dos dados |
+| 5 | Tabelas-resumo |
+| 6 | Visualização de dados com o `ggplot2` |
+| 7 (opcional) | Obter ajuda e utilizar ferramentas de IA |
 
-The remainder of this chapter summarises the same material in a compact form, for reference.
+[O resto deste capítulo resume a mesma matéria de forma condensada, para consulta.]{.content-hidden when-meta="short-version"}
 
-## P1.2 RStudio and projects {.unnumbered}
+## P1.2 O RStudio e os projetos {.unnumbered}
 
-RStudio has four panels: the **script editor** (top left), in which code is written and saved; the **console** (bottom left), in which code is executed; the **environment** (top right), which lists the objects in memory; and the **files, plots and help** panel (bottom right). A line of code in a script is executed with *Ctrl + Enter* (*Cmd + Enter* on macOS); text after `#` is a comment and is not executed.
+O RStudio tem quatro painéis: o **editor de *scripts*** (em cima, à esquerda), onde o código é escrito e guardado; a **consola** (em baixo, à esquerda), onde o código é executado; o **ambiente** (em cima, à direita), que lista os objetos em memória; e o painel de **ficheiros, gráficos e ajuda** (em baixo, à direita). Uma linha de código de um *script* é executada com *Ctrl + Enter* (*Cmd + Enter* no macOS); o texto a seguir a `#` é um comentário e não é executado.
 
-Work should be organised in an **RStudio Project** (*File → New Project*). All file paths are then relative to the project folder, so that the analysis can be moved to another computer without modification.
+O trabalho deve ser organizado num **projeto RStudio** (*File → New Project*). Todos os caminhos dos ficheiros são então relativos à pasta do projeto, de modo que a análise pode ser transferida para outro computador sem alterações.
 
-## P1.3 R as a calculator {.unnumbered}
+## P1.3 O R como calculadora {.unnumbered}
 
 ```{r}
-3 + 4 * 2          # multiplication before addition
+3 + 4 * 2          # a multiplicação antes da adição
 (3 + 4) * 2
 10 / 4
-2^10               # power
+2^10               # potência
 sqrt(16)
-exp(1)             # the number e
-log(100)           # natural logarithm
-log10(100)         # logarithm with base 10
+exp(1)             # o número e
+log(100)           # logaritmo natural
+log10(100)         # logaritmo de base 10
 round(3.14159, 2)
 ```
 
-## P1.4 Objects and assignment {.unnumbered}
+## P1.4 Objetos e atribuição {.unnumbered}
 
-Values are stored in **objects** with the assignment operator `<-`. Object names are case-sensitive, cannot start with a number, and should be informative.
+Os valores são guardados em **objetos** com o operador de atribuição `<-`. Os nomes dos objetos distinguem maiúsculas de minúsculas, não podem começar por um algarismo e devem ser informativos.
 
 ```{r}
 population <- 250000
@@ -78,45 +79,45 @@ incidence <- cases / population * 100000
 incidence
 ```
 
-## P1.5 Data types and vectors {.unnumbered}
+## P1.5 Tipos de dados e vetores {.unnumbered}
 
-A **vector** is an ordered collection of values of the same type, created with `c()`. The principal types are numeric, character (text), logical (`TRUE`/`FALSE`), factor (categorical variable with defined levels) and date.
+Um **vetor** é uma sequência ordenada de valores do mesmo tipo, criada com `c()`. Os principais tipos são numérico, carácter (texto), lógico (`TRUE`/`FALSE`), fator (variável categórica com níveis definidos) e data.
 
 ```{r}
-age <- c(4, 12, 35, 67, 23)                              # numeric
-sex <- c("female", "male", "male", "female", "female")   # character
-vaccinated <- c(TRUE, FALSE, TRUE, TRUE, FALSE)          # logical
+age <- c(4, 12, 35, 67, 23)                              # numérico
+sex <- c("female", "male", "male", "female", "female")   # carácter
+vaccinated <- c(TRUE, FALSE, TRUE, TRUE, FALSE)          # lógico
 age_group <- factor(c("0-14", "0-14", "15-64", "65+", "15-64"),
-                    levels = c("0-14", "15-64", "65+"))  # factor
+                    levels = c("0-14", "15-64", "65+"))  # fator
 visit <- as.Date(c("2026-03-01", "2026-03-04", "2026-03-04", "2026-03-09", "2026-03-12"))
 
 class(age); class(sex); class(vaccinated); class(age_group); class(visit)
 length(age)
 ```
 
-Arithmetic and comparisons are **vectorised**: they are applied to each element.
+As operações aritméticas e as comparações são **vetorizadas**: aplicam-se a cada elemento.
 
 ```{r}
-age * 12                   # age in months
-age >= 15                  # logical vector
-sum(vaccinated)            # TRUE counts as 1
-mean(vaccinated)           # proportion vaccinated
+age * 12                   # idade em meses
+age >= 15                  # vetor lógico
+sum(vaccinated)            # TRUE conta como 1
+mean(vaccinated)           # proporção de vacinados
 table(age_group)
 ```
 
-### P1.5.1 Selecting elements {.unnumbered}
+### P1.5.1 Seleção de elementos {.unnumbered}
 
 ```{r}
-age[2]                     # second element
-age[c(1, 3)]               # first and third elements
-age[-1]                    # all except the first
-age[age >= 15]             # elements meeting a condition
-sex[vaccinated]            # sex of vaccinated persons
+age[2]                     # segundo elemento
+age[c(1, 3)]               # primeiro e terceiro elementos
+age[-1]                    # todos exceto o primeiro
+age[age >= 15]             # elementos que cumprem uma condição
+sex[vaccinated]            # sexo das pessoas vacinadas
 ```
 
-### P1.5.2 Missing values {.unnumbered}
+### P1.5.2 Valores em falta {.unnumbered}
 
-Missing values are represented by `NA`. Most summary functions return `NA` if any value is missing, unless `na.rm = TRUE` is specified.
+Os valores em falta são representados por `NA`. A maioria das funções de resumo devolve `NA` se algum valor estiver em falta, a menos que se especifique `na.rm = TRUE`.
 
 ```{r}
 weight <- c(12.5, NA, 70.2, 64.0, 58.3)
@@ -126,21 +127,21 @@ is.na(weight)
 sum(is.na(weight))
 ```
 
-### P1.5.3 Operators {.unnumbered}
+### P1.5.3 Operadores {.unnumbered}
 
-| Operator | Meaning |
+| Operador | Significado |
 |---|---|
-| `<-` | assignment |
-| `+ - * / ^` | arithmetic |
-| `== != < > <= >=` | comparison |
-| <code>&amp; &#124; !</code> | logical *and*, *or*, *not* |
-| `%in%` | membership, e.g. `sex %in% c("female")` |
-| `$` | extraction of a column from a data frame |
-| <code>&#124;&gt;</code> | pipe: passes the result on the left to the function on the right |
+| `<-` | atribuição |
+| `+ - * / ^` | aritmética |
+| `== != < > <= >=` | comparação |
+| <code>&amp; &#124; !</code> | *e*, *ou*, *não* lógicos |
+| `%in%` | pertença, p. ex. `sex %in% c("female")` |
+| `$` | extração de uma coluna de um *data frame* |
+| <code>&#124;&gt;</code> | *pipe*: passa o resultado da esquerda para a função da direita |
 
-## P1.6 Functions and packages {.unnumbered}
+## P1.6 Funções e pacotes {.unnumbered}
 
-A **function** takes inputs (*arguments*) and returns an output. Arguments can be given by position or by name; arguments with default values can be omitted.
+Uma **função** recebe entradas (*argumentos*) e devolve um resultado. Os argumentos podem ser indicados pela posição ou pelo nome; os argumentos com valores predefinidos podem ser omitidos.
 
 ```{r}
 round(123.456, digits = 1)
@@ -149,11 +150,11 @@ rep("A", times = 3)
 paste("District", 1:3)
 ```
 
-Additional functions are provided by **packages**. A package is installed once with `install.packages("name")` and loaded in each session with `library(name)`. The help page of a function is displayed with `?function_name`, e.g. `?seq`.
+Os **pacotes** fornecem funções adicionais. Um pacote é instalado uma única vez com `install.packages("nome")` e carregado em cada sessão com `library(nome)`. A página de ajuda de uma função é apresentada com `?nome_da_funcao`, p. ex. `?seq`.
 
-### P1.6.1 Writing functions {.unnumbered}
+### P1.6.1 Escrever funções {.unnumbered}
 
-User-defined functions avoid repeating code:
+As funções definidas pelo utilizador evitam a repetição de código:
 
 ```{r}
 incidence_per_100k <- function(cases, population) {
@@ -163,35 +164,35 @@ incidence_per_100k(cases = 375, population = 250000)
 incidence_per_100k(cases = c(10, 50, 120), population = c(20000, 80000, 150000))
 ```
 
-## P1.7 Conditional statements and loops {.unnumbered}
+## P1.7 Instruções condicionais e ciclos {.unnumbered}
 
-`if` executes code only when a condition is true; `ifelse()` applies a condition to every element of a vector.
+`if` executa código apenas quando uma condição é verdadeira; `ifelse()` aplica uma condição a cada elemento de um vetor.
 
 ```{r}
 coverage <- 0.82
 if (coverage >= 0.95) {
-  message("Coverage target reached")
+  message("Meta de cobertura atingida")
 } else {
-  message("Coverage below target")
+  message("Cobertura abaixo da meta")
 }
 
-ifelse(age >= 15, "adult", "child")
+ifelse(age >= 15, "adulto", "criança")
 ```
 
-A `for` loop repeats a block of code for each value of a sequence:
+Um ciclo `for` repete um bloco de código para cada valor de uma sequência:
 
 ```{r}
-savings <- numeric(5)        # empty vector of length 5
+savings <- numeric(5)        # vetor vazio de comprimento 5
 savings[1] <- 100
 for (year in 2:5) {
-  savings[year] <- savings[year - 1] * 1.10   # 10% interest per year
+  savings[year] <- savings[year - 1] * 1.10   # juro de 10% ao ano
 }
 savings
 ```
 
-## P1.8 Lists {.unnumbered}
+## P1.8 Listas {.unnumbered}
 
-A **list** can contain objects of different types and lengths, and is often used to store parameters or the results of an analysis.
+Uma **lista** pode conter objetos de tipos e comprimentos diferentes e é frequentemente utilizada para guardar parâmetros ou os resultados de uma análise.
 
 ```{r}
 parameters <- list(country = "Mozambique", year = 2026, rates = c(0.1, 0.25))
@@ -199,9 +200,9 @@ parameters$country
 parameters[["rates"]]
 ```
 
-## P1.9 Data frames {.unnumbered}
+## P1.9 *Data frames* {.unnumbered}
 
-A **data frame** is a table in which each column is a vector and each row an observation. A `tibble` is the `tidyverse` version of a data frame.
+Um ***data frame*** é uma tabela em que cada coluna é um vetor e cada linha uma observação. Um `tibble` é a versão `tidyverse` de um *data frame*.
 
 ```{r}
 library(tidyverse)
@@ -214,24 +215,24 @@ patients <- tibble(
   visit = visit
 )
 patients
-patients$age            # one column
+patients$age            # uma coluna
 nrow(patients); ncol(patients)
 summary(patients$age)
 ```
 
-### P1.9.1 Data manipulation with dplyr {.unnumbered}
+### P1.9.1 Manipulação de dados com o dplyr {.unnumbered}
 
-The principal functions of the `dplyr` package each perform one operation and are combined with the pipe `|>`:
+As principais funções do pacote `dplyr` realizam, cada uma, uma única operação e são combinadas com o *pipe* `|>`:
 
-| Function | Operation |
+| Função | Operação |
 |---|---|
-| `filter()` | select rows |
-| `select()` | select columns |
-| `mutate()` | create or modify columns |
-| `arrange()` | sort rows |
-| `group_by()` and `summarise()` | summarise by group |
-| `count()` | count rows by group |
-| `left_join()` | combine two tables by a common column |
+| `filter()` | selecionar linhas |
+| `select()` | selecionar colunas |
+| `mutate()` | criar ou modificar colunas |
+| `arrange()` | ordenar linhas |
+| `group_by()` e `summarise()` | resumir por grupo |
+| `count()` | contar linhas por grupo |
+| `left_join()` | combinar duas tabelas através de uma coluna comum |
 
 ```{r}
 patients |>
@@ -245,9 +246,9 @@ patients |>
   summarise(n = n(), mean_age = mean(age), prop_vaccinated = mean(vaccinated))
 ```
 
-### P1.9.2 Long and wide formats {.unnumbered}
+### P1.9.2 Formatos longo e largo {.unnumbered}
 
-Data in **wide** format have one column per variable or time point; data in **long** format have one row per observation and a column identifying the variable. Long format is required by `ggplot2`.
+Os dados em formato **largo** têm uma coluna por variável ou período; os dados em formato **longo** têm uma linha por observação e uma coluna que identifica a variável. O formato longo é exigido pelo `ggplot2`.
 
 ```{r}
 wide <- tibble(district = c("A", "B"), `2024` = c(120, 85), `2025` = c(140, 60))
@@ -256,30 +257,30 @@ long
 long |> pivot_wider(names_from = year, values_from = cases)
 ```
 
-## P1.10 Importing and exporting data {.unnumbered}
+## P1.10 Importar e exportar dados {.unnumbered}
 
-The code below illustrates the import and export of files. The names `my_data.csv`, `my_data.xlsx` and `my_data_clean.csv` are hypothetical examples, to be replaced by the names of actual data files stored in the `data/` folder of the project.
+O código seguinte ilustra a importação e a exportação de ficheiros. Os nomes `my_data.csv`, `my_data.xlsx` e `my_data_clean.csv` são exemplos fictícios, a substituir pelos nomes de ficheiros de dados reais guardados na pasta `data/` do projeto.
 
 ```{r}
 #| eval: false
-# "my_data" is a placeholder: replace it with the name of your own file
+# "my_data" é um exemplo: substitua-o pelo nome do seu próprio ficheiro
 library(readr)
-data <- read_csv("data/my_data.csv")          # text files with comma-separated values
+data <- read_csv("data/my_data.csv")          # ficheiros de texto com valores separados por vírgulas
 library(readxl)
-data <- read_excel("data/my_data.xlsx")       # Excel files
-write_csv(data, "output/my_data_clean.csv")   # export
+data <- read_excel("data/my_data.xlsx")       # ficheiros Excel
+write_csv(data, "output/my_data_clean.csv")   # exportação
 ```
 
-After importing a dataset, it should be inspected with `head()`, `glimpse()`, `summary()` and `View()`.
+Depois de importado, um conjunto de dados deve ser inspecionado com `head()`, `glimpse()`, `summary()` e `View()`.
 
-## P1.11 Graphs with ggplot2 {.unnumbered}
+## P1.11 Gráficos com o ggplot2 {.unnumbered}
 
-A `ggplot2` graph is constructed from three components: a data frame, an **aesthetic mapping** of variables to visual properties with `aes()`, and one or more **geometries** (`geom_point()`, `geom_line()`, `geom_col()`, `geom_histogram()`, etc.). Labels are added with `labs()` and panels with `facet_wrap()`.
+Um gráfico `ggplot2` é construído a partir de três componentes: um *data frame*, uma **correspondência estética** entre variáveis e propriedades visuais com `aes()`, e uma ou mais **geometrias** (`geom_point()`, `geom_line()`, `geom_col()`, `geom_histogram()`, etc.). Os títulos são acrescentados com `labs()` e os painéis com `facet_wrap()`.
 
 ```{r}
 ggplot(long, aes(x = year, y = cases, fill = district)) +
   geom_col(position = "dodge") +
-  labs(x = "Year", y = "Number of cases", fill = "District")
+  labs(x = "Ano", y = "Número de casos", fill = "Distrito")
 ```
 
 ```{r}
@@ -288,34 +289,34 @@ growth <- tibble(day = 0:30, children = 50 * 1.08^(0:30), adults = 30 * 1.05^(0:
 
 ggplot(growth, aes(day, cases, colour = group)) +
   geom_line(linewidth = 1) +
-  labs(x = "Day", y = "Cases", colour = "Age group")
+  labs(x = "Dia", y = "Casos", colour = "Grupo etário")
 ```
 
-## P1.12 Random numbers {.unnumbered}
+## P1.12 Números aleatórios {.unnumbered}
 
-R generates random numbers from many probability distributions, for example `runif()` (uniform), `rnorm()` (normal), `rbinom()` (binomial) and `rpois()` (Poisson). `set.seed()` makes the results reproducible.
+O R gera números aleatórios a partir de muitas distribuições de probabilidade, por exemplo `runif()` (uniforme), `rnorm()` (normal), `rbinom()` (binomial) e `rpois()` (de Poisson). `set.seed()` torna os resultados reprodutíveis.
 
 ```{r}
 set.seed(2027)
 rnorm(3, mean = 0, sd = 1)
 rbinom(5, size = 10, prob = 0.3)
-sample(1:6, size = 4, replace = TRUE)   # four throws of a die
+sample(1:6, size = 4, replace = TRUE)   # quatro lançamentos de um dado
 ```
 
-## P1.13 Errors and help {.unnumbered}
+## P1.13 Erros e ajuda {.unnumbered}
 
-Error messages indicate where execution failed. Common causes include misspelled object names (`object 'x' not found`), packages that have not been loaded (`could not find function`), unmatched brackets or quotes, and code executed in the wrong order. Further help is available from the help pages (`?function`), the package documentation (reference manuals and vignettes on CRAN, <https://cran.r-project.org/web/packages/>), the [Epidemiologist R Handbook](https://www.epirhandbook.com) and online forums such as [Stack Overflow](https://stackoverflow.com/questions/tagged/r) and [Posit Community](https://forum.posit.co). AI assistants can explain error messages and suggest code, but their suggestions must be checked and understood before use.
+As mensagens de erro indicam onde a execução falhou. As causas mais frequentes são nomes de objetos mal escritos (`object 'x' not found`), pacotes que não foram carregados (`could not find function`), parênteses ou aspas por fechar e código executado pela ordem errada. Pode obter-se mais ajuda nas páginas de ajuda (`?função`), na documentação dos pacotes (manuais de referência e vinhetas no CRAN, <https://cran.r-project.org/web/packages/>), no [Epidemiologist R Handbook](https://www.epirhandbook.com) (disponível em português) e em fóruns em linha como o [Stack Overflow](https://stackoverflow.com/questions/tagged/r) e a [Posit Community](https://forum.posit.co). Os assistentes de IA podem explicar mensagens de erro e sugerir código, mas as suas sugestões devem ser verificadas e compreendidas antes de serem utilizadas.
 
 ::: {.callout-tip icon="false"}
-## Exercise
-1. Create a vector with the weekly numbers of cases 3, 7, 12, 25, 31 and 28. Calculate the total, the mean and the week with the highest number of cases.
-2. Write a function `percent_change(old, new)` that returns the percentage change between two values, and apply it to consecutive weeks of the vector above (hint: `x[-1]` and `x[-length(x)]`).
-3. Using the `patients` data frame, calculate the proportion vaccinated among children and adults.
-4. Create a data frame with two columns, `week` (1–6) and `cases` (the vector of question 1), and plot the cases as a bar chart.
+## Exercício
+1. Crie um vetor com os números semanais de casos 3, 7, 12, 25, 31 e 28. Calcule o total, a média e a semana com o maior número de casos.
+2. Escreva uma função `percent_change(old, new)` que devolva a variação percentual entre dois valores e aplique-a às semanas consecutivas do vetor acima (sugestão: `x[-1]` e `x[-length(x)]`).
+3. Utilizando o *data frame* `patients`, calcule a proporção de vacinados entre as crianças e entre os adultos.
+4. Crie um *data frame* com duas colunas, `week` (1 a 6) e `cases` (o vetor da pergunta 1), e represente os casos num gráfico de barras.
 :::
 
 ::: {.callout-note collapse="true"}
-## Solution
+## Solução
 
 ```{r}
 x <- c(3, 7, 12, 25, 31, 28)
@@ -325,39 +326,39 @@ percent_change <- function(old, new) (new - old) / old * 100
 round(percent_change(x[-length(x)], x[-1]), 1)
 
 patients |>
-  mutate(group = ifelse(age >= 15, "adult", "child")) |>
+  mutate(group = ifelse(age >= 15, "adulto", "criança")) |>
   group_by(group) |>
   summarise(prop_vaccinated = mean(vaccinated))
 
 tibble(week = 1:6, cases = x) |>
   ggplot(aes(week, cases)) +
   geom_col(fill = "steelblue") +
-  labs(x = "Week", y = "Cases")
+  labs(x = "Semana", y = "Casos")
 ```
 :::
 
-## P1.14 Self-assessment {.unnumbered .keep-short}
+## P1.14 Autoavaliação {.unnumbered .keep-short}
 
-Participants should be able to perform the following tasks without assistance before the first module:
+Antes do primeiro módulo, os participantes deverão ser capazes de realizar as seguintes tarefas sem ajuda:
 
-- [ ] Create an RStudio Project, open a script and execute it line by line.
-- [ ] Install and load a package, and consult the help page of a function.
-- [ ] Create vectors of different types, select elements and handle missing values.
-- [ ] Write a function with two arguments.
-- [ ] Import a CSV file and inspect it with `head()`, `glimpse()` and `summary()`.
-- [ ] Use `filter()`, `select()`, `mutate()`, `group_by()` and `summarise()`.
-- [ ] Convert a table between wide and long formats.
-- [ ] Produce a bar chart and a line graph with `ggplot2`.
-- [ ] Write an `if` statement and a `for` loop.
+- [ ] Criar um projeto RStudio, abrir um *script* e executá-lo linha a linha.
+- [ ] Instalar e carregar um pacote e consultar a página de ajuda de uma função.
+- [ ] Criar vetores de diferentes tipos, selecionar elementos e tratar valores em falta.
+- [ ] Escrever uma função com dois argumentos.
+- [ ] Importar um ficheiro CSV e inspecioná-lo com `head()`, `glimpse()` e `summary()`.
+- [ ] Utilizar `filter()`, `select()`, `mutate()`, `group_by()` e `summarise()`.
+- [ ] Converter uma tabela entre os formatos largo e longo.
+- [ ] Produzir um gráfico de barras e um gráfico de linhas com o `ggplot2`.
+- [ ] Escrever uma instrução `if` e um ciclo `for`.
 
-## P1.15 Additional resources {.unnumbered .keep-short}
+## P1.15 Recursos adicionais {.unnumbered .keep-short}
 
-- **Applied Epi interactive R tutorials** (English, French, Portuguese, Spanish): <https://www.appliedepi.org/resources/tutorials.html>.
-- **The Epidemiologist R Handbook** (available in several languages): <https://www.epirhandbook.com> — in particular the chapters on R basics, data cleaning, dates, grouping and `ggplot2`.
-- **R for Data Science**, 2nd edition (Wickham H., Çetinkaya-Rundel M., Grolemund G.): <https://r4ds.hadley.nz>.
-- **Hands-On Programming with R** (Grolemund G.): <https://rstudio-education.github.io/hopr/> — objects, functions and loops.
-- **PATH/MACEPA Data Fellowship materials**, developed for public health staff in Africa and based on routine (DHIS2-type) malaria data; overview at <https://path-global-health.github.io/macepa-tech-training/>:
-  - *Foundational R Skills* (<https://path-global-health.github.io/df_foundational_r/>): R and RStudio, `dplyr`/`tidyr`, `ggplot2`, messy data and joins;
-  - *Secondary Topics for Data Analysis in R* (<https://path-global-health.github.io/df_secondary-r/>): functions, loops, error messages, maps, data completeness and time series plots;
-  - *Foundational Data Skills* (<https://path-global-health.github.io/df_data-skills/>): organisation of project folders, version control with Git and GitHub.
-- **AMMnet Hackathon live sessions** (Applied Malaria Modeling Network), with recordings, code and data: <https://ammnet.github.io/ammnet-hackathon/> — data visualisation, data wrangling and mapping in R, some sessions in French and Portuguese.
+- **Tutoriais interativos de R da Applied Epi** (inglês, francês, português, espanhol): <https://www.appliedepi.org/resources/tutorials.html>.
+- **The Epidemiologist R Handbook** (disponível em várias línguas, incluindo o português): <https://www.epirhandbook.com> — em particular os capítulos sobre noções básicas de R, limpeza de dados, datas, agrupamento e `ggplot2`.
+- **R for Data Science**, 2.ª edição (Wickham H., Çetinkaya-Rundel M., Grolemund G.): <https://r4ds.hadley.nz> (em inglês).
+- **Hands-On Programming with R** (Grolemund G.): <https://rstudio-education.github.io/hopr/> (em inglês) — objetos, funções e ciclos.
+- **Materiais do programa Data Fellowship da PATH/MACEPA** (em inglês), desenvolvidos para profissionais de saúde pública em África com base em dados de rotina sobre malária (do tipo DHIS2); apresentação em <https://path-global-health.github.io/macepa-tech-training/>:
+  - *Foundational R Skills* (<https://path-global-health.github.io/df_foundational_r/>): R e RStudio, `dplyr`/`tidyr`, `ggplot2`, dados desorganizados e junções;
+  - *Secondary Topics for Data Analysis in R* (<https://path-global-health.github.io/df_secondary-r/>): funções, ciclos, mensagens de erro, mapas, completude dos dados e gráficos de séries temporais;
+  - *Foundational Data Skills* (<https://path-global-health.github.io/df_data-skills/>): organização de pastas de projeto, controlo de versões com Git e GitHub.
+- **Sessões ao vivo dos hackathons da AMMnet** (Applied Malaria Modeling Network), com gravações, código e dados: <https://ammnet.github.io/ammnet-hackathon/> — visualização, manipulação e cartografia de dados em R, incluindo sessões em português.

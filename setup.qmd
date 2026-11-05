@@ -48,3 +48,7 @@ The installation is successful if three plots (S, I and R against time) are disp
 ## Course materials
 
 The materials of the course itself are available at <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*). After unzipping, the folder should be opened as an RStudio Project (*File → New Project → Existing Directory*).
+
+## Datasets
+
+All datasets used in Module 1 can be downloaded as CSV files in a single archive, [TIMERA-datasets.zip](https://federica-giardina.github.io/TIMERA-preparatory/datasets/TIMERA-datasets.zip), which also contains a description of each dataset and its source. The CSV files can be opened in R, Excel or any statistical software.

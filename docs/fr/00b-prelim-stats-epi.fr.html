@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>P2 Concepts statistiques et épidémiologiques – Apprentissage préliminaire</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./00c-prelim-maths.fr.html" rel="next">
+<link href="./00a-prelim-r.fr.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5630e6732664d48c7cde3b526013eeb9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-85797823d13c074f06d599944906f588.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5630e6732664d48c7cde3b526013eeb9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00b-prelim-stats-epi.fr.html">P2 Concepts statistiques et épidémiologiques</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Apprentissage préliminaire</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Federica-Giardina/TIMERA-preparatory" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
+    <a href="./TIMERA-apprentissage-preliminaire-fr.docx" title="Download Docx" class="quarto-navigation-tool px-1" aria-label="Download Docx"><i class="bi bi-file-word"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bienvenue</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00a-prelim-r.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P1 Introduction à R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00b-prelim-stats-epi.fr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">P2 Concepts statistiques et épidémiologiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00c-prelim-maths.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P3 Bases mathématiques</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Annexes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installation de R et RStudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Références</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#p2.1-mesures-de-fréquence-des-maladies" id="toc-p2.1-mesures-de-fréquence-des-maladies" class="nav-link active" data-scroll-target="#p2.1-mesures-de-fréquence-des-maladies">P2.1 Mesures de fréquence des maladies</a></li>
+  <li><a href="#p2.2-caractéristiques-des-données-de-surveillance" id="toc-p2.2-caractéristiques-des-données-de-surveillance" class="nav-link" data-scroll-target="#p2.2-caractéristiques-des-données-de-surveillance">P2.2 Caractéristiques des données de surveillance</a></li>
+  <li><a href="#p2.3-lois-de-probabilité" id="toc-p2.3-lois-de-probabilité" class="nav-link" data-scroll-target="#p2.3-lois-de-probabilité">P2.3 Lois de probabilité</a></li>
+  <li><a href="#p2.4-estimation-et-intervalles-de-confiance" id="toc-p2.4-estimation-et-intervalles-de-confiance" class="nav-link" data-scroll-target="#p2.4-estimation-et-intervalles-de-confiance">P2.4 Estimation et intervalles de confiance</a></li>
+  <li><a href="#p2.5-vraisemblance" id="toc-p2.5-vraisemblance" class="nav-link" data-scroll-target="#p2.5-vraisemblance">P2.5 Vraisemblance</a></li>
+  <li><a href="#p2.6-modèles-de-régression-pour-des-données-de-comptage" id="toc-p2.6-modèles-de-régression-pour-des-données-de-comptage" class="nav-link" data-scroll-target="#p2.6-modèles-de-régression-pour-des-données-de-comptage">P2.6 Modèles de régression pour des données de comptage</a></li>
+  <li><a href="#p2.7-auto-évaluation" id="toc-p2.7-auto-évaluation" class="nav-link" data-scroll-target="#p2.7-auto-évaluation">P2.7 Auto-évaluation</a></li>
+  <li><a href="#p2.8-ressources-complémentaires" id="toc-p2.8-ressources-complémentaires" class="nav-link" data-scroll-target="#p2.8-ressources-complémentaires">P2.8 Ressources complémentaires</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Federica-Giardina/TIMERA-preparatory/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-prelim-stats" class="quarto-section-identifier">P2 Concepts statistiques et épidémiologiques</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- Translation of 00b-prelim-stats-epi.qmd (fr). Draft translation, under review.
+     Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
+     and file names unchanged. When the review is complete, remove the box marked
+     .translation-review. After changes to the English text:
+     py preparatory/translations.py status --diff -->
+<p><em>Apprentissage préliminaire — statistique et épidémiologie</em></p>
+<div class="translation-review callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Traduction provisoire
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ce chapitre a été traduit de l’anglais et est en cours de relecture. Les remarques sont les bienvenues.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Objectifs d’apprentissage
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>À la fin de ce chapitre, les participants devraient être capables de :</p>
+<ol type="1">
+<li>Définir et calculer les principales mesures de fréquence et de gravité des maladies : risque, taux d’attaque, taux d’incidence, prévalence et létalité.</li>
+<li>Décrire les caractéristiques des données de surveillance qui influencent leur analyse : définitions de cas, sous-détection, délais de notification et type de date.</li>
+<li>Identifier les lois de probabilité les plus utilisées en modélisation des maladies infectieuses, et les évaluer dans R.</li>
+<li>Calculer et interpréter des intervalles de confiance pour des proportions et des taux.</li>
+<li>Expliquer la notion de vraisemblance et d’estimateur du maximum de vraisemblance.</li>
+<li>Ajuster et interpréter un modèle de régression de Poisson pour des données de comptage.</li>
+</ol>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="p2.1-mesures-de-fréquence-des-maladies" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p2.1-mesures-de-fréquence-des-maladies">P2.1 Mesures de fréquence des maladies</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mesure</th>
+<th>Définition</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Risque</strong> (incidence cumulée)</td>
+<td>nombre de nouveaux cas pendant une période ÷ population à risque au début de la période</td>
+<td>proportion d’enfants infectés pendant une épidémie de rougeole</td>
+</tr>
+<tr class="even">
+<td><strong>Taux d’attaque</strong></td>
+<td>risque pendant une épidémie (une proportion, malgré son nom)</td>
+<td>512 garçons alités sur 763 : 67 %</td>
+</tr>
+<tr class="odd">
+<td><strong>Taux d’attaque secondaire</strong></td>
+<td>nouveaux cas parmi les contacts d’un cas ÷ nombre de contacts</td>
+<td>proportion de contacts familiaux infectés</td>
+</tr>
+<tr class="even">
+<td><strong>Taux d’incidence</strong></td>
+<td>nombre de nouveaux cas ÷ personnes-temps à risque</td>
+<td>150 cas de tuberculose pour 100 000 personnes-années</td>
+</tr>
+<tr class="odd">
+<td><strong>Prévalence</strong></td>
+<td>nombre de cas existants ÷ population à un moment donné</td>
+<td>proportion d’enfants porteurs de parasites du paludisme lors d’une enquête</td>
+</tr>
+<tr class="even">
+<td><strong>Létalité</strong> (<em>case fatality ratio</em>, CFR)</td>
+<td>décès parmi les cas ÷ nombre de cas</td>
+<td>proportion de cas confirmés de maladie à virus Ebola qui décèdent</td>
+</tr>
+<tr class="odd">
+<td><strong>Létalité par infection</strong> (<em>infection fatality ratio</em>, IFR)</td>
+<td>décès ÷ nombre d’infections (y compris les infections non détectées)</td>
+<td>proportion de l’ensemble des infections par le SARS-CoV-2, estimées par une enquête sérologique, ayant entraîné un décès</td>
+</tr>
+<tr class="even">
+<td><strong>Taux de mortalité</strong></td>
+<td>décès ÷ personnes-temps dans l’ensemble de la population</td>
+<td>45 décès dus au paludisme pour 100 000 personnes-années chez les enfants de moins de cinq ans</td>
+</tr>
+</tbody>
+</table>
+<p>La prévalence, l’incidence et la durée sont liées : dans une situation stable, et lorsque la prévalence est faible,</p>
+<p><span class="math display">\[
+\text{prévalence} \approx \text{taux d'incidence} \times \text{durée moyenne de la maladie}.
+\]</span></p>
+<p>Cette relation se retrouve dans les modèles à compartiments, où le nombre d’individus dans un compartiment est égal au flux entrant multiplié par la durée moyenne passée dans ce compartiment.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Taux d'attaque lors de l'épidémie de grippe de 1978 dans un internat</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>attack_rate <span class="ot">&lt;-</span> <span class="dv">512</span> <span class="sc">/</span> <span class="dv">763</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>attack_rate</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 0.6710354</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prévalence à partir de l'incidence et de la durée : 150 cas pour 100 000 par an,</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># durée moyenne de la tuberculose non traitée d'environ 2 ans</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dv">150</span> <span class="sc">/</span> <span class="fl">1e5</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fl">1e5</span>     <span class="co"># cas prévalents pour 100 000</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 300</code></pre>
+</div>
+</div>
+<p>La létalité est une propriété des <em>cas détectés</em> et dépend de la définition de cas et de l’intensité du dépistage : si les cas bénins ne sont pas détectés, la létalité surestime le risque de décès par infection. Pendant une épidémie, la létalité calculée à partir des cas notifiés est également biaisée par le délai entre le début des symptômes et le décès (<em>livre du cours : Severity: the case fatality ratio</em>).</p>
+</section>
+<section id="p2.2-caractéristiques-des-données-de-surveillance" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p2.2-caractéristiques-des-données-de-surveillance">P2.2 Caractéristiques des données de surveillance</h2>
+<p>Les modèles sont souvent ajustés à des données de surveillance de routine, qui présentent plusieurs caractéristiques dont il faut tenir compte <span class="citation" data-cites="cdc2012">(<a href="references.fr.html#ref-cdc2012" role="doc-biblioref">Centers for Disease Control and Prevention 2012</a>)</span> :</p>
+<ul>
+<li>Les <strong>définitions de cas</strong> distinguent les cas suspects, probables et confirmés ; une modification de la définition de cas modifie les nombres notifiés.</li>
+<li><strong>Sous-détection</strong> : seule une partie des infections entraîne des symptômes, un recours aux soins, un test et une notification. Cette proportion peut évoluer dans le temps, par exemple lorsque la capacité de dépistage augmente.</li>
+<li><strong>Délais de notification</strong> : les cas sont notifiés des jours ou des semaines après le début des symptômes, de sorte que les effectifs les plus récents sont incomplets (<em>livre du cours : Reporting delays and nowcasting</em>).</li>
+<li><strong>Type de date</strong> : date d’infection, de début des symptômes, de consultation, de prélèvement, de confirmation au laboratoire ou de notification. Chaque date implique un délai différent par rapport à l’infection.</li>
+<li><strong>Agrégation</strong> : les systèmes de surveillance intégrée des maladies et riposte (SIMR) et DHIS2 rapportent généralement des effectifs hebdomadaires par district ; les listes linéaires comportent une ligne par cas.</li>
+</ul>
+<p>La <strong>courbe épidémique</strong> — le nombre de cas par date de début des symptômes — est la description de base d’une épidémie et la principale donnée d’entrée des modèles de transmission. L’épidémiologie descriptive selon le temps, le lieu et les personnes est traitée en détail par <span class="citation" data-cites="cdc2012">Centers for Disease Control and Prevention (<a href="references.fr.html#ref-cdc2012" role="doc-biblioref">2012</a>)</span>, leçons 1 et 4 à 6.</p>
+</section>
+<section id="p2.3-lois-de-probabilité" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p2.3-lois-de-probabilité">P2.3 Lois de probabilité</h2>
+<p>Les lois de probabilité décrivent la variabilité des effectifs et des durées. Les suivantes sont utilisées tout au long du cours :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 22%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Loi</th>
+<th>Type</th>
+<th>Moyenne</th>
+<th>Variance</th>
+<th>Utilisation courante en modélisation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Binomiale</strong>(<span class="math inline">\(n\)</span>, <span class="math inline">\(p\)</span>)</td>
+<td>effectifs de 0 à <span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(np\)</span></td>
+<td><span class="math inline">\(np(1-p)\)</span></td>
+<td>nombre d’infectés parmi <span class="math inline">\(n\)</span> contacts ; nombre de séropositifs dans une enquête</td>
+</tr>
+<tr class="even">
+<td><strong>Poisson</strong>(<span class="math inline">\(\lambda\)</span>)</td>
+<td>effectifs ≥ 0</td>
+<td><span class="math inline">\(\lambda\)</span></td>
+<td><span class="math inline">\(\lambda\)</span></td>
+<td>nombre de cas par jour ou par semaine</td>
+</tr>
+<tr class="odd">
+<td><strong>Binomiale négative</strong>(<span class="math inline">\(\mu\)</span>, <span class="math inline">\(k\)</span>)</td>
+<td>effectifs ≥ 0</td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td><span class="math inline">\(\mu + \mu^2/k\)</span></td>
+<td>effectifs surdispersés ; nombre de cas secondaires (super-propagation)</td>
+</tr>
+<tr class="even">
+<td><strong>Exponentielle</strong>(taux <span class="math inline">\(r\)</span>)</td>
+<td>durées &gt; 0</td>
+<td><span class="math inline">\(1/r\)</span></td>
+<td><span class="math inline">\(1/r^2\)</span></td>
+<td>durée passée dans un compartiment d’un modèle d’EDO</td>
+</tr>
+<tr class="odd">
+<td><strong>Gamma</strong>(forme <span class="math inline">\(a\)</span>, taux <span class="math inline">\(b\)</span>)</td>
+<td>durées &gt; 0</td>
+<td><span class="math inline">\(a/b\)</span></td>
+<td><span class="math inline">\(a/b^2\)</span></td>
+<td>période d’incubation, intervalles sériel et de génération, délais de notification</td>
+</tr>
+<tr class="even">
+<td><strong>Log-normale</strong>(<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>)</td>
+<td>durées &gt; 0</td>
+<td><span class="math inline">\(e^{\mu + \sigma^2/2}\)</span></td>
+<td><span class="math inline">\((e^{\sigma^2} - 1)\, e^{2\mu + \sigma^2}\)</span></td>
+<td>période d’incubation</td>
+</tr>
+<tr class="odd">
+<td><strong>Normale</strong>(<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>)</td>
+<td>continue</td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td><span class="math inline">\(\sigma^2\)</span></td>
+<td>approximations ; lois a priori</td>
+</tr>
+<tr class="even">
+<td><strong>Bêta</strong>(<span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>)</td>
+<td>proportions dans (0, 1)</td>
+<td><span class="math inline">\(\dfrac{a}{a+b}\)</span></td>
+<td><span class="math inline">\(\dfrac{ab}{(a+b)^2(a+b+1)}\)</span></td>
+<td>lois a priori pour des proportions</td>
+</tr>
+</tbody>
+</table>
+<p>Dans R, chaque loi dispose de quatre fonctions : <code>d...</code> (probabilité ou densité), <code>p...</code> (fonction de répartition), <code>q...</code> (fonction quantile) et <code>r...</code> (tirages aléatoires), par ex. <code>dpois()</code>, <code>ppois()</code>, <code>qpois()</code>, <code>rpois()</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">3</span>, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">prob =</span> <span class="fl">0.1</span>)       <span class="co"># P(3 contacts infectés sur 20)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 0.1901199</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppois</span>(<span class="dv">10</span>, <span class="at">lambda =</span> <span class="dv">6</span>)                  <span class="co"># P(au plus 10 cas dans une semaine de moyenne 6)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 0.9573791</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qgamma</span>(<span class="fl">0.95</span>, <span class="at">shape =</span> <span class="dv">4</span>, <span class="at">rate =</span> <span class="fl">0.4</span>)    <span class="co"># 95e centile d'un délai gamma de moyenne 10 jours</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 19.38414</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pexp</span>(<span class="dv">5</span>, <span class="at">rate =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">5</span>)                  <span class="co"># P(quitter un compartiment avant sa durée moyenne)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 0.6321206</code></pre>
+</div>
+</div>
+<p>Le dernier résultat montre une propriété importante des modèles à compartiments fondés sur des équations différentielles ordinaires : la durée passée dans un compartiment suit une loi exponentielle, de sorte que 63 % des individus quittent le compartiment avant sa durée moyenne et qu’une part importante y reste beaucoup plus longtemps. Les distributions réelles des délais sont généralement moins dispersées et sont mieux décrites par une loi gamma ou log-normale (<a href="#fig-exp-gamma" class="quarto-xref">Figure&nbsp;<span>1</span></a>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-exp-gamma" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-exp-gamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="00b-prelim-stats-epi.fr_files/figure-html/fig-exp-gamma-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exp-gamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Lois exponentielle et gamma de même durée moyenne (5 jours). La loi exponentielle, qu’implique un compartiment unique dans un modèle d’EDO, attribue une probabilité élevée aux durées très courtes et très longues.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La loi binomiale négative comporte un <strong>paramètre de dispersion</strong> <span class="math inline">\(k\)</span> ; lorsque <span class="math inline">\(k\)</span> augmente, elle se rapproche de la loi de Poisson. De petites valeurs de <span class="math inline">\(k\)</span> correspondent à des effectifs plus variables que ne le prévoit un modèle de Poisson (<strong>surdispersion</strong>), ce qui est fréquent dans les données de surveillance et dans le nombre de cas secondaires par cas (<em>livre du cours : Stochastic models</em>).</p>
+</section>
+<section id="p2.4-estimation-et-intervalles-de-confiance" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p2.4-estimation-et-intervalles-de-confiance">P2.4 Estimation et intervalles de confiance</h2>
+<p>Une statistique d’échantillon, telle qu’une proportion, estime une valeur inconnue de la population avec une erreur d’échantillonnage. Un <strong>intervalle de confiance à 95 %</strong> est construit de telle sorte que, sur des échantillons répétés, 95 % de ces intervalles contiendraient la vraie valeur.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Séroprévalence : 34 positifs sur 120 testés (intervalle de confiance binomial exact)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">34</span>, <span class="dv">120</span>)<span class="sc">$</span>conf.int</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 0.2048557 0.3728205
+## attr(,"conf.level")
+## [1] 0.95</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Taux d'incidence : 45 cas pour 30 000 personnes-années (intervalle de confiance de Poisson exact)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">poisson.test</span>(<span class="dv">45</span>, <span class="at">T =</span> <span class="dv">30000</span>)<span class="sc">$</span>conf.int <span class="sc">*</span> <span class="fl">1e5</span>    <span class="co"># pour 100 000 personnes-années</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 109.4110 200.7118
+## attr(,"conf.level")
+## [1] 0.95</code></pre>
+</div>
+</div>
+<p>Les intervalles de confiance ne reflètent que l’erreur d’échantillonnage aléatoire ; ils ne tiennent pas compte des erreurs systématiques telles que le biais de sélection, les erreurs de classement ou la sous-détection.</p>
+</section>
+<section id="p2.5-vraisemblance" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p2.5-vraisemblance">P2.5 Vraisemblance</h2>
+<p>La <strong>vraisemblance</strong> exprime la probabilité des données observées pour une valeur donnée d’un paramètre. Pour 34 positifs sur 120 testés, la vraisemblance d’une séroprévalence <span class="math inline">\(p\)</span> est la probabilité binomiale <span class="math inline">\(L(p) = \binom{120}{34} p^{34} (1-p)^{86}\)</span>. L’<strong>estimateur du maximum de vraisemblance (EMV)</strong> est la valeur de <span class="math inline">\(p\)</span> qui maximise <span class="math inline">\(L(p)\)</span> ; ici, il est égal à la proportion observée <span class="math inline">\(34/120\)</span>. En pratique, on utilise le logarithme de la vraisemblance, plus commode numériquement.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>log_lik <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="fu">dbinom</span>(<span class="dv">34</span>, <span class="at">size =</span> <span class="dv">120</span>, <span class="at">prob =</span> p, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mle <span class="ot">&lt;-</span> <span class="fu">optimize</span>(log_lik, <span class="at">interval =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>), <span class="at">maximum =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>maximum</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">mle =</span> mle, <span class="at">observed =</span> <span class="dv">34</span> <span class="sc">/</span> <span class="dv">120</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>##       mle  observed 
+## 0.2833345 0.2833333</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-likelihood" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="00b-prelim-stats-epi.fr_files/figure-html/fig-likelihood-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Log-vraisemblance de la séroprévalence <span class="math inline">\(p\)</span> pour 34 positifs sur 120 testés, relativement à son maximum. L’estimateur du maximum de vraisemblance est indiqué par la ligne verticale ; les valeurs situées au-dessus de la ligne en tirets forment un intervalle de confiance approché à 95 %.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Le même principe sert à estimer les paramètres des modèles de transmission : le modèle prédit le nombre attendu de cas, et l’on retient les paramètres qui maximisent la vraisemblance des effectifs observés (<em>livre du cours : Linking models to data</em>). Les valeurs du paramètre pour lesquelles la log-vraisemblance se situe à moins de 1,92 unité de son maximum forment un intervalle de confiance approché à 95 % (<a href="#fig-likelihood" class="quarto-xref">Figure&nbsp;<span>2</span></a>). En inférence <strong>bayésienne</strong>, la vraisemblance est combinée à une loi a priori (<em>livre du cours : Bayesian model fitting</em>).</p>
+</section>
+<section id="p2.6-modèles-de-régression-pour-des-données-de-comptage" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p2.6-modèles-de-régression-pour-des-données-de-comptage">P2.6 Modèles de régression pour des données de comptage</h2>
+<p>La <strong>régression de Poisson</strong> modélise le logarithme de l’effectif attendu comme une fonction linéaire de variables explicatives. Un terme de décalage (<strong><em>offset</em></strong>) égal au logarithme de la population (ou des personnes-temps) transforme les effectifs en taux ; les coefficients exponentiés sont des <strong>rapports de taux</strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">district =</span> <span class="fu">paste</span>(<span class="st">"District"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">population =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">12</span>, <span class="dv">50000</span>, <span class="dv">300000</span>)),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">coverage =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">12</span>, <span class="fl">0.5</span>, <span class="fl">0.95</span>), <span class="dv">2</span>)            <span class="co"># couverture vaccinale</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cases =</span> <span class="fu">rpois</span>(<span class="dv">12</span>, <span class="at">lambda =</span> population <span class="sc">*</span> <span class="fl">2e-4</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">3</span> <span class="sc">*</span> (coverage <span class="sc">-</span> <span class="fl">0.7</span>))))</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(cases <span class="sc">~</span> coverage <span class="sc">+</span> <span class="fu">offset</span>(<span class="fu">log</span>(population)), <span class="at">family =</span> poisson, <span class="at">data =</span> districts)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)<span class="sc">$</span>coefficients</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>##              Estimate Std. Error    z value     Pr(&gt;|z|)
+## (Intercept) -6.566844  0.3575204 -18.367747 2.380913e-75
+## coverage    -2.773596  0.4703854  -5.896434 3.714418e-09</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(fit)[[<span class="st">"coverage"</span>]] <span class="sc">*</span> <span class="fl">0.1</span>)     <span class="co"># rapport de taux pour une hausse de 10 points de couverture</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 0.7577819</code></pre>
+</div>
+</div>
+<p>La régression de Poisson sur le temps sert aussi à estimer le <strong>taux de croissance</strong> d’une épidémie à partir des premiers effectifs de cas (<em>livre du cours : Estimation of the reproduction number from the growth rate</em>). Lorsque les effectifs sont surdispersés, les erreurs types d’un modèle de Poisson sont trop petites ; il convient alors d’utiliser un modèle de <strong>quasi-Poisson</strong> (<code>family = quasipoisson</code>) ou <strong>binomial négatif</strong> (<code>MASS::glm.nb()</code>).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Astuce</span>Exercice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Dans un district de 80 000 habitants, 240 cas de choléra et 6 décès sont notifiés au cours d’une épidémie de 10 semaines. Calculer le taux d’attaque pour 1 000 habitants et la létalité, avec leurs intervalles de confiance à 95 %.</li>
+<li>À l’aide de <code>rnbinom()</code>, simuler 1 000 effectifs hebdomadaires de moyenne 10 et de dispersion <span class="math inline">\(k\)</span> = 2, et comparer leur variance à celle de 1 000 effectifs de Poisson de moyenne 10.</li>
+<li>Une loi gamma a une moyenne de 9 jours et un écart type de 5 jours. Calculer ses paramètres de forme et de taux, ainsi que la proportion de délais supérieurs à 21 jours. (Indice : forme = moyenne²/écart type², taux = moyenne/écart type².)</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">240</span>, <span class="dv">80000</span>)<span class="sc">$</span>conf.int <span class="sc">*</span> <span class="dv">1000</span>    <span class="co"># taux d'attaque pour 1 000</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 2.632897 3.403844
+## attr(,"conf.level")
+## [1] 0.95</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">6</span>, <span class="dv">240</span>)<span class="sc">$</span>conf.int               <span class="co"># létalité</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>## [1] 0.009228601 0.053617475
+## attr(,"conf.level")
+## [1] 0.95</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">negbin =</span> <span class="fu">var</span>(<span class="fu">rnbinom</span>(<span class="dv">1000</span>, <span class="at">mu =</span> <span class="dv">10</span>, <span class="at">size =</span> <span class="dv">2</span>)), <span class="at">poisson =</span> <span class="fu">var</span>(<span class="fu">rpois</span>(<span class="dv">1000</span>, <span class="dv">10</span>)))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>##    negbin   poisson 
+## 61.016792  9.199243</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>shape <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="dv">5</span><span class="sc">^</span><span class="dv">2</span>; rate <span class="ot">&lt;-</span> <span class="dv">9</span> <span class="sc">/</span> <span class="dv">5</span><span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">shape =</span> shape, <span class="at">rate =</span> rate, <span class="at">p_over_21 =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pgamma</span>(<span class="dv">21</span>, shape, rate))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>##      shape       rate  p_over_21 
+## 3.24000000 0.36000000 0.02580851</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="p2.7-auto-évaluation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p2.7-auto-évaluation">P2.7 Auto-évaluation</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Distinguer le risque, le taux d’incidence et la prévalence, et calculer chacun à partir de données.</label></li>
+<li><label><input type="checkbox">Expliquer pourquoi la létalité dépend de la détection des cas.</label></li>
+<li><label><input type="checkbox">Décrire au moins trois caractéristiques des données de surveillance susceptibles de biaiser les analyses.</label></li>
+<li><label><input type="checkbox">Choisir une loi appropriée pour un effectif ou un délai, et l’évaluer dans R.</label></li>
+<li><label><input type="checkbox">Interpréter un intervalle de confiance à 95 %.</label></li>
+<li><label><input type="checkbox">Expliquer ce que sont une vraisemblance et un estimateur du maximum de vraisemblance.</label></li>
+<li><label><input type="checkbox">Interpréter le coefficient d’un modèle de régression de Poisson comme un rapport de taux.</label></li>
+</ul>
+</section>
+<section id="p2.8-ressources-complémentaires" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p2.8-ressources-complémentaires">P2.8 Ressources complémentaires</h2>
+<ul>
+<li><span class="citation" data-cites="cdc2012">Centers for Disease Control and Prevention (<a href="references.fr.html#ref-cdc2012" role="doc-biblioref">2012</a>)</span> : <em>Principles of Epidemiology in Public Health Practice</em>, cours gratuit d’auto-apprentissage des Centers for Disease Control and Prevention des États-Unis (en anglais ; les leçons 1 à 3 et 5 sont particulièrement pertinentes).</li>
+<li><span class="citation" data-cites="giesecke2017">Giesecke (<a href="references.fr.html#ref-giesecke2017" role="doc-biblioref">2017</a>)</span> : <em>Modern Infectious Disease Epidemiology</em> — une introduction à l’épidémiologie des maladies infectieuses, y compris l’investigation des épidémies et les notions de base sur la transmission.</li>
+<li><span class="citation" data-cites="rothman2012">Rothman (<a href="references.fr.html#ref-rothman2012" role="doc-biblioref">2012</a>)</span> : <em>Epidemiology: An Introduction</em> — mesures de fréquence des maladies et d’effet.</li>
+<li><span class="citation" data-cites="kirkwood2003">Kirkwood et Sterne (<a href="references.fr.html#ref-kirkwood2003" role="doc-biblioref">2003</a>)</span> : <em>Essential Medical Statistics</em> — intervalles de confiance, taux, régression de Poisson et vraisemblance (chapitres sur les taux et sur la vraisemblance).</li>
+<li><span class="citation" data-cites="diez2019">Diez et al. (<a href="references.fr.html#ref-diez2019" role="doc-biblioref">2019</a>)</span> : <em>OpenIntro Statistics</em> — un manuel gratuit d’introduction à la statistique (<a href="https://www.openintro.org/book/os/" class="uri">https://www.openintro.org/book/os/</a>).</li>
+<li><span class="citation" data-cites="pawitan2001">Pawitan (<a href="references.fr.html#ref-pawitan2001" role="doc-biblioref">2001</a>)</span> : <em>In All Likelihood</em> — un exposé avancé de l’inférence fondée sur la vraisemblance.</li>
+<li>PATH/MACEPA, <em>Foundational Epidemiology Knowledge</em> (<a href="https://path-global-health.github.io/df-foundational-epi-skills/" class="uri">https://path-global-health.github.io/df-foundational-epi-skills/</a>, en anglais) — un bref rappel sur les mesures de fréquence et d’association, les types d’études, les mesures de détection des maladies, la standardisation et la confusion, avec un quiz et des séries d’exercices.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-cdc2012" class="csl-entry" role="listitem">
+Centers for Disease Control and Prevention. 2012. <em>Principles of Epidemiology in Public Health Practice: An Introduction to Applied Epidemiology and Biostatistics</em>. 3ᵉ éd. U.S. Department of Health; Human Services, CDC.
+</div>
+<div id="ref-diez2019" class="csl-entry" role="listitem">
+Diez, David, Mine Çetinkaya-Rundel, et Christopher D. Barr. 2019. <em>OpenIntro Statistics</em>. 4ᵉ éd. OpenIntro. <a href="https://www.openintro.org/book/os/">https://www.openintro.org/book/os/</a>.
+</div>
+<div id="ref-giesecke2017" class="csl-entry" role="listitem">
+Giesecke, Johan. 2017. <em>Modern Infectious Disease Epidemiology</em>. 3ᵉ éd. CRC Press.
+</div>
+<div id="ref-kirkwood2003" class="csl-entry" role="listitem">
+Kirkwood, Betty R., et Jonathan A. C. Sterne. 2003. <em>Essential Medical Statistics</em>. 2ᵉ éd. Blackwell Science.
+</div>
+<div id="ref-pawitan2001" class="csl-entry" role="listitem">
+Pawitan, Yudi. 2001. <em>In All Likelihood: Statistical Modelling and Inference Using Likelihood</em>. Oxford University Press.
+</div>
+<div id="ref-rothman2012" class="csl-entry" role="listitem">
+Rothman, Kenneth J. 2012. <em>Epidemiology: An Introduction</em>. 2ᵉ éd. Oxford University Press.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./00a-prelim-r.fr.html" class="pagination-link" aria-label="P1 Introduction à R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">P1 Introduction à R</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./00c-prelim-maths.fr.html" class="pagination-link" aria-label="P3 Bases mathématiques">
+        <span class="nav-page-text">P3 Bases mathématiques</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Federica-Giardina/TIMERA-preparatory/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li></ul></div></div></div></footer></body></html>
