@@ -4,7 +4,7 @@ For each language (Quarto profiles en, fr and pt) this renders the HTML book and
 Word version into docs/<language>/. It then copies the datasets archive to
 docs/datasets/ and writes docs/index.html, a page linking to the three versions.
 The folder docs/ is published with GitHub Pages (Settings → Pages → Deploy from a
-branch → main, /docs) at https://federica-giardina.github.io/TIMERA-preparatory/.
+branch → main, /docs) at https://federica-giardina.github.io/TIMERA-preparatory1/.
 
 It also renders, for internal use only, a short Word version of each language (text,
 equations and figures, without code and exercises; see short-docx.lua) into

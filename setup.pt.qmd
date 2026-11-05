@@ -62,4 +62,4 @@ Os materiais do próprio curso estão disponíveis em <https://github.com/Federi
 
 ## Conjuntos de dados
 
-Todos os conjuntos de dados utilizados no Módulo 1 podem ser descarregados como ficheiros CSV num único arquivo, [TIMERA-datasets.zip](https://federica-giardina.github.io/TIMERA-preparatory/datasets/TIMERA-datasets.zip), que contém também uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.
+Todos os conjuntos de dados utilizados no Módulo 1 podem ser descarregados como ficheiros CSV num único arquivo, [TIMERA-datasets.zip](https://federica-giardina.github.io/TIMERA-preparatory1/datasets/TIMERA-datasets.zip), que contém também uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.

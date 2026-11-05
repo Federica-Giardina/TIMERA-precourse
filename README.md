@@ -6,7 +6,7 @@ Self-study material for participants of **TIMERA** (Training Initiative for Mode
 - **P2** Statistical and epidemiological concepts
 - **P3** Mathematical background
 
-**Read online:** <https://federica-giardina.github.io/TIMERA-preparatory/> — each language version can also be downloaded as a Word document, together with the datasets used in Module 1 (`datasets/TIMERA-datasets.zip`).
+**Read online:** <https://federica-giardina.github.io/TIMERA-preparatory1/> — each language version can also be downloaded as a Word document, together with the datasets used in Module 1 (`datasets/TIMERA-datasets.zip`).
 
 ## Rendering
 

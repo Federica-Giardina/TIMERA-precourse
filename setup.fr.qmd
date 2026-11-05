@@ -62,4 +62,4 @@ Les supports de la formation elle-même sont disponibles à l'adresse <https://g
 
 ## Jeux de données
 
-Tous les jeux de données utilisés dans le module 1 peuvent être téléchargés sous forme de fichiers CSV dans une archive unique, [TIMERA-datasets.zip](https://federica-giardina.github.io/TIMERA-preparatory/datasets/TIMERA-datasets.zip), qui contient également une description de chaque jeu de données et de sa source (en anglais). Les fichiers CSV peuvent être ouverts dans R, Excel ou tout logiciel statistique.
+Tous les jeux de données utilisés dans le module 1 peuvent être téléchargés sous forme de fichiers CSV dans une archive unique, [TIMERA-datasets.zip](https://federica-giardina.github.io/TIMERA-preparatory1/datasets/TIMERA-datasets.zip), qui contient également une description de chaque jeu de données et de sa source (en anglais). Les fichiers CSV peuvent être ouverts dans R, Excel ou tout logiciel statistique.
