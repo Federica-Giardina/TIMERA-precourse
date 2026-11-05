@@ -1,0 +1,21 @@
+{
+  "hash": "f0d9ed7ae984669572dcfc8fb8e40929",
+  "result": {
+    "engine": "knitr",
+    "markdown": "<!-- Translation of setup.qmd (fr). Translate the text only: keep the code, the labels\n     ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation\n     is complete, remove the box marked .translation-pending and run\n     py preparatory/translations.py accept fr setup.qmd -->\n\n# Installation de R et RStudio {#sec-setup}\n\n::: {.callout-warning .translation-pending}\n## Traduction en cours\nCe chapitre n'a pas encore été traduit : le texte ci-dessous est la version anglaise.\n:::\n\n## R and RStudio\n\n1. Install **R** (version 4.4 or later) from <https://cran.r-project.org>, selecting the appropriate operating system (for Windows: *Download R for Windows → base*).\n2. Install **RStudio Desktop** (free of charge) from <https://posit.co/download/rstudio-desktop/>.\n3. Open RStudio. R runs within RStudio and does not need to be opened separately.\n\nWhere software cannot be installed locally, **Posit Cloud** (<https://posit.cloud>) can be used in a web browser.\n\n## Packages\n\nThe following code installs all packages used in the course. Installation requires an internet connection and takes approximately 5–15 minutes.\n\n\n::: {.cell}\n\n```{.r .cell-code}\npackages <- c(\n  \"tidyverse\",     # data management and visualisation\n  \"deSolve\",       # differential equations (compartmental models)\n  \"outbreaks\",     # historical outbreak datasets\n  \"fitdistrplus\",  # fitting of delay distributions\n  \"EpiEstim\",      # time-varying reproduction number\n  \"epichains\",     # branching processes\n  \"finalsize\",     # final size in age-structured populations\n  \"socialmixr\",    # social contact matrices\n  \"coda\",          # MCMC diagnostics\n  \"patchwork\",     # combination of figures\n  \"knitr\", \"rmarkdown\"\n)\ninstall.packages(setdiff(packages, rownames(installed.packages())))\n```\n:::\n\n\nThe installation can be verified with a small SIR model:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(deSolve)\nout <- ode(y = c(S = 999, I = 1, R = 0), times = 0:50,\n           func = function(t, y, p) with(as.list(c(y, p)), {\n             list(c(-b * S * I / 1000, b * S * I / 1000 - g * I, g * I))\n           }),\n           parms = c(b = 0.5, g = 0.25))\nplot(out)\n```\n:::\n\n\nThe installation is successful if three plots (S, I and R against time) are displayed.\n\n## Course materials\n\nThe materials of the course itself are available at <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*). After unzipping, the folder should be opened as an RStudio Project (*File → New Project → Existing Directory*).\n",
+    "supporting": [
+      "setup.fr_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

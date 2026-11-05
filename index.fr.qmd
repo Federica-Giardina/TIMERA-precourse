@@ -1,0 +1,37 @@
+<!-- Translation of index.qmd (fr). Translate the text only: keep the code, the labels
+     ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
+     is complete, remove the box marked .translation-pending and run
+     py preparatory/translations.py accept fr index.qmd -->
+
+# Bienvenue {.unnumbered}
+
+*Également disponible en : [English](../en/index.html) · [Português](../pt/index.html)*
+
+Ce livre contient le matériel d'**apprentissage préliminaire** de **TIMERA**, l'*Initiative de formation à la modélisation pour la riposte aux épidémies en Afrique*. Il résume les connaissances de base supposées acquises pendant la formation et est destiné à l'auto-apprentissage **avant le premier module en présentiel**, ainsi qu'à servir de référence pendant le programme.
+
+| Chapitre | Contenu | Temps d'étude estimé |
+|---|---|---|
+| @sec-r | Bases de R et RStudio : objets, types de données, fonctions, tableaux de données, manipulation des données, graphiques, instructions conditionnelles et boucles | 15 à 25 heures pour les participants qui découvrent R ; 2 à 4 heures sinon |
+| @sec-prelim-stats | Mesures de fréquence des maladies, données de surveillance, lois de probabilité, estimation, vraisemblance et régression pour des données de comptage | 6 à 10 heures |
+| @sec-prelim-maths | Taux et probabilités, croissance exponentielle, dérivées et équations différentielles, équilibres, matrices et méthodes numériques | 6 à 10 heures |
+
+Chaque chapitre contient une présentation concise de la matière, des exercices avec leurs solutions, une grille d'auto-évaluation et des références vers des ressources complémentaires.
+
+## Préparation avant le premier module {.unnumbered}
+
+1. Installer R, RStudio et les packages utilisés pendant la formation (@sec-setup).
+2. Étudier les trois chapitres de ce livre. Les participants sans expérience préalable de R commenceront par les tutoriels interactifs mentionnés dans @sec-r, car les exercices des deux autres chapitres utilisent également R.
+3. Utiliser la grille d'auto-évaluation à la fin de chaque chapitre pour déterminer si une étude complémentaire est nécessaire.
+4. Identifier, dans son propre contexte professionnel, une question de santé publique à laquelle un modèle pourrait répondre. Cette question constitue la base du projet de la formation.
+
+::: {.content-hidden when-meta="short-version"}
+## Conventions {.unnumbered}
+
+Le code est présenté dans des encadrés gris ; le résultat apparaît en dessous, précédé de `##`. Il est recommandé de taper le code plutôt que de le copier, afin d'en lire attentivement chaque ligne. Les exercices sont présentés dans des encadrés verts ; les solutions sont masquées et peuvent être affichées.
+:::
+
+Les références en *italique* à des chapitres du **livre du cours TIMERA** indiquent où un sujet est approfondi pendant la formation. Le livre du cours est disponible à l'adresse <https://github.com/Federica-Giardina/TIMERA>.
+
+## Licence {.unnumbered}
+
+Ce livre est mis à disposition selon les termes de la [licence Creative Commons Attribution – Pas d'utilisation commerciale – Partage dans les mêmes conditions 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr).

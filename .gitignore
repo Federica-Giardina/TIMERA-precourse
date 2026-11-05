@@ -1,0 +1,9 @@
+/.quarto/
+/_book/
+.Rproj.user
+.Rhistory
+.RData
+**/*.quarto_ipynb
+/_book-short-tmp/
+/*_files/
+/_internal/

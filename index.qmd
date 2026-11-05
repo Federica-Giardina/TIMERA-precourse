@@ -1,0 +1,32 @@
+# Welcome {.unnumbered}
+
+*Also available in: [Français](../fr/index.html) · [Português](../pt/index.html)*
+
+This book contains the **preliminary learning** material of **TIMERA**, the *Training Initiative for Modelling Epidemic Response in Africa*. It summarises the background knowledge assumed in the course and is intended for self-study **before the first face-to-face module**, and as a reference during the programme.
+
+| Chapter | Content | Estimated study time |
+|---|---|---|
+| @sec-r | Basic R and RStudio: objects, data types, functions, data frames, data manipulation, graphs, conditional statements and loops | 15–25 hours for participants new to R; 2–4 hours otherwise |
+| @sec-prelim-stats | Measures of disease frequency, surveillance data, probability distributions, estimation, likelihood and regression for counts | 6–10 hours |
+| @sec-prelim-maths | Rates and probabilities, exponential growth, derivatives and differential equations, equilibria, matrices and numerical methods | 6–10 hours |
+
+Each chapter contains a concise presentation of the material, exercises with solutions, a self-assessment checklist and references to additional sources.
+
+## Preparation before the first module {.unnumbered}
+
+1. Install R, RStudio and the packages used in the course (@sec-setup).
+2. Study the three chapters of this book. Participants without previous experience in R should begin with the interactive tutorials referred to in @sec-r, as the exercises in the other two chapters also use R.
+3. Use the self-assessment checklist at the end of each chapter to decide whether further study is required.
+4. Identify a public health question from your own professional context that could be addressed with a model. This question forms the basis of the course project.
+
+::: {.content-hidden when-meta="short-version"}
+## Conventions {.unnumbered}
+
+Code is displayed in grey boxes; the output appears underneath, preceded by `##`. Typing the code, rather than copying it, is recommended, as it encourages careful reading of each line. Exercises are presented in green boxes; solutions are collapsed and can be expanded.
+:::
+
+References in *italics* to chapters of the **TIMERA course book** indicate where a topic is developed further during the course. The course book is available at <https://github.com/Federica-Giardina/TIMERA>.
+
+## Licence {.unnumbered}
+
+This book is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).

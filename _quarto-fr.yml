@@ -1,0 +1,17 @@
+lang: fr
+
+project:
+  output-dir: _book/fr
+
+book:
+  title: "Apprentissage préliminaire"
+  subtitle: "TIMERA — Initiative de formation à la modélisation pour la riposte aux épidémies en Afrique"
+  output-file: "TIMERA-apprentissage-preliminaire-fr"
+  chapters:
+    - index.fr.qmd
+    - 00a-prelim-r.fr.qmd
+    - 00b-prelim-stats-epi.fr.qmd
+    - 00c-prelim-maths.fr.qmd
+  appendices:
+    - setup.fr.qmd
+    - references.fr.qmd

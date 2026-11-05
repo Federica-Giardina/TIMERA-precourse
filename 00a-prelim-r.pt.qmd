@@ -1,0 +1,363 @@
+<!-- Translation of 00a-prelim-r.qmd (pt). Translate the text only: keep the code, the labels
+     ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
+     is complete, remove the box marked .translation-pending and run
+     py preparatory/translations.py accept pt 00a-prelim-r.qmd -->
+
+# P1 Introdução ao R {#sec-r .unnumbered}
+
+*Aprendizagem preliminar — noções básicas de R e RStudio*
+
+::: {.callout-warning .translation-pending}
+## Tradução em curso
+Este capítulo ainda não foi traduzido: o texto abaixo é a versão inglesa.
+:::
+
+```{r}
+#| include: false
+source("_common.R")
+```
+
+::: {.callout-tip icon="false"}
+## Learning objectives
+By the end of this chapter, participants should be able to:
+
+1. Use the RStudio interface, create and save scripts, and work within an RStudio Project.
+2. Create objects of the principal data types, and select elements of vectors and data frames.
+3. Use built-in functions and packages, consult help pages and write simple functions.
+4. Import a dataset and manipulate it with the principal `tidyverse` functions.
+5. Produce basic graphs with `ggplot2`.
+6. Use conditional statements and `for` loops.
+:::
+
+This chapter introduces the basic elements of the R language. It does not assume previous programming experience. The application of R to the analysis of outbreak data and to modelling is the subject of @sec-r-epi in Module 1, and R is used in the practical sessions of every chapter of the book. Installation instructions are given in @sec-setup.
+
+## P1.1 Interactive tutorials {.unnumbered .keep-short}
+
+Participants without previous experience in R are expected to complete the **Applied Epi interactive R tutorials** (sessions 1–6), which are available free of charge in English, French, Portuguese and Spanish at <https://www.appliedepi.org/resources/tutorials.html>. Each session requires approximately 2–4 hours:
+
+| Session | Topic |
+|---|---|
+| 1 | Installation of R and RStudio |
+| 2 | Data preparation |
+| 3 | R syntax |
+| 4 | Data cleaning |
+| 5 | Summary tables |
+| 6 | Data visualisation with `ggplot2` |
+| 7 (optional) | Obtaining help and using AI tools |
+
+The remainder of this chapter summarises the same material in a compact form, for reference.
+
+## P1.2 RStudio and projects {.unnumbered}
+
+RStudio has four panels: the **script editor** (top left), in which code is written and saved; the **console** (bottom left), in which code is executed; the **environment** (top right), which lists the objects in memory; and the **files, plots and help** panel (bottom right). A line of code in a script is executed with *Ctrl + Enter* (*Cmd + Enter* on macOS); text after `#` is a comment and is not executed.
+
+Work should be organised in an **RStudio Project** (*File → New Project*). All file paths are then relative to the project folder, so that the analysis can be moved to another computer without modification.
+
+## P1.3 R as a calculator {.unnumbered}
+
+```{r}
+3 + 4 * 2          # multiplication before addition
+(3 + 4) * 2
+10 / 4
+2^10               # power
+sqrt(16)
+exp(1)             # the number e
+log(100)           # natural logarithm
+log10(100)         # logarithm with base 10
+round(3.14159, 2)
+```
+
+## P1.4 Objects and assignment {.unnumbered}
+
+Values are stored in **objects** with the assignment operator `<-`. Object names are case-sensitive, cannot start with a number, and should be informative.
+
+```{r}
+population <- 250000
+cases <- 375
+incidence <- cases / population * 100000
+incidence
+```
+
+## P1.5 Data types and vectors {.unnumbered}
+
+A **vector** is an ordered collection of values of the same type, created with `c()`. The principal types are numeric, character (text), logical (`TRUE`/`FALSE`), factor (categorical variable with defined levels) and date.
+
+```{r}
+age <- c(4, 12, 35, 67, 23)                              # numeric
+sex <- c("female", "male", "male", "female", "female")   # character
+vaccinated <- c(TRUE, FALSE, TRUE, TRUE, FALSE)          # logical
+age_group <- factor(c("0-14", "0-14", "15-64", "65+", "15-64"),
+                    levels = c("0-14", "15-64", "65+"))  # factor
+visit <- as.Date(c("2026-03-01", "2026-03-04", "2026-03-04", "2026-03-09", "2026-03-12"))
+
+class(age); class(sex); class(vaccinated); class(age_group); class(visit)
+length(age)
+```
+
+Arithmetic and comparisons are **vectorised**: they are applied to each element.
+
+```{r}
+age * 12                   # age in months
+age >= 15                  # logical vector
+sum(vaccinated)            # TRUE counts as 1
+mean(vaccinated)           # proportion vaccinated
+table(age_group)
+```
+
+### P1.5.1 Selecting elements {.unnumbered}
+
+```{r}
+age[2]                     # second element
+age[c(1, 3)]               # first and third elements
+age[-1]                    # all except the first
+age[age >= 15]             # elements meeting a condition
+sex[vaccinated]            # sex of vaccinated persons
+```
+
+### P1.5.2 Missing values {.unnumbered}
+
+Missing values are represented by `NA`. Most summary functions return `NA` if any value is missing, unless `na.rm = TRUE` is specified.
+
+```{r}
+weight <- c(12.5, NA, 70.2, 64.0, 58.3)
+mean(weight)
+mean(weight, na.rm = TRUE)
+is.na(weight)
+sum(is.na(weight))
+```
+
+### P1.5.3 Operators {.unnumbered}
+
+| Operator | Meaning |
+|---|---|
+| `<-` | assignment |
+| `+ - * / ^` | arithmetic |
+| `== != < > <= >=` | comparison |
+| <code>&amp; &#124; !</code> | logical *and*, *or*, *not* |
+| `%in%` | membership, e.g. `sex %in% c("female")` |
+| `$` | extraction of a column from a data frame |
+| <code>&#124;&gt;</code> | pipe: passes the result on the left to the function on the right |
+
+## P1.6 Functions and packages {.unnumbered}
+
+A **function** takes inputs (*arguments*) and returns an output. Arguments can be given by position or by name; arguments with default values can be omitted.
+
+```{r}
+round(123.456, digits = 1)
+seq(from = 0, to = 20, by = 5)
+rep("A", times = 3)
+paste("District", 1:3)
+```
+
+Additional functions are provided by **packages**. A package is installed once with `install.packages("name")` and loaded in each session with `library(name)`. The help page of a function is displayed with `?function_name`, e.g. `?seq`.
+
+### P1.6.1 Writing functions {.unnumbered}
+
+User-defined functions avoid repeating code:
+
+```{r}
+incidence_per_100k <- function(cases, population) {
+  cases / population * 100000
+}
+incidence_per_100k(cases = 375, population = 250000)
+incidence_per_100k(cases = c(10, 50, 120), population = c(20000, 80000, 150000))
+```
+
+## P1.7 Conditional statements and loops {.unnumbered}
+
+`if` executes code only when a condition is true; `ifelse()` applies a condition to every element of a vector.
+
+```{r}
+coverage <- 0.82
+if (coverage >= 0.95) {
+  message("Coverage target reached")
+} else {
+  message("Coverage below target")
+}
+
+ifelse(age >= 15, "adult", "child")
+```
+
+A `for` loop repeats a block of code for each value of a sequence:
+
+```{r}
+savings <- numeric(5)        # empty vector of length 5
+savings[1] <- 100
+for (year in 2:5) {
+  savings[year] <- savings[year - 1] * 1.10   # 10% interest per year
+}
+savings
+```
+
+## P1.8 Lists {.unnumbered}
+
+A **list** can contain objects of different types and lengths, and is often used to store parameters or the results of an analysis.
+
+```{r}
+parameters <- list(country = "Mozambique", year = 2026, rates = c(0.1, 0.25))
+parameters$country
+parameters[["rates"]]
+```
+
+## P1.9 Data frames {.unnumbered}
+
+A **data frame** is a table in which each column is a vector and each row an observation. A `tibble` is the `tidyverse` version of a data frame.
+
+```{r}
+library(tidyverse)
+
+patients <- tibble(
+  id = 1:5,
+  age = age,
+  sex = sex,
+  vaccinated = vaccinated,
+  visit = visit
+)
+patients
+patients$age            # one column
+nrow(patients); ncol(patients)
+summary(patients$age)
+```
+
+### P1.9.1 Data manipulation with dplyr {.unnumbered}
+
+The principal functions of the `dplyr` package each perform one operation and are combined with the pipe `|>`:
+
+| Function | Operation |
+|---|---|
+| `filter()` | select rows |
+| `select()` | select columns |
+| `mutate()` | create or modify columns |
+| `arrange()` | sort rows |
+| `group_by()` and `summarise()` | summarise by group |
+| `count()` | count rows by group |
+| `left_join()` | combine two tables by a common column |
+
+```{r}
+patients |>
+  filter(age >= 15) |>
+  mutate(age_months = age * 12) |>
+  select(id, sex, age, age_months) |>
+  arrange(desc(age))
+
+patients |>
+  group_by(sex) |>
+  summarise(n = n(), mean_age = mean(age), prop_vaccinated = mean(vaccinated))
+```
+
+### P1.9.2 Long and wide formats {.unnumbered}
+
+Data in **wide** format have one column per variable or time point; data in **long** format have one row per observation and a column identifying the variable. Long format is required by `ggplot2`.
+
+```{r}
+wide <- tibble(district = c("A", "B"), `2024` = c(120, 85), `2025` = c(140, 60))
+long <- wide |> pivot_longer(-district, names_to = "year", values_to = "cases")
+long
+long |> pivot_wider(names_from = year, values_from = cases)
+```
+
+## P1.10 Importing and exporting data {.unnumbered}
+
+The code below illustrates the import and export of files. The names `my_data.csv`, `my_data.xlsx` and `my_data_clean.csv` are hypothetical examples, to be replaced by the names of actual data files stored in the `data/` folder of the project.
+
+```{r}
+#| eval: false
+# "my_data" is a placeholder: replace it with the name of your own file
+library(readr)
+data <- read_csv("data/my_data.csv")          # text files with comma-separated values
+library(readxl)
+data <- read_excel("data/my_data.xlsx")       # Excel files
+write_csv(data, "output/my_data_clean.csv")   # export
+```
+
+After importing a dataset, it should be inspected with `head()`, `glimpse()`, `summary()` and `View()`.
+
+## P1.11 Graphs with ggplot2 {.unnumbered}
+
+A `ggplot2` graph is constructed from three components: a data frame, an **aesthetic mapping** of variables to visual properties with `aes()`, and one or more **geometries** (`geom_point()`, `geom_line()`, `geom_col()`, `geom_histogram()`, etc.). Labels are added with `labs()` and panels with `facet_wrap()`.
+
+```{r}
+ggplot(long, aes(x = year, y = cases, fill = district)) +
+  geom_col(position = "dodge") +
+  labs(x = "Year", y = "Number of cases", fill = "District")
+```
+
+```{r}
+growth <- tibble(day = 0:30, children = 50 * 1.08^(0:30), adults = 30 * 1.05^(0:30)) |>
+  pivot_longer(-day, names_to = "group", values_to = "cases")
+
+ggplot(growth, aes(day, cases, colour = group)) +
+  geom_line(linewidth = 1) +
+  labs(x = "Day", y = "Cases", colour = "Age group")
+```
+
+## P1.12 Random numbers {.unnumbered}
+
+R generates random numbers from many probability distributions, for example `runif()` (uniform), `rnorm()` (normal), `rbinom()` (binomial) and `rpois()` (Poisson). `set.seed()` makes the results reproducible.
+
+```{r}
+set.seed(2027)
+rnorm(3, mean = 0, sd = 1)
+rbinom(5, size = 10, prob = 0.3)
+sample(1:6, size = 4, replace = TRUE)   # four throws of a die
+```
+
+## P1.13 Errors and help {.unnumbered}
+
+Error messages indicate where execution failed. Common causes include misspelled object names (`object 'x' not found`), packages that have not been loaded (`could not find function`), unmatched brackets or quotes, and code executed in the wrong order. Further help is available from the help pages (`?function`), the package documentation (reference manuals and vignettes on CRAN, <https://cran.r-project.org/web/packages/>), the [Epidemiologist R Handbook](https://www.epirhandbook.com) and online forums such as [Stack Overflow](https://stackoverflow.com/questions/tagged/r) and [Posit Community](https://forum.posit.co). AI assistants can explain error messages and suggest code, but their suggestions must be checked and understood before use.
+
+::: {.callout-tip icon="false"}
+## Exercise
+1. Create a vector with the weekly numbers of cases 3, 7, 12, 25, 31 and 28. Calculate the total, the mean and the week with the highest number of cases.
+2. Write a function `percent_change(old, new)` that returns the percentage change between two values, and apply it to consecutive weeks of the vector above (hint: `x[-1]` and `x[-length(x)]`).
+3. Using the `patients` data frame, calculate the proportion vaccinated among children and adults.
+4. Create a data frame with two columns, `week` (1–6) and `cases` (the vector of question 1), and plot the cases as a bar chart.
+:::
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+x <- c(3, 7, 12, 25, 31, 28)
+c(total = sum(x), mean = mean(x), peak_week = which.max(x))
+
+percent_change <- function(old, new) (new - old) / old * 100
+round(percent_change(x[-length(x)], x[-1]), 1)
+
+patients |>
+  mutate(group = ifelse(age >= 15, "adult", "child")) |>
+  group_by(group) |>
+  summarise(prop_vaccinated = mean(vaccinated))
+
+tibble(week = 1:6, cases = x) |>
+  ggplot(aes(week, cases)) +
+  geom_col(fill = "steelblue") +
+  labs(x = "Week", y = "Cases")
+```
+:::
+
+## P1.14 Self-assessment {.unnumbered .keep-short}
+
+Participants should be able to perform the following tasks without assistance before the first module:
+
+- [ ] Create an RStudio Project, open a script and execute it line by line.
+- [ ] Install and load a package, and consult the help page of a function.
+- [ ] Create vectors of different types, select elements and handle missing values.
+- [ ] Write a function with two arguments.
+- [ ] Import a CSV file and inspect it with `head()`, `glimpse()` and `summary()`.
+- [ ] Use `filter()`, `select()`, `mutate()`, `group_by()` and `summarise()`.
+- [ ] Convert a table between wide and long formats.
+- [ ] Produce a bar chart and a line graph with `ggplot2`.
+- [ ] Write an `if` statement and a `for` loop.
+
+## P1.15 Additional resources {.unnumbered .keep-short}
+
+- **Applied Epi interactive R tutorials** (English, French, Portuguese, Spanish): <https://www.appliedepi.org/resources/tutorials.html>.
+- **The Epidemiologist R Handbook** (available in several languages): <https://www.epirhandbook.com> — in particular the chapters on R basics, data cleaning, dates, grouping and `ggplot2`.
+- **R for Data Science**, 2nd edition (Wickham H., Çetinkaya-Rundel M., Grolemund G.): <https://r4ds.hadley.nz>.
+- **Hands-On Programming with R** (Grolemund G.): <https://rstudio-education.github.io/hopr/> — objects, functions and loops.
+- **PATH/MACEPA Data Fellowship materials**, developed for public health staff in Africa and based on routine (DHIS2-type) malaria data; overview at <https://path-global-health.github.io/macepa-tech-training/>:
+  - *Foundational R Skills* (<https://path-global-health.github.io/df_foundational_r/>): R and RStudio, `dplyr`/`tidyr`, `ggplot2`, messy data and joins;
+  - *Secondary Topics for Data Analysis in R* (<https://path-global-health.github.io/df_secondary-r/>): functions, loops, error messages, maps, data completeness and time series plots;
+  - *Foundational Data Skills* (<https://path-global-health.github.io/df_data-skills/>): organisation of project folders, version control with Git and GitHub.
+- **AMMnet Hackathon live sessions** (Applied Malaria Modeling Network), with recordings, code and data: <https://ammnet.github.io/ammnet-hackathon/> — data visualisation, data wrangling and mapping in R, some sessions in French and Portuguese.

@@ -1,0 +1,37 @@
+<!-- Translation of index.qmd (pt). Translate the text only: keep the code, the labels
+     ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
+     is complete, remove the box marked .translation-pending and run
+     py preparatory/translations.py accept pt index.qmd -->
+
+# Bem-vindo {.unnumbered}
+
+*Também disponível em: [English](../en/index.html) · [Français](../fr/index.html)*
+
+Este livro contém o material de **aprendizagem preliminar** do **TIMERA**, a *Iniciativa de Formação em Modelação para a Resposta a Epidemias em África*. Resume os conhecimentos de base pressupostos no curso e destina-se ao estudo autónomo **antes do primeiro módulo presencial**, bem como a servir de referência durante o programa.
+
+| Capítulo | Conteúdo | Tempo de estudo estimado |
+|---|---|---|
+| @sec-r | Noções básicas de R e RStudio: objetos, tipos de dados, funções, *data frames*, manipulação de dados, gráficos, instruções condicionais e ciclos | 15 a 25 horas para participantes sem experiência em R; 2 a 4 horas nos restantes casos |
+| @sec-prelim-stats | Medidas de frequência de doença, dados de vigilância, distribuições de probabilidade, estimação, verosimilhança e regressão para dados de contagem | 6 a 10 horas |
+| @sec-prelim-maths | Taxas e probabilidades, crescimento exponencial, derivadas e equações diferenciais, equilíbrios, matrizes e métodos numéricos | 6 a 10 horas |
+
+Cada capítulo contém uma apresentação concisa da matéria, exercícios com soluções, uma lista de autoavaliação e referências a recursos adicionais.
+
+## Preparação antes do primeiro módulo {.unnumbered}
+
+1. Instalar o R, o RStudio e os pacotes utilizados no curso (@sec-setup).
+2. Estudar os três capítulos deste livro. Os participantes sem experiência prévia em R devem começar pelos tutoriais interativos referidos em @sec-r, uma vez que os exercícios dos outros dois capítulos também utilizam o R.
+3. Utilizar a lista de autoavaliação no final de cada capítulo para decidir se é necessário estudo adicional.
+4. Identificar, no próprio contexto profissional, uma questão de saúde pública que possa ser abordada com um modelo. Esta questão constitui a base do projeto do curso.
+
+::: {.content-hidden when-meta="short-version"}
+## Convenções {.unnumbered}
+
+O código é apresentado em caixas cinzentas; o resultado aparece por baixo, precedido de `##`. Recomenda-se escrever o código em vez de o copiar, pois isso incentiva a leitura atenta de cada linha. Os exercícios são apresentados em caixas verdes; as soluções estão recolhidas e podem ser expandidas.
+:::
+
+As referências em *itálico* a capítulos do **livro do curso TIMERA** indicam onde um tema é desenvolvido durante o curso. O livro do curso está disponível em <https://github.com/Federica-Giardina/TIMERA>.
+
+## Licença {.unnumbered}
+
+Este livro está licenciado ao abrigo da [Licença Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt).

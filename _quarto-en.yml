@@ -1,0 +1,17 @@
+lang: en
+
+project:
+  output-dir: _book/en
+
+book:
+  title: "Preliminary learning"
+  subtitle: "TIMERA — Training Initiative for Modelling Epidemic Response in Africa"
+  output-file: "TIMERA-preliminary-learning-en"
+  chapters:
+    - index.qmd
+    - 00a-prelim-r.qmd
+    - 00b-prelim-stats-epi.qmd
+    - 00c-prelim-maths.qmd
+  appendices:
+    - setup.qmd
+    - references.qmd

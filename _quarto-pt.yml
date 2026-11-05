@@ -1,0 +1,17 @@
+lang: pt
+
+project:
+  output-dir: _book/pt
+
+book:
+  title: "Aprendizagem preliminar"
+  subtitle: "TIMERA — Iniciativa de Formação em Modelação para a Resposta a Epidemias em África"
+  output-file: "TIMERA-aprendizagem-preliminar-pt"
+  chapters:
+    - index.pt.qmd
+    - 00a-prelim-r.pt.qmd
+    - 00b-prelim-stats-epi.pt.qmd
+    - 00c-prelim-maths.pt.qmd
+  appendices:
+    - setup.pt.qmd
+    - references.pt.qmd
