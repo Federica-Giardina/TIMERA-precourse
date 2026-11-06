@@ -15,3 +15,6 @@ book:
   appendices:
     - setup.fr.qmd
     - references.fr.qmd
+
+crossref:
+  appendix-title: "Annexe"

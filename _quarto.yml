@@ -13,11 +13,10 @@ profile:
 book:
   author: "Federica Giardina"
   date: today
-  repo-url: https://github.com/Federica-Giardina/TIMERA-preparatory1
+  repo-url: https://github.com/Federica-Giardina/TIMERA-precourse
   repo-branch: main
   repo-actions: [issue]
   search: true
-  downloads: [docx]
   favicon: images/timera-icon.png
   sidebar:
     logo: images/timera-logo.png

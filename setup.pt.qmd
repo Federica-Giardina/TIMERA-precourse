@@ -2,7 +2,7 @@
      Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
      and file names unchanged. When the review is complete, remove the box marked
      .translation-review. After changes to the English text:
-     py preparatory/translations.py status --diff -->
+     py precourse/translations.py status --diff -->
 
 # Instalação do R e do RStudio {#sec-setup}
 
@@ -62,4 +62,6 @@ Os materiais do próprio curso estão disponíveis em <https://github.com/Federi
 
 ## Conjuntos de dados
 
-Todos os conjuntos de dados utilizados no Módulo 1 podem ser descarregados como ficheiros CSV num único arquivo, [TIMERA-datasets.zip](https://federica-giardina.github.io/TIMERA-preparatory1/datasets/TIMERA-datasets.zip), que contém também uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.
+Todos os conjuntos de dados utilizados no Módulo 1 estão disponíveis como ficheiros CSV, acompanhados de uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.
+
+[<i class="bi bi-download"></i> Descarregar os conjuntos de dados](https://federica-giardina.github.io/TIMERA-precourse/datasets/TIMERA-datasets.zip){download=""}

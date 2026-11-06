@@ -2,7 +2,7 @@
      Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
      and file names unchanged. When the review is complete, remove the box marked
      .translation-review. After changes to the English text:
-     py preparatory/translations.py status --diff -->
+     py precourse/translations.py status --diff -->
 
 # P1 Introdução ao R {#sec-r .unnumbered}
 

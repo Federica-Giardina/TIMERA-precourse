@@ -28,6 +28,14 @@ Code is displayed in grey boxes; the output appears underneath, preceded by `##`
 
 References in *italics* to chapters of the **TIMERA course book** indicate where a topic is developed further during the course. The course book is available at <https://github.com/Federica-Giardina/TIMERA>.
 
+## Acknowledgements {.unnumbered}
+
+![](images/funder-logos.png){.funder-logos width="300px" fig-alt="Logos of Global Health EDCTP3 and Co-funded by the European Union"}
+
+::: {.acknowledgement}
+TIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant agreement No 101249114. Co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the Global Health EDCTP3 Joint Undertaking. Neither the European Union nor the granting authority can be held responsible for them.
+:::
+
 ## Licence {.unnumbered}
 
 This book is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).

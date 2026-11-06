@@ -30,6 +30,16 @@
     ]
   },
   {
+    "objectID": "index.html#acknowledgements",
+    "href": "index.html#acknowledgements",
+    "title": "Preliminary learning",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\n\nTIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant agreement No 101249114. Co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the Global Health EDCTP3 Joint Undertaking. Neither the European Union nor the granting authority can be held responsible for them.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
     "objectID": "index.html#licence",
     "href": "index.html#licence",
     "title": "Preliminary learning",
@@ -458,7 +468,7 @@
     "href": "setup.html#datasets",
     "title": "Appendix A — Installation of R and RStudio",
     "section": "A.4 Datasets",
-    "text": "A.4 Datasets\nAll datasets used in Module 1 can be downloaded as CSV files in a single archive, TIMERA-datasets.zip, which also contains a description of each dataset and its source. The CSV files can be opened in R, Excel or any statistical software.",
+    "text": "A.4 Datasets\nAll datasets used in Module 1 are available as CSV files, together with a description of each dataset and its source. The CSV files can be opened in R, Excel or any statistical software.\n Download the datasets",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation of R and RStudio</span>"

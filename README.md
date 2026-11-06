@@ -6,7 +6,7 @@ Self-study material for participants of **TIMERA** (Training Initiative for Mode
 - **P2** Statistical and epidemiological concepts
 - **P3** Mathematical background
 
-**Read online:** <https://federica-giardina.github.io/TIMERA-preparatory1/> — each language version can also be downloaded as a Word document, together with the datasets used in Module 1 (`datasets/TIMERA-datasets.zip`).
+**Read online:** <https://federica-giardina.github.io/TIMERA-precourse/>. The datasets used in Module 1 can be downloaded from the same page.
 
 ## Rendering
 
@@ -16,7 +16,7 @@ Requires R (≥ 4.4) with `tidyverse`, `readxl`, `patchwork`, `knitr` and `rmark
 py render.py
 ```
 
-renders the three languages (HTML and Word) into `docs/en`, `docs/fr` and `docs/pt`, copies the datasets to `docs/datasets` and writes the language page `docs/index.html`. `quarto render` alone renders the English version only.
+renders the three languages into `docs/en`, `docs/fr` and `docs/pt`, copies the datasets to `docs/datasets` and writes the start page `docs/index.html`. For internal use only (sharing drafts and requesting feedback), it also produces Word versions of each language, complete and short, in `_internal/`, which is not published. `quarto render --to html` alone renders the English version only.
 
 ## Publishing
 
@@ -24,8 +24,10 @@ The website is the folder `docs/`, served by GitHub Pages. After rendering, comm
 
 ## Source
 
-This repository is **generated** from the main course repository, <https://github.com/Federica-Giardina/TIMERA>, where the same chapters form the *Preliminary learning* part of the course book and the translations are maintained. Changes should be made there and exported with `py preparatory/export.py` (see `preparatory/README.md` in the main repository); edits made directly in this repository will be overwritten.
+This repository is **generated** from the main course repository, <https://github.com/Federica-Giardina/TIMERA>, where the same chapters form the *Preliminary learning* part of the course book and the translations are maintained. Changes should be made there and exported with `py precourse/export.py` (see `precourse/README.md` in the main repository); edits made directly in this repository will be overwritten.
 
 ## Licence
+
+TIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant agreement No 101249114, and co-funded by the European Union.
 
 CC BY-NC-SA 4.0. The datasets retain the licences of their original sources (see `datasets/README.md`).

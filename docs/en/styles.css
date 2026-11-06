@@ -34,3 +34,14 @@ figure img.diagram {
   padding: 4px 6px;
   max-width: 100%;
 }
+
+/* Funder logos (Global Health EDCTP3, European Union): white background, also in dark mode */
+.funder-logos {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  max-width: 100%;
+}
+.acknowledgement {
+  font-size: 0.9em;
+}

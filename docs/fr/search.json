@@ -30,6 +30,16 @@
     ]
   },
   {
+    "objectID": "index.fr.html#remerciements",
+    "href": "index.fr.html#remerciements",
+    "title": "Apprentissage préliminaire",
+    "section": "Remerciements",
+    "text": "Remerciements\n\n\nTIMERA bénéficie du soutien de l’entreprise commune Global Health EDCTP3 et de ses membres, au titre de la convention de subvention n° 101249114. Cofinancé par l’Union européenne. Les points de vue et avis exprimés n’engagent toutefois que leur(s) auteur(s) et ne reflètent pas nécessairement ceux de l’Union européenne ou de l’entreprise commune Global Health EDCTP3. Ni l’Union européenne ni l’autorité chargée de l’octroi ne peuvent en être tenues pour responsables.",
+    "crumbs": [
+      "Bienvenue"
+    ]
+  },
+  {
     "objectID": "index.fr.html#licence",
     "href": "index.fr.html#licence",
     "title": "Apprentissage préliminaire",
@@ -458,7 +468,7 @@
     "href": "setup.fr.html#jeux-de-données",
     "title": "Annexe A — Installation de R et RStudio",
     "section": "A.4 Jeux de données",
-    "text": "A.4 Jeux de données\nTous les jeux de données utilisés dans le module 1 peuvent être téléchargés sous forme de fichiers CSV dans une archive unique, TIMERA-datasets.zip, qui contient également une description de chaque jeu de données et de sa source (en anglais). Les fichiers CSV peuvent être ouverts dans R, Excel ou tout logiciel statistique.",
+    "text": "A.4 Jeux de données\nTous les jeux de données utilisés dans le module 1 sont disponibles sous forme de fichiers CSV, accompagnés d’une description de chaque jeu de données et de sa source (en anglais). Les fichiers CSV peuvent être ouverts dans R, Excel ou tout logiciel statistique.\n Télécharger les jeux de données",
     "crumbs": [
       "Annexes",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation de R et RStudio</span>"

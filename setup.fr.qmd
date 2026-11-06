@@ -2,7 +2,7 @@
      Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
      and file names unchanged. When the review is complete, remove the box marked
      .translation-review. After changes to the English text:
-     py preparatory/translations.py status --diff -->
+     py precourse/translations.py status --diff -->
 
 # Installation de R et RStudio {#sec-setup}
 
@@ -62,4 +62,6 @@ Les supports de la formation elle-même sont disponibles à l'adresse <https://g
 
 ## Jeux de données
 
-Tous les jeux de données utilisés dans le module 1 peuvent être téléchargés sous forme de fichiers CSV dans une archive unique, [TIMERA-datasets.zip](https://federica-giardina.github.io/TIMERA-preparatory1/datasets/TIMERA-datasets.zip), qui contient également une description de chaque jeu de données et de sa source (en anglais). Les fichiers CSV peuvent être ouverts dans R, Excel ou tout logiciel statistique.
+Tous les jeux de données utilisés dans le module 1 sont disponibles sous forme de fichiers CSV, accompagnés d'une description de chaque jeu de données et de sa source (en anglais). Les fichiers CSV peuvent être ouverts dans R, Excel ou tout logiciel statistique.
+
+[<i class="bi bi-download"></i> Télécharger les jeux de données](https://federica-giardina.github.io/TIMERA-precourse/datasets/TIMERA-datasets.zip){download=""}

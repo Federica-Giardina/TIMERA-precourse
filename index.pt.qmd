@@ -1,7 +1,7 @@
 <!-- Translation of index.qmd (pt). Translate the text only: keep the code, the labels
      ({#sec-...}, {#fig-...}, #| label: ...) and file names unchanged. When the translation
      is complete, remove the box marked .translation-review and run
-     py preparatory/translations.py accept pt index.qmd -->
+     py precourse/translations.py accept pt index.qmd -->
 
 # Bem-vindo {.unnumbered}
 
@@ -37,6 +37,14 @@ O código é apresentado em caixas cinzentas; o resultado aparece por baixo, pre
 :::
 
 As referências em *itálico* a capítulos do **livro do curso TIMERA** indicam onde um tema é desenvolvido durante o curso. O livro do curso está disponível em <https://github.com/Federica-Giardina/TIMERA>.
+
+## Agradecimentos {.unnumbered}
+
+![](images/funder-logos.png){.funder-logos width="300px" fig-alt="Logótipos da Global Health EDCTP3 e «Co-funded by the European Union»"}
+
+::: {.acknowledgement}
+O TIMERA é apoiado pela Empresa Comum Global Health EDCTP3 e pelos seus membros, ao abrigo da convenção de subvenção n.º 101249114. Cofinanciado pela União Europeia. Os pontos de vista e as opiniões expressos são, no entanto, apenas dos autores e não refletem necessariamente os da União Europeia ou da Empresa Comum Global Health EDCTP3. Nem a União Europeia nem a autoridade que concede o financiamento podem ser responsabilizadas por eles.
+:::
 
 ## Licença {.unnumbered}
 

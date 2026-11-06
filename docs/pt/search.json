@@ -30,6 +30,16 @@
     ]
   },
   {
+    "objectID": "index.pt.html#agradecimentos",
+    "href": "index.pt.html#agradecimentos",
+    "title": "Aprendizagem preliminar",
+    "section": "Agradecimentos",
+    "text": "Agradecimentos\n\n\nO TIMERA é apoiado pela Empresa Comum Global Health EDCTP3 e pelos seus membros, ao abrigo da convenção de subvenção n.º 101249114. Cofinanciado pela União Europeia. Os pontos de vista e as opiniões expressos são, no entanto, apenas dos autores e não refletem necessariamente os da União Europeia ou da Empresa Comum Global Health EDCTP3. Nem a União Europeia nem a autoridade que concede o financiamento podem ser responsabilizadas por eles.",
+    "crumbs": [
+      "Bem-vindo"
+    ]
+  },
+  {
     "objectID": "index.pt.html#licença",
     "href": "index.pt.html#licença",
     "title": "Aprendizagem preliminar",
@@ -458,7 +468,7 @@
     "href": "setup.pt.html#conjuntos-de-dados",
     "title": "Apêndice A — Instalação do R e do RStudio",
     "section": "A.4 Conjuntos de dados",
-    "text": "A.4 Conjuntos de dados\nTodos os conjuntos de dados utilizados no Módulo 1 podem ser descarregados como ficheiros CSV num único arquivo, TIMERA-datasets.zip, que contém também uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.",
+    "text": "A.4 Conjuntos de dados\nTodos os conjuntos de dados utilizados no Módulo 1 estão disponíveis como ficheiros CSV, acompanhados de uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.\n Descarregar os conjuntos de dados",
     "crumbs": [
       "Apêndices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Instalação do R e do RStudio</span>"
