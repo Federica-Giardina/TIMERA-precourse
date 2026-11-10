@@ -1,0 +1,104 @@
+# Glossary {#sec-glossary}
+
+This glossary defines the main terms of infectious disease epidemiology and modelling used in the course. The terms are grouped by topic. Reading through the glossary before the first module is recommended, so that the sessions can concentrate on applying the concepts.
+
+## Timeline of infection
+
+| Term | Definition |
+|---|---|
+| **Exposure** | Contact with an infectious agent or an infectious person that could lead to infection. |
+| **Latent period** | Time from infection to the onset of infectiousness. |
+| **Infectious period** | Time during which an infected person can transmit the agent to others. |
+| **Incubation period** | Time from infection to the onset of symptoms. |
+| **Symptomatic period** | Time during which symptoms are present. |
+| **Pre-symptomatic period** | Time during which a person is already infectious but has not yet developed symptoms; it occurs when the latent period is shorter than the incubation period. |
+| **Asymptomatic infection** | Infection that never produces symptoms; the person may nevertheless be infectious. |
+| **Serial interval** | Time between symptom onset in a case and symptom onset in the people it infects. |
+| **Generation interval (generation time)** | Time between infection of a case and infection of the people it infects. It is rarely observed directly, so the serial interval is often used as a proxy. |
+| **Recovery / removal** | End of infectiousness through recovery, isolation or death. |
+| **Extrinsic incubation period** | Time needed for the parasite or virus to develop in the vector before it can be transmitted. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Transmission and key parameters
+
+| Term | Definition |
+|---|---|
+| **Reservoir** | Human, animal or environmental habitat in which the infectious agent normally lives and multiplies. |
+| **Carrier** | Infected person who can transmit the agent without apparent illness. |
+| **Index case / primary case** | The index case is the first case identified in an outbreak (sometimes called *patient zero*); the primary case is the one that introduced the infection into the population. The two may differ. |
+| **Susceptible** | Person who can become infected if exposed. |
+| **Infectious** | Person who can transmit the agent. |
+| **Immune / recovered** | Person protected against infection, through previous infection or vaccination. |
+| **Compartment** | Group of people with the same infection status in a compartmental model (e.g. S, I, R). |
+| **Contact rate** | Average number of (relevant) contacts a person has per unit time. |
+| **Contact matrix** | Table of the average number of contacts between age groups (or other groups) per day. |
+| **Transmission probability** | Probability that a contact between an infectious and a susceptible person results in infection. |
+| **Transmission rate ($\beta$)** | Rate of effective contacts per person per unit time: the contact rate multiplied by the transmission probability. |
+| **Force of infection ($\lambda$)** | Per capita rate at which susceptible people become infected; in the SIR model, $\lambda = \beta I/N$. |
+| **Recovery rate ($\gamma$)** | Rate at which infectious people recover or are removed; its inverse $1/\gamma$ is the mean infectious period. |
+| **Basic reproduction number ($R_0$)** | Average number of secondary infections caused by one infectious person in a fully susceptible population. |
+| **Effective reproduction number ($R_t$)** | Average number of secondary infections per case at time $t$, given current immunity and control measures. The epidemic grows if $R_t > 1$ and declines if $R_t < 1$. |
+| **Epidemic threshold** | The condition $R = 1$, which separates epidemic growth from die-out. |
+| **Growth rate ($r$)** | Rate of exponential increase (or, if negative, decrease) in incidence per unit time. |
+| **Doubling time** | Time for incidence to double during exponential growth: $\ln 2 / r$. |
+| **Offspring distribution** | Distribution of the number of secondary cases per case. |
+| **Dispersion parameter ($k$)** | Parameter of the negative binomial offspring distribution; a small $k$ (overdispersion) means that a few cases cause most transmission. |
+| **Superspreading** | Transmission events in which one case infects a disproportionately large number of others. |
+| **Entomological inoculation rate (EIR)** | Number of infectious mosquito bites per person per unit time. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Measuring disease occurrence
+
+| Term | Definition |
+|---|---|
+| **Incidence** | Number of new cases in a population during a given period, or the rate at which new cases occur. |
+| **Prevalence** | Proportion of a population with the infection or disease at a given time. |
+| **Attack rate** | Proportion of a population infected during an outbreak. |
+| **Case fatality ratio (CFR)** | Proportion of cases who die of the disease. |
+| **Epidemic curve** | Number of cases plotted by date of symptom onset (or of report). |
+| **Line list** | Table with one row per case and one column per variable (dates, age, sex, place, outcome). |
+| **Reporting delay** | Time between an event (e.g. symptom onset) and its notification to the surveillance system. |
+| **Nowcasting** | Estimating recent incidence that has not yet been fully reported because of reporting delays. |
+| **Endemic** | Persistent transmission of an infection in a population. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Population-level protection and interventions
+
+| Term | Definition |
+|---|---|
+| **Herd immunity** | Indirect protection of susceptible people when enough of the population is immune that transmission cannot be sustained. |
+| **Herd immunity threshold** | Proportion of the population that must be immune to prevent sustained transmission: $1 - 1/R_0$ (in a homogeneously mixing population). |
+| **Vaccine efficacy / effectiveness ($VE$)** | Reduction in the risk of infection or disease among vaccinated people, under trial conditions (efficacy) or real-world conditions (effectiveness). |
+| **Critical vaccination coverage** | Coverage needed to prevent sustained transmission: $(1 - 1/R_0)/VE$. |
+| **Non-pharmaceutical interventions (NPIs)** | Measures other than vaccines and medicines, such as masks, physical distancing, school closures and hand hygiene. |
+| **Isolation** | Separation of people known to be infected. |
+| **Quarantine** | Restriction of the movement of exposed people who may become infectious. |
+| **Contact tracing** | Identification and follow-up of people exposed to a case. |
+| **Final size** | Total proportion of the population infected by the end of an epidemic. |
+| **Counterfactual** | The scenario without the intervention, used as the comparator. |
+| **Scenario** | A *what if* projection under stated assumptions; not a forecast. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Models and methods
+
+| Term | Definition |
+|---|---|
+| **Deterministic model** | Model without randomness: the same inputs always give the same output. |
+| **Stochastic model** | Model that includes chance; repeated runs give different results. |
+| **Branching process** | Stochastic model that follows each case and the cases it causes, generation by generation. |
+| **Next-generation matrix** | Matrix whose elements give the number of secondary infections in group $i$ caused by one infected person in group $j$; its largest eigenvalue is $R_0$. |
+| **Calibration** | Choice of parameter values so that model output matches observed data. |
+| **Likelihood** | Probability of the observed data given parameter values. |
+| **Profile likelihood** | Likelihood maximised over all other parameters for fixed values of a parameter of interest; used for confidence intervals. |
+| **Prior distribution** | Distribution describing knowledge about parameters before the data are seen. |
+| **Posterior distribution** | Distribution of parameters after combining the prior with the data. |
+| **Credible interval** | In Bayesian analysis, an interval containing the parameter with a given posterior probability. |
+| **MCMC** | Markov chain Monte Carlo: algorithms that draw samples from a posterior distribution. |
+| **Latin hypercube sampling** | Efficient method to sample parameter sets from their joint range for uncertainty analysis. |
+| **PRCC** | Partial rank correlation coefficient: measure of the influence of a parameter on a model output, adjusted for the other parameters. |
+
+: {tbl-colwidths="[30,70]"}

@@ -26,9 +26,10 @@ Chaque chapitre contient une présentation concise de la matière, des exercices
 ## Préparation avant le premier module {.unnumbered}
 
 1. Installer R, RStudio et les packages utilisés pendant la formation (@sec-setup).
-2. Étudier les trois chapitres de ce livre. Les participants sans expérience préalable de R commenceront par les tutoriels interactifs mentionnés dans @sec-r, car les exercices des deux autres chapitres utilisent également R.
-3. Utiliser la grille d'auto-évaluation à la fin de chaque chapitre pour déterminer si une étude complémentaire est nécessaire.
-4. Identifier, dans son propre contexte professionnel, une question de santé publique à laquelle un modèle pourrait répondre. Cette question constitue la base du projet de la formation.
+2. Parcourir le glossaire (@sec-glossary), qui définit les principaux termes de l'épidémiologie et de la modélisation des maladies infectieuses utilisés pendant la formation.
+3. Étudier les trois chapitres de ce livre. Les participants sans expérience préalable de R commenceront par les tutoriels interactifs mentionnés dans @sec-r, car les exercices des deux autres chapitres utilisent également R.
+4. Utiliser la grille d'auto-évaluation à la fin de chaque chapitre pour déterminer si une étude complémentaire est nécessaire.
+5. Identifier, dans son propre contexte professionnel, une question de santé publique à laquelle un modèle pourrait répondre. Cette question constitue la base du projet de la formation.
 
 ::: {.content-hidden when-meta="short-version"}
 ## Conventions {.unnumbered}
@@ -43,7 +44,7 @@ Les références en *italique* à des chapitres du **livre du cours TIMERA** ind
 ![](images/funder-logos.png){.funder-logos width="300px" fig-alt="Logos de Global Health EDCTP3 et « Co-funded by the European Union »"}
 
 ::: {.acknowledgement}
-TIMERA bénéficie du soutien de l'entreprise commune Global Health EDCTP3 et de ses membres, au titre de la convention de subvention n° 101249114. Cofinancé par l'Union européenne. Les points de vue et avis exprimés n'engagent toutefois que leur(s) auteur(s) et ne reflètent pas nécessairement ceux de l'Union européenne ou de l'entreprise commune Global Health EDCTP3. Ni l'Union européenne ni l'autorité chargée de l'octroi ne peuvent en être tenues pour responsables.
+TIMERA bénéficie du soutien de l'entreprise commune Global Health EDCTP3 et de ses membres, au titre de la convention de subvention n° 101249114, et est cofinancé par l'Union européenne et la Coalition pour les innovations en matière de préparation aux épidémies (CEPI). Les points de vue et avis exprimés n'engagent toutefois que leur(s) auteur(s) et ne reflètent pas nécessairement ceux de l'Union européenne, de l'entreprise commune Global Health EDCTP3 ou de la CEPI. Ni l'Union européenne ni l'autorité chargée de l'octroi ne peuvent en être tenues pour responsables.
 :::
 
 ## Licence {.unnumbered}

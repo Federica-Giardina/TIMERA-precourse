@@ -14,7 +14,7 @@
     "href": "index.fr.html#préparation-avant-le-premier-module",
     "title": "Apprentissage préliminaire",
     "section": "Préparation avant le premier module",
-    "text": "Préparation avant le premier module\n\nInstaller R, RStudio et les packages utilisés pendant la formation (Annexe A — Installation de R et RStudio).\nÉtudier les trois chapitres de ce livre. Les participants sans expérience préalable de R commenceront par les tutoriels interactifs mentionnés dans P1, car les exercices des deux autres chapitres utilisent également R.\nUtiliser la grille d’auto-évaluation à la fin de chaque chapitre pour déterminer si une étude complémentaire est nécessaire.\nIdentifier, dans son propre contexte professionnel, une question de santé publique à laquelle un modèle pourrait répondre. Cette question constitue la base du projet de la formation.",
+    "text": "Préparation avant le premier module\n\nInstaller R, RStudio et les packages utilisés pendant la formation (Annexe A — Installation de R et RStudio).\nParcourir le glossaire (Annexe B — Glossaire), qui définit les principaux termes de l’épidémiologie et de la modélisation des maladies infectieuses utilisés pendant la formation.\nÉtudier les trois chapitres de ce livre. Les participants sans expérience préalable de R commenceront par les tutoriels interactifs mentionnés dans P1, car les exercices des deux autres chapitres utilisent également R.\nUtiliser la grille d’auto-évaluation à la fin de chaque chapitre pour déterminer si une étude complémentaire est nécessaire.\nIdentifier, dans son propre contexte professionnel, une question de santé publique à laquelle un modèle pourrait répondre. Cette question constitue la base du projet de la formation.",
     "crumbs": [
       "Bienvenue"
     ]
@@ -34,7 +34,7 @@
     "href": "index.fr.html#remerciements",
     "title": "Apprentissage préliminaire",
     "section": "Remerciements",
-    "text": "Remerciements\n\n\nTIMERA bénéficie du soutien de l’entreprise commune Global Health EDCTP3 et de ses membres, au titre de la convention de subvention n° 101249114. Cofinancé par l’Union européenne. Les points de vue et avis exprimés n’engagent toutefois que leur(s) auteur(s) et ne reflètent pas nécessairement ceux de l’Union européenne ou de l’entreprise commune Global Health EDCTP3. Ni l’Union européenne ni l’autorité chargée de l’octroi ne peuvent en être tenues pour responsables.",
+    "text": "Remerciements\n\n\nTIMERA bénéficie du soutien de l’entreprise commune Global Health EDCTP3 et de ses membres, au titre de la convention de subvention n° 101249114, et est cofinancé par l’Union européenne et la Coalition pour les innovations en matière de préparation aux épidémies (CEPI). Les points de vue et avis exprimés n’engagent toutefois que leur(s) auteur(s) et ne reflètent pas nécessairement ceux de l’Union européenne, de l’entreprise commune Global Health EDCTP3 ou de la CEPI. Ni l’Union européenne ni l’autorité chargée de l’octroi ne peuvent en être tenues pour responsables.",
     "crumbs": [
       "Bienvenue"
     ]
@@ -472,6 +472,72 @@
     "crumbs": [
       "Annexes",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation de R et RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.fr.html",
+    "href": "glossary.fr.html",
+    "title": "Annexe B — Glossaire",
+    "section": "",
+    "text": "B.1 Chronologie de l’infection\nCe glossaire définit les principaux termes de l’épidémiologie et de la modélisation des maladies infectieuses utilisés pendant la formation. Les termes sont regroupés par thème. Il est recommandé de parcourir le glossaire avant le premier module, afin que les séances puissent se concentrer sur l’application des concepts.",
+    "crumbs": [
+      "Annexes",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossaire</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.fr.html#chronologie-de-linfection",
+    "href": "glossary.fr.html#chronologie-de-linfection",
+    "title": "Annexe B — Glossaire",
+    "section": "",
+    "text": "Terme\nDéfinition\n\n\n\n\nExposition\nContact avec un agent infectieux ou une personne infectieuse pouvant entraîner une infection.\n\n\nPériode de latence\nTemps entre l’infection et le début de la contagiosité.\n\n\nPériode infectieuse (période de contagiosité)\nPériode pendant laquelle une personne infectée peut transmettre l’agent à d’autres personnes.\n\n\nPériode d’incubation\nTemps entre l’infection et l’apparition des symptômes.\n\n\nPériode symptomatique\nPériode pendant laquelle les symptômes sont présents.\n\n\nPériode présymptomatique\nPériode pendant laquelle une personne est déjà contagieuse mais n’a pas encore développé de symptômes ; elle existe lorsque la période de latence est plus courte que la période d’incubation.\n\n\nInfection asymptomatique\nInfection qui ne provoque jamais de symptômes ; la personne peut néanmoins être contagieuse.\n\n\nIntervalle sériel\nTemps entre l’apparition des symptômes chez un cas et l’apparition des symptômes chez les personnes qu’il a infectées.\n\n\nIntervalle de génération (temps de génération)\nTemps entre l’infection d’un cas et l’infection des personnes qu’il infecte. Il est rarement observé directement ; l’intervalle sériel est donc souvent utilisé comme approximation.\n\n\nGuérison / retrait\nFin de la contagiosité par guérison, isolement ou décès.\n\n\nPériode d’incubation extrinsèque\nTemps nécessaire au développement du parasite ou du virus dans le vecteur avant qu’il puisse être transmis.",
+    "crumbs": [
+      "Annexes",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossaire</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.fr.html#transmission-et-paramètres-clés",
+    "href": "glossary.fr.html#transmission-et-paramètres-clés",
+    "title": "Annexe B — Glossaire",
+    "section": "B.2 Transmission et paramètres clés",
+    "text": "B.2 Transmission et paramètres clés\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nRéservoir\nHabitat humain, animal ou environnemental dans lequel l’agent infectieux vit et se multiplie normalement.\n\n\nPorteur\nPersonne infectée qui peut transmettre l’agent sans maladie apparente.\n\n\nCas index / cas primaire\nLe cas index est le premier cas identifié dans une épidémie (parfois appelé patient zéro) ; le cas primaire est celui qui a introduit l’infection dans la population. Les deux peuvent être différents.\n\n\nSusceptible\nPersonne qui peut être infectée si elle est exposée.\n\n\nInfectieux\nPersonne qui peut transmettre l’agent.\n\n\nImmun / guéri\nPersonne protégée contre l’infection, à la suite d’une infection antérieure ou d’une vaccination.\n\n\nCompartiment\nGroupe de personnes ayant le même statut infectieux dans un modèle à compartiments (p. ex. S, I, R).\n\n\nTaux de contact\nNombre moyen de contacts (pertinents) d’une personne par unité de temps.\n\n\nMatrice de contacts\nTableau du nombre moyen de contacts par jour entre groupes d’âge (ou d’autres groupes).\n\n\nProbabilité de transmission\nProbabilité qu’un contact entre une personne infectieuse et une personne susceptible entraîne une infection.\n\n\nTaux de transmission (\\(\\beta\\))\nNombre de contacts infectants par personne et par unité de temps : le taux de contact multiplié par la probabilité de transmission.\n\n\nForce d’infection (\\(\\lambda\\))\nTaux par personne auquel les personnes susceptibles sont infectées ; dans le modèle SIR, \\(\\lambda = \\beta I/N\\).\n\n\nTaux de guérison (\\(\\gamma\\))\nTaux auquel les personnes infectieuses guérissent ou sont retirées ; son inverse \\(1/\\gamma\\) est la durée moyenne de la période infectieuse.\n\n\nNombre de reproduction de base (\\(R_0\\))\nNombre moyen d’infections secondaires causées par une personne infectieuse dans une population entièrement susceptible.\n\n\nNombre de reproduction effectif (\\(R_t\\))\nNombre moyen d’infections secondaires par cas au temps \\(t\\), compte tenu de l’immunité et des mesures de contrôle en place. L’épidémie croît si \\(R_t &gt; 1\\) et décroît si \\(R_t &lt; 1\\).\n\n\nSeuil épidémique\nLa condition \\(R = 1\\), qui sépare la croissance de l’épidémie de son extinction.\n\n\nTaux de croissance (\\(r\\))\nTaux d’augmentation exponentielle (ou, s’il est négatif, de diminution) de l’incidence par unité de temps.\n\n\nTemps de doublement\nTemps nécessaire pour que l’incidence double pendant une croissance exponentielle : \\(\\ln 2 / r\\).\n\n\nDistribution de la descendance\nDistribution du nombre de cas secondaires par cas.\n\n\nParamètre de dispersion (\\(k\\))\nParamètre de la distribution binomiale négative de la descendance ; un \\(k\\) petit (surdispersion) signifie qu’un petit nombre de cas est à l’origine de la plus grande partie de la transmission.\n\n\nSupercontamination\nÉvénements de transmission au cours desquels un cas infecte un nombre disproportionné d’autres personnes.\n\n\nTaux d’inoculation entomologique (TIE)\nNombre de piqûres de moustiques infectantes par personne et par unité de temps.",
+    "crumbs": [
+      "Annexes",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossaire</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.fr.html#mesure-de-la-fréquence-des-maladies",
+    "href": "glossary.fr.html#mesure-de-la-fréquence-des-maladies",
+    "title": "Annexe B — Glossaire",
+    "section": "B.3 Mesure de la fréquence des maladies",
+    "text": "B.3 Mesure de la fréquence des maladies\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nIncidence\nNombre de nouveaux cas dans une population au cours d’une période donnée, ou taux d’apparition de nouveaux cas.\n\n\nPrévalence\nProportion d’une population atteinte de l’infection ou de la maladie à un moment donné.\n\n\nTaux d’attaque\nProportion d’une population infectée au cours d’une épidémie.\n\n\nLétalité (CFR)\nProportion des cas qui décèdent de la maladie.\n\n\nCourbe épidémique\nNombre de cas représenté en fonction de la date de début des symptômes (ou de notification).\n\n\nListe linéaire\nTableau comportant une ligne par cas et une colonne par variable (dates, âge, sexe, lieu, issue).\n\n\nDélai de notification\nTemps entre un événement (p. ex. le début des symptômes) et sa notification au système de surveillance.\n\n\nPrévision immédiate (nowcasting)\nEstimation de l’incidence récente, qui n’est pas encore entièrement notifiée en raison des délais de notification.\n\n\nEndémique\nSe dit d’une infection dont la transmission persiste dans une population.",
+    "crumbs": [
+      "Annexes",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossaire</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.fr.html#protection-de-la-population-et-interventions",
+    "href": "glossary.fr.html#protection-de-la-population-et-interventions",
+    "title": "Annexe B — Glossaire",
+    "section": "B.4 Protection de la population et interventions",
+    "text": "B.4 Protection de la population et interventions\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nImmunité collective\nProtection indirecte des personnes susceptibles lorsqu’une part suffisante de la population est immunisée pour que la transmission ne puisse pas se maintenir.\n\n\nSeuil d’immunité collective\nProportion de la population qui doit être immunisée pour empêcher une transmission durable : \\(1 - 1/R_0\\) (dans une population à mélange homogène).\n\n\nEfficacité vaccinale (\\(VE\\))\nRéduction du risque d’infection ou de maladie chez les personnes vaccinées, dans les conditions d’un essai (efficacy) ou en conditions réelles (effectiveness).\n\n\nCouverture vaccinale critique\nCouverture nécessaire pour empêcher une transmission durable : \\((1 - 1/R_0)/VE\\).\n\n\nInterventions non pharmaceutiques (INP)\nMesures autres que les vaccins et les médicaments, telles que le port du masque, la distanciation physique, la fermeture des écoles et l’hygiène des mains.\n\n\nIsolement\nSéparation des personnes dont l’infection est connue.\n\n\nQuarantaine\nRestriction des déplacements des personnes exposées susceptibles de devenir contagieuses.\n\n\nRecherche des contacts\nIdentification et suivi des personnes exposées à un cas.\n\n\nTaille finale\nProportion totale de la population infectée à la fin d’une épidémie.\n\n\nContrefactuel\nLe scénario sans l’intervention, utilisé comme comparateur.\n\n\nScénario\nProjection de type que se passerait-il si sous des hypothèses explicites ; il ne s’agit pas d’une prévision.",
+    "crumbs": [
+      "Annexes",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossaire</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.fr.html#modèles-et-méthodes",
+    "href": "glossary.fr.html#modèles-et-méthodes",
+    "title": "Annexe B — Glossaire",
+    "section": "B.5 Modèles et méthodes",
+    "text": "B.5 Modèles et méthodes\n\n\n\n\n\n\n\nTerme\nDéfinition\n\n\n\n\nModèle déterministe\nModèle sans aléa : les mêmes entrées donnent toujours le même résultat.\n\n\nModèle stochastique\nModèle qui intègre le hasard ; des simulations répétées donnent des résultats différents.\n\n\nProcessus de branchement\nModèle stochastique qui suit chaque cas et les cas qu’il provoque, génération après génération.\n\n\nMatrice de nouvelle génération\nMatrice dont les éléments donnent le nombre d’infections secondaires dans le groupe \\(i\\) causées par une personne infectée du groupe \\(j\\) ; sa plus grande valeur propre est \\(R_0\\).\n\n\nCalibration\nChoix des valeurs des paramètres de sorte que les résultats du modèle correspondent aux données observées.\n\n\nVraisemblance\nProbabilité des données observées étant donné les valeurs des paramètres.\n\n\nVraisemblance profilée\nVraisemblance maximisée par rapport à tous les autres paramètres pour des valeurs fixées d’un paramètre d’intérêt ; utilisée pour les intervalles de confiance.\n\n\nLoi a priori\nDistribution décrivant les connaissances sur les paramètres avant l’observation des données.\n\n\nLoi a posteriori\nDistribution des paramètres après combinaison de la loi a priori et des données.\n\n\nIntervalle de crédibilité\nEn analyse bayésienne, intervalle contenant le paramètre avec une probabilité a posteriori donnée.\n\n\nMCMC\nMéthodes de Monte-Carlo par chaînes de Markov : algorithmes qui tirent des échantillons d’une loi a posteriori.\n\n\nÉchantillonnage par hypercube latin\nMéthode efficace de tirage de jeux de paramètres dans leur domaine conjoint, pour l’analyse d’incertitude.\n\n\nPRCC\nCoefficient de corrélation partielle des rangs : mesure de l’influence d’un paramètre sur un résultat du modèle, ajustée sur les autres paramètres.",
+    "crumbs": [
+      "Annexes",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossaire</span>"
     ]
   },
   {

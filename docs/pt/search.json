@@ -14,7 +14,7 @@
     "href": "index.pt.html#preparação-antes-do-primeiro-módulo",
     "title": "Aprendizagem preliminar",
     "section": "Preparação antes do primeiro módulo",
-    "text": "Preparação antes do primeiro módulo\n\nInstalar o R, o RStudio e os pacotes utilizados no curso (Apêndice A — Instalação do R e do RStudio).\nEstudar os três capítulos deste livro. Os participantes sem experiência prévia em R devem começar pelos tutoriais interativos referidos em P1, uma vez que os exercícios dos outros dois capítulos também utilizam o R.\nUtilizar a lista de autoavaliação no final de cada capítulo para decidir se é necessário estudo adicional.\nIdentificar, no próprio contexto profissional, uma questão de saúde pública que possa ser abordada com um modelo. Esta questão constitui a base do projeto do curso.",
+    "text": "Preparação antes do primeiro módulo\n\nInstalar o R, o RStudio e os pacotes utilizados no curso (Apêndice A — Instalação do R e do RStudio).\nLer o glossário (Apêndice B — Glossário), que define os principais termos da epidemiologia e da modelação de doenças infecciosas utilizados no curso.\nEstudar os três capítulos deste livro. Os participantes sem experiência prévia em R devem começar pelos tutoriais interativos referidos em P1, uma vez que os exercícios dos outros dois capítulos também utilizam o R.\nUtilizar a lista de autoavaliação no final de cada capítulo para decidir se é necessário estudo adicional.\nIdentificar, no próprio contexto profissional, uma questão de saúde pública que possa ser abordada com um modelo. Esta questão constitui a base do projeto do curso.",
     "crumbs": [
       "Bem-vindo"
     ]
@@ -34,7 +34,7 @@
     "href": "index.pt.html#agradecimentos",
     "title": "Aprendizagem preliminar",
     "section": "Agradecimentos",
-    "text": "Agradecimentos\n\n\nO TIMERA é apoiado pela Empresa Comum Global Health EDCTP3 e pelos seus membros, ao abrigo da convenção de subvenção n.º 101249114. Cofinanciado pela União Europeia. Os pontos de vista e as opiniões expressos são, no entanto, apenas dos autores e não refletem necessariamente os da União Europeia ou da Empresa Comum Global Health EDCTP3. Nem a União Europeia nem a autoridade que concede o financiamento podem ser responsabilizadas por eles.",
+    "text": "Agradecimentos\n\n\nO TIMERA é apoiado pela Empresa Comum Global Health EDCTP3 e pelos seus membros, ao abrigo da convenção de subvenção n.º 101249114, e cofinanciado pela União Europeia e pela Coligação para as Inovações na Preparação para Epidemias (CEPI). Os pontos de vista e as opiniões expressos são, no entanto, apenas dos autores e não refletem necessariamente os da União Europeia, da Empresa Comum Global Health EDCTP3 ou da CEPI. Nem a União Europeia nem a autoridade que concede o financiamento podem ser responsabilizadas por eles.",
     "crumbs": [
       "Bem-vindo"
     ]
@@ -472,6 +472,72 @@
     "crumbs": [
       "Apêndices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Instalação do R e do RStudio</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.pt.html",
+    "href": "glossary.pt.html",
+    "title": "Apêndice B — Glossário",
+    "section": "",
+    "text": "B.1 Cronologia da infeção\nEste glossário define os principais termos da epidemiologia e da modelação de doenças infecciosas utilizados no curso. Os termos estão agrupados por tema. Recomenda-se a leitura do glossário antes do primeiro módulo, para que as sessões se possam concentrar na aplicação dos conceitos.",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossário</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.pt.html#cronologia-da-infeção",
+    "href": "glossary.pt.html#cronologia-da-infeção",
+    "title": "Apêndice B — Glossário",
+    "section": "",
+    "text": "Termo\nDefinição\n\n\n\n\nExposição\nContacto com um agente infeccioso ou com uma pessoa infecciosa que pode levar à infeção.\n\n\nPeríodo de latência\nTempo entre a infeção e o início da infecciosidade.\n\n\nPeríodo infeccioso\nPeríodo durante o qual uma pessoa infetada pode transmitir o agente a outras pessoas.\n\n\nPeríodo de incubação\nTempo entre a infeção e o aparecimento dos sintomas.\n\n\nPeríodo sintomático\nPeríodo durante o qual os sintomas estão presentes.\n\n\nPeríodo pré-sintomático\nPeríodo durante o qual uma pessoa já é infecciosa mas ainda não desenvolveu sintomas; existe quando o período de latência é mais curto do que o período de incubação.\n\n\nInfeção assintomática\nInfeção que nunca produz sintomas; a pessoa pode, no entanto, ser infecciosa.\n\n\nIntervalo serial\nTempo entre o início dos sintomas num caso e o início dos sintomas nas pessoas que ele infetou.\n\n\nIntervalo de geração (tempo de geração)\nTempo entre a infeção de um caso e a infeção das pessoas que ele infeta. Raramente é observado diretamente, pelo que o intervalo serial é frequentemente utilizado como aproximação.\n\n\nRecuperação / remoção\nFim da infecciosidade por recuperação, isolamento ou morte.\n\n\nPeríodo de incubação extrínseco\nTempo necessário para que o parasita ou o vírus se desenvolva no vetor antes de poder ser transmitido.",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossário</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.pt.html#transmissão-e-parâmetros-chave",
+    "href": "glossary.pt.html#transmissão-e-parâmetros-chave",
+    "title": "Apêndice B — Glossário",
+    "section": "B.2 Transmissão e parâmetros-chave",
+    "text": "B.2 Transmissão e parâmetros-chave\n\n\n\n\n\n\n\nTermo\nDefinição\n\n\n\n\nReservatório\nHabitat humano, animal ou ambiental no qual o agente infeccioso normalmente vive e se multiplica.\n\n\nPortador\nPessoa infetada que pode transmitir o agente sem doença aparente.\n\n\nCaso índice / caso primário\nO caso índice é o primeiro caso identificado num surto (por vezes chamado paciente zero); o caso primário é o que introduziu a infeção na população. Os dois podem ser diferentes.\n\n\nSuscetível\nPessoa que pode ser infetada se for exposta.\n\n\nInfeccioso\nPessoa que pode transmitir o agente.\n\n\nImune / recuperado\nPessoa protegida contra a infeção, por infeção anterior ou por vacinação.\n\n\nCompartimento\nGrupo de pessoas com o mesmo estado de infeção num modelo compartimental (p. ex. S, I, R).\n\n\nTaxa de contacto\nNúmero médio de contactos (relevantes) de uma pessoa por unidade de tempo.\n\n\nMatriz de contactos\nTabela do número médio de contactos por dia entre grupos etários (ou outros grupos).\n\n\nProbabilidade de transmissão\nProbabilidade de que um contacto entre uma pessoa infecciosa e uma pessoa suscetível resulte em infeção.\n\n\nTaxa de transmissão (\\(\\beta\\))\nNúmero de contactos efetivos por pessoa e por unidade de tempo: a taxa de contacto multiplicada pela probabilidade de transmissão.\n\n\nForça de infeção (\\(\\lambda\\))\nTaxa per capita a que as pessoas suscetíveis são infetadas; no modelo SIR, \\(\\lambda = \\beta I/N\\).\n\n\nTaxa de recuperação (\\(\\gamma\\))\nTaxa a que as pessoas infecciosas recuperam ou são removidas; o seu inverso \\(1/\\gamma\\) é a duração média do período infeccioso.\n\n\nNúmero básico de reprodução (\\(R_0\\))\nNúmero médio de infeções secundárias causadas por uma pessoa infecciosa numa população totalmente suscetível.\n\n\nNúmero efetivo de reprodução (\\(R_t\\))\nNúmero médio de infeções secundárias por caso no tempo \\(t\\), tendo em conta a imunidade e as medidas de controlo em vigor. A epidemia cresce se \\(R_t &gt; 1\\) e diminui se \\(R_t &lt; 1\\).\n\n\nLimiar epidémico\nA condição \\(R = 1\\), que separa o crescimento da epidemia da sua extinção.\n\n\nTaxa de crescimento (\\(r\\))\nTaxa de aumento exponencial (ou, se negativa, de diminuição) da incidência por unidade de tempo.\n\n\nTempo de duplicação\nTempo necessário para que a incidência duplique durante o crescimento exponencial: \\(\\ln 2 / r\\).\n\n\nDistribuição da descendência\nDistribuição do número de casos secundários por caso.\n\n\nParâmetro de dispersão (\\(k\\))\nParâmetro da distribuição binomial negativa da descendência; um \\(k\\) pequeno (sobredispersão) significa que poucos casos são responsáveis pela maior parte da transmissão.\n\n\nSupertransmissão\nEventos de transmissão em que um caso infeta um número desproporcionadamente elevado de outras pessoas.\n\n\nTaxa de inoculação entomológica (EIR)\nNúmero de picadas infetantes de mosquito por pessoa e por unidade de tempo.",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossário</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.pt.html#medição-da-ocorrência-de-doença",
+    "href": "glossary.pt.html#medição-da-ocorrência-de-doença",
+    "title": "Apêndice B — Glossário",
+    "section": "B.3 Medição da ocorrência de doença",
+    "text": "B.3 Medição da ocorrência de doença\n\n\n\n\n\n\n\nTermo\nDefinição\n\n\n\n\nIncidência\nNúmero de casos novos numa população durante um determinado período, ou taxa a que surgem casos novos.\n\n\nPrevalência\nProporção de uma população com a infeção ou a doença num determinado momento.\n\n\nTaxa de ataque\nProporção de uma população infetada durante um surto.\n\n\nTaxa de letalidade (CFR)\nProporção de casos que morrem da doença.\n\n\nCurva epidémica\nNúmero de casos representado em função da data de início dos sintomas (ou de notificação).\n\n\nLista nominal de casos (line list)\nTabela com uma linha por caso e uma coluna por variável (datas, idade, sexo, local, desfecho).\n\n\nAtraso de notificação\nTempo entre um acontecimento (p. ex. o início dos sintomas) e a sua notificação ao sistema de vigilância.\n\n\nNowcasting\nEstimação da incidência recente, que ainda não foi totalmente notificada devido aos atrasos de notificação.\n\n\nEndémico\nDiz-se de uma infeção cuja transmissão persiste numa população.",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossário</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.pt.html#proteção-da-população-e-intervenções",
+    "href": "glossary.pt.html#proteção-da-população-e-intervenções",
+    "title": "Apêndice B — Glossário",
+    "section": "B.4 Proteção da população e intervenções",
+    "text": "B.4 Proteção da população e intervenções\n\n\n\n\n\n\n\nTermo\nDefinição\n\n\n\n\nImunidade de grupo\nProteção indireta das pessoas suscetíveis quando uma parte suficiente da população está imune, de modo que a transmissão não se consegue manter.\n\n\nLimiar de imunidade de grupo\nProporção da população que tem de estar imune para impedir a transmissão sustentada: \\(1 - 1/R_0\\) (numa população com mistura homogénea).\n\n\nEficácia / efetividade vacinal (\\(VE\\))\nRedução do risco de infeção ou de doença nas pessoas vacinadas, em condições de ensaio (eficácia) ou em condições reais (efetividade).\n\n\nCobertura vacinal crítica\nCobertura necessária para impedir a transmissão sustentada: \\((1 - 1/R_0)/VE\\).\n\n\nIntervenções não farmacológicas (INF)\nMedidas que não envolvem vacinas nem medicamentos, como o uso de máscara, o distanciamento físico, o encerramento de escolas e a higiene das mãos.\n\n\nIsolamento\nSeparação das pessoas que se sabe estarem infetadas.\n\n\nQuarentena\nRestrição da circulação das pessoas expostas que podem vir a tornar-se infecciosas.\n\n\nRastreio de contactos\nIdentificação e acompanhamento das pessoas expostas a um caso.\n\n\nDimensão final\nProporção total da população infetada no final de uma epidemia.\n\n\nContrafactual\nO cenário sem a intervenção, utilizado como termo de comparação.\n\n\nCenário\nProjeção do tipo e se sob pressupostos explícitos; não é uma previsão.",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossário</span>"
+    ]
+  },
+  {
+    "objectID": "glossary.pt.html#modelos-e-métodos",
+    "href": "glossary.pt.html#modelos-e-métodos",
+    "title": "Apêndice B — Glossário",
+    "section": "B.5 Modelos e métodos",
+    "text": "B.5 Modelos e métodos\n\n\n\n\n\n\n\nTermo\nDefinição\n\n\n\n\nModelo determinístico\nModelo sem aleatoriedade: os mesmos dados de entrada dão sempre o mesmo resultado.\n\n\nModelo estocástico\nModelo que inclui o acaso; simulações repetidas dão resultados diferentes.\n\n\nProcesso de ramificação\nModelo estocástico que acompanha cada caso e os casos que este provoca, geração após geração.\n\n\nMatriz de próxima geração\nMatriz cujos elementos dão o número de infeções secundárias no grupo \\(i\\) causadas por uma pessoa infetada do grupo \\(j\\); o seu maior valor próprio é \\(R_0\\).\n\n\nCalibração\nEscolha dos valores dos parâmetros de modo que os resultados do modelo correspondam aos dados observados.\n\n\nVerosimilhança\nProbabilidade dos dados observados dados os valores dos parâmetros.\n\n\nVerosimilhança de perfil\nVerosimilhança maximizada em relação a todos os outros parâmetros para valores fixos de um parâmetro de interesse; utilizada para intervalos de confiança.\n\n\nDistribuição a priori\nDistribuição que descreve o conhecimento sobre os parâmetros antes de os dados serem observados.\n\n\nDistribuição a posteriori\nDistribuição dos parâmetros após a combinação da distribuição a priori com os dados.\n\n\nIntervalo de credibilidade\nNa análise bayesiana, intervalo que contém o parâmetro com uma dada probabilidade a posteriori.\n\n\nMCMC\nMétodos de Monte Carlo via cadeias de Markov: algoritmos que extraem amostras de uma distribuição a posteriori.\n\n\nAmostragem por hipercubo latino\nMétodo eficiente para amostrar conjuntos de parâmetros no seu domínio conjunto, para a análise de incerteza.\n\n\nPRCC\nCoeficiente de correlação parcial de postos: medida da influência de um parâmetro num resultado do modelo, ajustada para os restantes parâmetros.",
+    "crumbs": [
+      "Apêndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Glossário</span>"
     ]
   },
   {

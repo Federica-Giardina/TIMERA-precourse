@@ -1,0 +1,115 @@
+<!-- Translation of glossary.qmd (fr). Draft translation, under review.
+     Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
+     and file names unchanged. When the review is complete, remove the box marked
+     .translation-review. After changes to the English text:
+     py precourse/translations.py status --diff -->
+
+# Glossaire {#sec-glossary}
+
+::: {.callout-note .translation-review}
+## Traduction provisoire
+Cette annexe a été traduite de l'anglais et est en cours de relecture. Les remarques sont les bienvenues.
+:::
+
+Ce glossaire définit les principaux termes de l'épidémiologie et de la modélisation des maladies infectieuses utilisés pendant la formation. Les termes sont regroupés par thème. Il est recommandé de parcourir le glossaire avant le premier module, afin que les séances puissent se concentrer sur l'application des concepts.
+
+## Chronologie de l'infection
+
+| Terme | Définition |
+|---|---|
+| **Exposition** | Contact avec un agent infectieux ou une personne infectieuse pouvant entraîner une infection. |
+| **Période de latence** | Temps entre l'infection et le début de la contagiosité. |
+| **Période infectieuse (période de contagiosité)** | Période pendant laquelle une personne infectée peut transmettre l'agent à d'autres personnes. |
+| **Période d'incubation** | Temps entre l'infection et l'apparition des symptômes. |
+| **Période symptomatique** | Période pendant laquelle les symptômes sont présents. |
+| **Période présymptomatique** | Période pendant laquelle une personne est déjà contagieuse mais n'a pas encore développé de symptômes ; elle existe lorsque la période de latence est plus courte que la période d'incubation. |
+| **Infection asymptomatique** | Infection qui ne provoque jamais de symptômes ; la personne peut néanmoins être contagieuse. |
+| **Intervalle sériel** | Temps entre l'apparition des symptômes chez un cas et l'apparition des symptômes chez les personnes qu'il a infectées. |
+| **Intervalle de génération (temps de génération)** | Temps entre l'infection d'un cas et l'infection des personnes qu'il infecte. Il est rarement observé directement ; l'intervalle sériel est donc souvent utilisé comme approximation. |
+| **Guérison / retrait** | Fin de la contagiosité par guérison, isolement ou décès. |
+| **Période d'incubation extrinsèque** | Temps nécessaire au développement du parasite ou du virus dans le vecteur avant qu'il puisse être transmis. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Transmission et paramètres clés
+
+| Terme | Définition |
+|---|---|
+| **Réservoir** | Habitat humain, animal ou environnemental dans lequel l'agent infectieux vit et se multiplie normalement. |
+| **Porteur** | Personne infectée qui peut transmettre l'agent sans maladie apparente. |
+| **Cas index / cas primaire** | Le cas index est le premier cas identifié dans une épidémie (parfois appelé *patient zéro*) ; le cas primaire est celui qui a introduit l'infection dans la population. Les deux peuvent être différents. |
+| **Susceptible** | Personne qui peut être infectée si elle est exposée. |
+| **Infectieux** | Personne qui peut transmettre l'agent. |
+| **Immun / guéri** | Personne protégée contre l'infection, à la suite d'une infection antérieure ou d'une vaccination. |
+| **Compartiment** | Groupe de personnes ayant le même statut infectieux dans un modèle à compartiments (p. ex. S, I, R). |
+| **Taux de contact** | Nombre moyen de contacts (pertinents) d'une personne par unité de temps. |
+| **Matrice de contacts** | Tableau du nombre moyen de contacts par jour entre groupes d'âge (ou d'autres groupes). |
+| **Probabilité de transmission** | Probabilité qu'un contact entre une personne infectieuse et une personne susceptible entraîne une infection. |
+| **Taux de transmission ($\beta$)** | Nombre de contacts infectants par personne et par unité de temps : le taux de contact multiplié par la probabilité de transmission. |
+| **Force d'infection ($\lambda$)** | Taux par personne auquel les personnes susceptibles sont infectées ; dans le modèle SIR, $\lambda = \beta I/N$. |
+| **Taux de guérison ($\gamma$)** | Taux auquel les personnes infectieuses guérissent ou sont retirées ; son inverse $1/\gamma$ est la durée moyenne de la période infectieuse. |
+| **Nombre de reproduction de base ($R_0$)** | Nombre moyen d'infections secondaires causées par une personne infectieuse dans une population entièrement susceptible. |
+| **Nombre de reproduction effectif ($R_t$)** | Nombre moyen d'infections secondaires par cas au temps $t$, compte tenu de l'immunité et des mesures de contrôle en place. L'épidémie croît si $R_t > 1$ et décroît si $R_t < 1$. |
+| **Seuil épidémique** | La condition $R = 1$, qui sépare la croissance de l'épidémie de son extinction. |
+| **Taux de croissance ($r$)** | Taux d'augmentation exponentielle (ou, s'il est négatif, de diminution) de l'incidence par unité de temps. |
+| **Temps de doublement** | Temps nécessaire pour que l'incidence double pendant une croissance exponentielle : $\ln 2 / r$. |
+| **Distribution de la descendance** | Distribution du nombre de cas secondaires par cas. |
+| **Paramètre de dispersion ($k$)** | Paramètre de la distribution binomiale négative de la descendance ; un $k$ petit (surdispersion) signifie qu'un petit nombre de cas est à l'origine de la plus grande partie de la transmission. |
+| **Supercontamination** | Événements de transmission au cours desquels un cas infecte un nombre disproportionné d'autres personnes. |
+| **Taux d'inoculation entomologique (TIE)** | Nombre de piqûres de moustiques infectantes par personne et par unité de temps. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Mesure de la fréquence des maladies
+
+| Terme | Définition |
+|---|---|
+| **Incidence** | Nombre de nouveaux cas dans une population au cours d'une période donnée, ou taux d'apparition de nouveaux cas. |
+| **Prévalence** | Proportion d'une population atteinte de l'infection ou de la maladie à un moment donné. |
+| **Taux d'attaque** | Proportion d'une population infectée au cours d'une épidémie. |
+| **Létalité (CFR)** | Proportion des cas qui décèdent de la maladie. |
+| **Courbe épidémique** | Nombre de cas représenté en fonction de la date de début des symptômes (ou de notification). |
+| **Liste linéaire** | Tableau comportant une ligne par cas et une colonne par variable (dates, âge, sexe, lieu, issue). |
+| **Délai de notification** | Temps entre un événement (p. ex. le début des symptômes) et sa notification au système de surveillance. |
+| **Prévision immédiate (*nowcasting*)** | Estimation de l'incidence récente, qui n'est pas encore entièrement notifiée en raison des délais de notification. |
+| **Endémique** | Se dit d'une infection dont la transmission persiste dans une population. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Protection de la population et interventions
+
+| Terme | Définition |
+|---|---|
+| **Immunité collective** | Protection indirecte des personnes susceptibles lorsqu'une part suffisante de la population est immunisée pour que la transmission ne puisse pas se maintenir. |
+| **Seuil d'immunité collective** | Proportion de la population qui doit être immunisée pour empêcher une transmission durable : $1 - 1/R_0$ (dans une population à mélange homogène). |
+| **Efficacité vaccinale ($VE$)** | Réduction du risque d'infection ou de maladie chez les personnes vaccinées, dans les conditions d'un essai (*efficacy*) ou en conditions réelles (*effectiveness*). |
+| **Couverture vaccinale critique** | Couverture nécessaire pour empêcher une transmission durable : $(1 - 1/R_0)/VE$. |
+| **Interventions non pharmaceutiques (INP)** | Mesures autres que les vaccins et les médicaments, telles que le port du masque, la distanciation physique, la fermeture des écoles et l'hygiène des mains. |
+| **Isolement** | Séparation des personnes dont l'infection est connue. |
+| **Quarantaine** | Restriction des déplacements des personnes exposées susceptibles de devenir contagieuses. |
+| **Recherche des contacts** | Identification et suivi des personnes exposées à un cas. |
+| **Taille finale** | Proportion totale de la population infectée à la fin d'une épidémie. |
+| **Contrefactuel** | Le scénario sans l'intervention, utilisé comme comparateur. |
+| **Scénario** | Projection de type *que se passerait-il si* sous des hypothèses explicites ; il ne s'agit pas d'une prévision. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Modèles et méthodes
+
+| Terme | Définition |
+|---|---|
+| **Modèle déterministe** | Modèle sans aléa : les mêmes entrées donnent toujours le même résultat. |
+| **Modèle stochastique** | Modèle qui intègre le hasard ; des simulations répétées donnent des résultats différents. |
+| **Processus de branchement** | Modèle stochastique qui suit chaque cas et les cas qu'il provoque, génération après génération. |
+| **Matrice de nouvelle génération** | Matrice dont les éléments donnent le nombre d'infections secondaires dans le groupe $i$ causées par une personne infectée du groupe $j$ ; sa plus grande valeur propre est $R_0$. |
+| **Calibration** | Choix des valeurs des paramètres de sorte que les résultats du modèle correspondent aux données observées. |
+| **Vraisemblance** | Probabilité des données observées étant donné les valeurs des paramètres. |
+| **Vraisemblance profilée** | Vraisemblance maximisée par rapport à tous les autres paramètres pour des valeurs fixées d'un paramètre d'intérêt ; utilisée pour les intervalles de confiance. |
+| **Loi a priori** | Distribution décrivant les connaissances sur les paramètres avant l'observation des données. |
+| **Loi a posteriori** | Distribution des paramètres après combinaison de la loi a priori et des données. |
+| **Intervalle de crédibilité** | En analyse bayésienne, intervalle contenant le paramètre avec une probabilité a posteriori donnée. |
+| **MCMC** | Méthodes de Monte-Carlo par chaînes de Markov : algorithmes qui tirent des échantillons d'une loi a posteriori. |
+| **Échantillonnage par hypercube latin** | Méthode efficace de tirage de jeux de paramètres dans leur domaine conjoint, pour l'analyse d'incertitude. |
+| **PRCC** | Coefficient de corrélation partielle des rangs : mesure de l'influence d'un paramètre sur un résultat du modèle, ajustée sur les autres paramètres. |
+
+: {tbl-colwidths="[30,70]"}

@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Apêndice B — Glossário – Aprendizagem preliminar</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.pt.html" rel="next">
+<link href="./setup.pt.html" rel="prev">
+<link href="./images/timera-icon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5630e6732664d48c7cde3b526013eeb9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-85797823d13c074f06d599944906f588.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5630e6732664d48c7cde3b526013eeb9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setup.pt.html">Apêndices</a></li><li class="breadcrumb-item"><a href="./glossary.pt.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossário</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/timera-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/timera-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Aprendizagem preliminar</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Federica-Giardina/TIMERA-precourse" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.pt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00a-prelim-r.pt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P1 Introdução ao R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00b-prelim-stats-epi.pt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P2 Conceitos estatísticos e epidemiológicos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00c-prelim-maths.pt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">P3 Fundamentos matemáticos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.pt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Instalação do R e do RStudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.pt.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossário</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.pt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#cronologia-da-infeção" id="toc-cronologia-da-infeção" class="nav-link active" data-scroll-target="#cronologia-da-infeção"><span class="header-section-number">B.1</span> Cronologia da infeção</a></li>
+  <li><a href="#transmissão-e-parâmetros-chave" id="toc-transmissão-e-parâmetros-chave" class="nav-link" data-scroll-target="#transmissão-e-parâmetros-chave"><span class="header-section-number">B.2</span> Transmissão e parâmetros-chave</a></li>
+  <li><a href="#medição-da-ocorrência-de-doença" id="toc-medição-da-ocorrência-de-doença" class="nav-link" data-scroll-target="#medição-da-ocorrência-de-doença"><span class="header-section-number">B.3</span> Medição da ocorrência de doença</a></li>
+  <li><a href="#proteção-da-população-e-intervenções" id="toc-proteção-da-população-e-intervenções" class="nav-link" data-scroll-target="#proteção-da-população-e-intervenções"><span class="header-section-number">B.4</span> Proteção da população e intervenções</a></li>
+  <li><a href="#modelos-e-métodos" id="toc-modelos-e-métodos" class="nav-link" data-scroll-target="#modelos-e-métodos"><span class="header-section-number">B.5</span> Modelos e métodos</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Federica-Giardina/TIMERA-precourse/issues/new" class="toc-action"><i class="bi bi-github"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setup.pt.html">Apêndices</a></li><li class="breadcrumb-item"><a href="./glossary.pt.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossário</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-glossary" class="quarto-section-identifier">Apêndice B — Glossário</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- Translation of glossary.qmd (pt). Draft translation, under review.
+     Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
+     and file names unchanged. When the review is complete, remove the box marked
+     .translation-review. After changes to the English text:
+     py precourse/translations.py status --diff -->
+<div class="translation-review callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Tradução provisória
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Este apêndice foi traduzido do inglês e está em revisão. As observações são bem-vindas.</p>
+</div>
+</div>
+<p>Este glossário define os principais termos da epidemiologia e da modelação de doenças infecciosas utilizados no curso. Os termos estão agrupados por tema. Recomenda-se a leitura do glossário antes do primeiro módulo, para que as sessões se possam concentrar na aplicação dos conceitos.</p>
+<section id="cronologia-da-infeção" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="cronologia-da-infeção"><span class="header-section-number">B.1</span> Cronologia da infeção</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Termo</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Exposição</strong></td>
+<td>Contacto com um agente infeccioso ou com uma pessoa infecciosa que pode levar à infeção.</td>
+</tr>
+<tr class="even">
+<td><strong>Período de latência</strong></td>
+<td>Tempo entre a infeção e o início da infecciosidade.</td>
+</tr>
+<tr class="odd">
+<td><strong>Período infeccioso</strong></td>
+<td>Período durante o qual uma pessoa infetada pode transmitir o agente a outras pessoas.</td>
+</tr>
+<tr class="even">
+<td><strong>Período de incubação</strong></td>
+<td>Tempo entre a infeção e o aparecimento dos sintomas.</td>
+</tr>
+<tr class="odd">
+<td><strong>Período sintomático</strong></td>
+<td>Período durante o qual os sintomas estão presentes.</td>
+</tr>
+<tr class="even">
+<td><strong>Período pré-sintomático</strong></td>
+<td>Período durante o qual uma pessoa já é infecciosa mas ainda não desenvolveu sintomas; existe quando o período de latência é mais curto do que o período de incubação.</td>
+</tr>
+<tr class="odd">
+<td><strong>Infeção assintomática</strong></td>
+<td>Infeção que nunca produz sintomas; a pessoa pode, no entanto, ser infecciosa.</td>
+</tr>
+<tr class="even">
+<td><strong>Intervalo serial</strong></td>
+<td>Tempo entre o início dos sintomas num caso e o início dos sintomas nas pessoas que ele infetou.</td>
+</tr>
+<tr class="odd">
+<td><strong>Intervalo de geração (tempo de geração)</strong></td>
+<td>Tempo entre a infeção de um caso e a infeção das pessoas que ele infeta. Raramente é observado diretamente, pelo que o intervalo serial é frequentemente utilizado como aproximação.</td>
+</tr>
+<tr class="even">
+<td><strong>Recuperação / remoção</strong></td>
+<td>Fim da infecciosidade por recuperação, isolamento ou morte.</td>
+</tr>
+<tr class="odd">
+<td><strong>Período de incubação extrínseco</strong></td>
+<td>Tempo necessário para que o parasita ou o vírus se desenvolva no vetor antes de poder ser transmitido.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transmissão-e-parâmetros-chave" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="transmissão-e-parâmetros-chave"><span class="header-section-number">B.2</span> Transmissão e parâmetros-chave</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Termo</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Reservatório</strong></td>
+<td>Habitat humano, animal ou ambiental no qual o agente infeccioso normalmente vive e se multiplica.</td>
+</tr>
+<tr class="even">
+<td><strong>Portador</strong></td>
+<td>Pessoa infetada que pode transmitir o agente sem doença aparente.</td>
+</tr>
+<tr class="odd">
+<td><strong>Caso índice / caso primário</strong></td>
+<td>O caso índice é o primeiro caso identificado num surto (por vezes chamado <em>paciente zero</em>); o caso primário é o que introduziu a infeção na população. Os dois podem ser diferentes.</td>
+</tr>
+<tr class="even">
+<td><strong>Suscetível</strong></td>
+<td>Pessoa que pode ser infetada se for exposta.</td>
+</tr>
+<tr class="odd">
+<td><strong>Infeccioso</strong></td>
+<td>Pessoa que pode transmitir o agente.</td>
+</tr>
+<tr class="even">
+<td><strong>Imune / recuperado</strong></td>
+<td>Pessoa protegida contra a infeção, por infeção anterior ou por vacinação.</td>
+</tr>
+<tr class="odd">
+<td><strong>Compartimento</strong></td>
+<td>Grupo de pessoas com o mesmo estado de infeção num modelo compartimental (p.&nbsp;ex. S, I, R).</td>
+</tr>
+<tr class="even">
+<td><strong>Taxa de contacto</strong></td>
+<td>Número médio de contactos (relevantes) de uma pessoa por unidade de tempo.</td>
+</tr>
+<tr class="odd">
+<td><strong>Matriz de contactos</strong></td>
+<td>Tabela do número médio de contactos por dia entre grupos etários (ou outros grupos).</td>
+</tr>
+<tr class="even">
+<td><strong>Probabilidade de transmissão</strong></td>
+<td>Probabilidade de que um contacto entre uma pessoa infecciosa e uma pessoa suscetível resulte em infeção.</td>
+</tr>
+<tr class="odd">
+<td><strong>Taxa de transmissão (<span class="math inline">\(\beta\)</span>)</strong></td>
+<td>Número de contactos efetivos por pessoa e por unidade de tempo: a taxa de contacto multiplicada pela probabilidade de transmissão.</td>
+</tr>
+<tr class="even">
+<td><strong>Força de infeção (<span class="math inline">\(\lambda\)</span>)</strong></td>
+<td>Taxa per capita a que as pessoas suscetíveis são infetadas; no modelo SIR, <span class="math inline">\(\lambda = \beta I/N\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Taxa de recuperação (<span class="math inline">\(\gamma\)</span>)</strong></td>
+<td>Taxa a que as pessoas infecciosas recuperam ou são removidas; o seu inverso <span class="math inline">\(1/\gamma\)</span> é a duração média do período infeccioso.</td>
+</tr>
+<tr class="even">
+<td><strong>Número básico de reprodução (<span class="math inline">\(R_0\)</span>)</strong></td>
+<td>Número médio de infeções secundárias causadas por uma pessoa infecciosa numa população totalmente suscetível.</td>
+</tr>
+<tr class="odd">
+<td><strong>Número efetivo de reprodução (<span class="math inline">\(R_t\)</span>)</strong></td>
+<td>Número médio de infeções secundárias por caso no tempo <span class="math inline">\(t\)</span>, tendo em conta a imunidade e as medidas de controlo em vigor. A epidemia cresce se <span class="math inline">\(R_t &gt; 1\)</span> e diminui se <span class="math inline">\(R_t &lt; 1\)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Limiar epidémico</strong></td>
+<td>A condição <span class="math inline">\(R = 1\)</span>, que separa o crescimento da epidemia da sua extinção.</td>
+</tr>
+<tr class="odd">
+<td><strong>Taxa de crescimento (<span class="math inline">\(r\)</span>)</strong></td>
+<td>Taxa de aumento exponencial (ou, se negativa, de diminuição) da incidência por unidade de tempo.</td>
+</tr>
+<tr class="even">
+<td><strong>Tempo de duplicação</strong></td>
+<td>Tempo necessário para que a incidência duplique durante o crescimento exponencial: <span class="math inline">\(\ln 2 / r\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Distribuição da descendência</strong></td>
+<td>Distribuição do número de casos secundários por caso.</td>
+</tr>
+<tr class="even">
+<td><strong>Parâmetro de dispersão (<span class="math inline">\(k\)</span>)</strong></td>
+<td>Parâmetro da distribuição binomial negativa da descendência; um <span class="math inline">\(k\)</span> pequeno (sobredispersão) significa que poucos casos são responsáveis pela maior parte da transmissão.</td>
+</tr>
+<tr class="odd">
+<td><strong>Supertransmissão</strong></td>
+<td>Eventos de transmissão em que um caso infeta um número desproporcionadamente elevado de outras pessoas.</td>
+</tr>
+<tr class="even">
+<td><strong>Taxa de inoculação entomológica (EIR)</strong></td>
+<td>Número de picadas infetantes de mosquito por pessoa e por unidade de tempo.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="medição-da-ocorrência-de-doença" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="medição-da-ocorrência-de-doença"><span class="header-section-number">B.3</span> Medição da ocorrência de doença</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Termo</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Incidência</strong></td>
+<td>Número de casos novos numa população durante um determinado período, ou taxa a que surgem casos novos.</td>
+</tr>
+<tr class="even">
+<td><strong>Prevalência</strong></td>
+<td>Proporção de uma população com a infeção ou a doença num determinado momento.</td>
+</tr>
+<tr class="odd">
+<td><strong>Taxa de ataque</strong></td>
+<td>Proporção de uma população infetada durante um surto.</td>
+</tr>
+<tr class="even">
+<td><strong>Taxa de letalidade (CFR)</strong></td>
+<td>Proporção de casos que morrem da doença.</td>
+</tr>
+<tr class="odd">
+<td><strong>Curva epidémica</strong></td>
+<td>Número de casos representado em função da data de início dos sintomas (ou de notificação).</td>
+</tr>
+<tr class="even">
+<td><strong>Lista nominal de casos (<em>line list</em>)</strong></td>
+<td>Tabela com uma linha por caso e uma coluna por variável (datas, idade, sexo, local, desfecho).</td>
+</tr>
+<tr class="odd">
+<td><strong>Atraso de notificação</strong></td>
+<td>Tempo entre um acontecimento (p.&nbsp;ex. o início dos sintomas) e a sua notificação ao sistema de vigilância.</td>
+</tr>
+<tr class="even">
+<td><strong><em>Nowcasting</em></strong></td>
+<td>Estimação da incidência recente, que ainda não foi totalmente notificada devido aos atrasos de notificação.</td>
+</tr>
+<tr class="odd">
+<td><strong>Endémico</strong></td>
+<td>Diz-se de uma infeção cuja transmissão persiste numa população.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="proteção-da-população-e-intervenções" class="level2" data-number="B.4">
+<h2 data-number="B.4" class="anchored" data-anchor-id="proteção-da-população-e-intervenções"><span class="header-section-number">B.4</span> Proteção da população e intervenções</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Termo</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Imunidade de grupo</strong></td>
+<td>Proteção indireta das pessoas suscetíveis quando uma parte suficiente da população está imune, de modo que a transmissão não se consegue manter.</td>
+</tr>
+<tr class="even">
+<td><strong>Limiar de imunidade de grupo</strong></td>
+<td>Proporção da população que tem de estar imune para impedir a transmissão sustentada: <span class="math inline">\(1 - 1/R_0\)</span> (numa população com mistura homogénea).</td>
+</tr>
+<tr class="odd">
+<td><strong>Eficácia / efetividade vacinal (<span class="math inline">\(VE\)</span>)</strong></td>
+<td>Redução do risco de infeção ou de doença nas pessoas vacinadas, em condições de ensaio (eficácia) ou em condições reais (efetividade).</td>
+</tr>
+<tr class="even">
+<td><strong>Cobertura vacinal crítica</strong></td>
+<td>Cobertura necessária para impedir a transmissão sustentada: <span class="math inline">\((1 - 1/R_0)/VE\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Intervenções não farmacológicas (INF)</strong></td>
+<td>Medidas que não envolvem vacinas nem medicamentos, como o uso de máscara, o distanciamento físico, o encerramento de escolas e a higiene das mãos.</td>
+</tr>
+<tr class="even">
+<td><strong>Isolamento</strong></td>
+<td>Separação das pessoas que se sabe estarem infetadas.</td>
+</tr>
+<tr class="odd">
+<td><strong>Quarentena</strong></td>
+<td>Restrição da circulação das pessoas expostas que podem vir a tornar-se infecciosas.</td>
+</tr>
+<tr class="even">
+<td><strong>Rastreio de contactos</strong></td>
+<td>Identificação e acompanhamento das pessoas expostas a um caso.</td>
+</tr>
+<tr class="odd">
+<td><strong>Dimensão final</strong></td>
+<td>Proporção total da população infetada no final de uma epidemia.</td>
+</tr>
+<tr class="even">
+<td><strong>Contrafactual</strong></td>
+<td>O cenário sem a intervenção, utilizado como termo de comparação.</td>
+</tr>
+<tr class="odd">
+<td><strong>Cenário</strong></td>
+<td>Projeção do tipo <em>e se</em> sob pressupostos explícitos; não é uma previsão.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="modelos-e-métodos" class="level2" data-number="B.5">
+<h2 data-number="B.5" class="anchored" data-anchor-id="modelos-e-métodos"><span class="header-section-number">B.5</span> Modelos e métodos</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Termo</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Modelo determinístico</strong></td>
+<td>Modelo sem aleatoriedade: os mesmos dados de entrada dão sempre o mesmo resultado.</td>
+</tr>
+<tr class="even">
+<td><strong>Modelo estocástico</strong></td>
+<td>Modelo que inclui o acaso; simulações repetidas dão resultados diferentes.</td>
+</tr>
+<tr class="odd">
+<td><strong>Processo de ramificação</strong></td>
+<td>Modelo estocástico que acompanha cada caso e os casos que este provoca, geração após geração.</td>
+</tr>
+<tr class="even">
+<td><strong>Matriz de próxima geração</strong></td>
+<td>Matriz cujos elementos dão o número de infeções secundárias no grupo <span class="math inline">\(i\)</span> causadas por uma pessoa infetada do grupo <span class="math inline">\(j\)</span>; o seu maior valor próprio é <span class="math inline">\(R_0\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Calibração</strong></td>
+<td>Escolha dos valores dos parâmetros de modo que os resultados do modelo correspondam aos dados observados.</td>
+</tr>
+<tr class="even">
+<td><strong>Verosimilhança</strong></td>
+<td>Probabilidade dos dados observados dados os valores dos parâmetros.</td>
+</tr>
+<tr class="odd">
+<td><strong>Verosimilhança de perfil</strong></td>
+<td>Verosimilhança maximizada em relação a todos os outros parâmetros para valores fixos de um parâmetro de interesse; utilizada para intervalos de confiança.</td>
+</tr>
+<tr class="even">
+<td><strong>Distribuição a priori</strong></td>
+<td>Distribuição que descreve o conhecimento sobre os parâmetros antes de os dados serem observados.</td>
+</tr>
+<tr class="odd">
+<td><strong>Distribuição a posteriori</strong></td>
+<td>Distribuição dos parâmetros após a combinação da distribuição a priori com os dados.</td>
+</tr>
+<tr class="even">
+<td><strong>Intervalo de credibilidade</strong></td>
+<td>Na análise bayesiana, intervalo que contém o parâmetro com uma dada probabilidade a posteriori.</td>
+</tr>
+<tr class="odd">
+<td><strong>MCMC</strong></td>
+<td>Métodos de Monte Carlo via cadeias de Markov: algoritmos que extraem amostras de uma distribuição a posteriori.</td>
+</tr>
+<tr class="even">
+<td><strong>Amostragem por hipercubo latino</strong></td>
+<td>Método eficiente para amostrar conjuntos de parâmetros no seu domínio conjunto, para a análise de incerteza.</td>
+</tr>
+<tr class="odd">
+<td><strong>PRCC</strong></td>
+<td>Coeficiente de correlação parcial de postos: medida da influência de um parâmetro num resultado do modelo, ajustada para os restantes parâmetros.</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./setup.pt.html" class="pagination-link" aria-label="Instalação do R e do RStudio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Instalação do R e do RStudio</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.pt.html" class="pagination-link" aria-label="Referências">
+        <span class="nav-page-text">Referências</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Federica-Giardina/TIMERA-precourse/issues/new" class="toc-action"><i class="bi bi-github"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>

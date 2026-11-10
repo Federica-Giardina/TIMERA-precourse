@@ -14,6 +14,7 @@ book:
     - 00c-prelim-maths.pt.qmd
   appendices:
     - setup.pt.qmd
+    - glossary.pt.qmd
     - references.pt.qmd
 
 crossref:

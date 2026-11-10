@@ -26,9 +26,10 @@ Cada capítulo contém uma apresentação concisa da matéria, exercícios com s
 ## Preparação antes do primeiro módulo {.unnumbered}
 
 1. Instalar o R, o RStudio e os pacotes utilizados no curso (@sec-setup).
-2. Estudar os três capítulos deste livro. Os participantes sem experiência prévia em R devem começar pelos tutoriais interativos referidos em @sec-r, uma vez que os exercícios dos outros dois capítulos também utilizam o R.
-3. Utilizar a lista de autoavaliação no final de cada capítulo para decidir se é necessário estudo adicional.
-4. Identificar, no próprio contexto profissional, uma questão de saúde pública que possa ser abordada com um modelo. Esta questão constitui a base do projeto do curso.
+2. Ler o glossário (@sec-glossary), que define os principais termos da epidemiologia e da modelação de doenças infecciosas utilizados no curso.
+3. Estudar os três capítulos deste livro. Os participantes sem experiência prévia em R devem começar pelos tutoriais interativos referidos em @sec-r, uma vez que os exercícios dos outros dois capítulos também utilizam o R.
+4. Utilizar a lista de autoavaliação no final de cada capítulo para decidir se é necessário estudo adicional.
+5. Identificar, no próprio contexto profissional, uma questão de saúde pública que possa ser abordada com um modelo. Esta questão constitui a base do projeto do curso.
 
 ::: {.content-hidden when-meta="short-version"}
 ## Convenções {.unnumbered}
@@ -43,7 +44,7 @@ As referências em *itálico* a capítulos do **livro do curso TIMERA** indicam 
 ![](images/funder-logos.png){.funder-logos width="300px" fig-alt="Logótipos da Global Health EDCTP3 e «Co-funded by the European Union»"}
 
 ::: {.acknowledgement}
-O TIMERA é apoiado pela Empresa Comum Global Health EDCTP3 e pelos seus membros, ao abrigo da convenção de subvenção n.º 101249114. Cofinanciado pela União Europeia. Os pontos de vista e as opiniões expressos são, no entanto, apenas dos autores e não refletem necessariamente os da União Europeia ou da Empresa Comum Global Health EDCTP3. Nem a União Europeia nem a autoridade que concede o financiamento podem ser responsabilizadas por eles.
+O TIMERA é apoiado pela Empresa Comum Global Health EDCTP3 e pelos seus membros, ao abrigo da convenção de subvenção n.º 101249114, e cofinanciado pela União Europeia e pela Coligação para as Inovações na Preparação para Epidemias (CEPI). Os pontos de vista e as opiniões expressos são, no entanto, apenas dos autores e não refletem necessariamente os da União Europeia, da Empresa Comum Global Health EDCTP3 ou da CEPI. Nem a União Europeia nem a autoridade que concede o financiamento podem ser responsabilizadas por eles.
 :::
 
 ## Licença {.unnumbered}

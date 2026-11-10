@@ -16,9 +16,10 @@ Each chapter contains a concise presentation of the material, exercises with sol
 ## Preparation before the first module {.unnumbered}
 
 1. Install R, RStudio and the packages used in the course (@sec-setup).
-2. Study the three chapters of this book. Participants without previous experience in R should begin with the interactive tutorials referred to in @sec-r, as the exercises in the other two chapters also use R.
-3. Use the self-assessment checklist at the end of each chapter to decide whether further study is required.
-4. Identify a public health question from your own professional context that could be addressed with a model. This question forms the basis of the course project.
+2. Read through the glossary (@sec-glossary), which defines the main terms of infectious disease epidemiology and modelling used in the course.
+3. Study the three chapters of this book. Participants without previous experience in R should begin with the interactive tutorials referred to in @sec-r, as the exercises in the other two chapters also use R.
+4. Use the self-assessment checklist at the end of each chapter to decide whether further study is required.
+5. Identify a public health question from the participant's own professional context that could be addressed with a model. This question forms the basis of the course project.
 
 ::: {.content-hidden when-meta="short-version"}
 ## Conventions {.unnumbered}
@@ -33,7 +34,7 @@ References in *italics* to chapters of the **TIMERA course book** indicate where
 ![](images/funder-logos.png){.funder-logos width="300px" fig-alt="Logos of Global Health EDCTP3 and Co-funded by the European Union"}
 
 ::: {.acknowledgement}
-TIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant agreement No 101249114. Co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the Global Health EDCTP3 Joint Undertaking. Neither the European Union nor the granting authority can be held responsible for them.
+TIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant agreement No 101249114, and co-funded by the European Union and the Coalition for Epidemic Preparedness Innovations (CEPI). Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union, the Global Health EDCTP3 Joint Undertaking or CEPI. Neither the European Union nor the granting authority can be held responsible for them.
 :::
 
 ## Licence {.unnumbered}

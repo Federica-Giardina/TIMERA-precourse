@@ -48,7 +48,6 @@ local course = {
   ["sec-fit-pitfalls"] = "Pitfalls in fitting models to surveillance data",
   ["sec-fit-profile"] = "Uncertainty: the profile likelihood",
   ["sec-fitting"] = "Linking models to data",
-  ["sec-glossary"] = "Glossary",
   ["sec-growth-rate"] = "Estimation of the reproduction number from the growth rate",
   ["sec-interventions"] = "Modelling control interventions",
   ["sec-intro"] = "Introduction to infectious disease modelling",

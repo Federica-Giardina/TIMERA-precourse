@@ -28,6 +28,6 @@ This repository is **generated** from the main course repository, <https://githu
 
 ## Licence
 
-TIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant agreement No 101249114, and co-funded by the European Union.
+TIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant agreement No 101249114, and co-funded by the European Union and the Coalition for Epidemic Preparedness Innovations (CEPI).
 
 CC BY-NC-SA 4.0. The datasets retain the licences of their original sources (see `datasets/README.md`).

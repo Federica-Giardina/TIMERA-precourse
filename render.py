@@ -30,9 +30,10 @@ DOWNLOAD_ICON = ('<svg aria-hidden="true" width="18" height="18" viewBox="0 0 16
                  'l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>')
 ACKNOWLEDGEMENT = (
     "TIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant "
-    "agreement No&nbsp;101249114. Co-funded by the European Union. Views and opinions expressed are however "
-    "those of the author(s) only and do not necessarily reflect those of the European Union or the Global "
-    "Health EDCTP3 Joint Undertaking. Neither the European Union nor the granting authority can be held "
+    "agreement No&nbsp;101249114, and co-funded by the European Union and the Coalition for Epidemic "
+    "Preparedness Innovations (CEPI). Views and opinions expressed are however those of the author(s) only "
+    "and do not necessarily reflect those of the European Union, the Global Health EDCTP3 Joint Undertaking "
+    "or CEPI. Neither the European Union nor the granting authority can be held "
     "responsible for them.")
 
 PAGE = """<!doctype html>

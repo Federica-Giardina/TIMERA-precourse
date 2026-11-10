@@ -1,0 +1,115 @@
+<!-- Translation of glossary.qmd (pt). Draft translation, under review.
+     Revise the text only: keep the code, the labels ({#sec-...}, {#fig-...}, #| label: ...)
+     and file names unchanged. When the review is complete, remove the box marked
+     .translation-review. After changes to the English text:
+     py precourse/translations.py status --diff -->
+
+# Glossário {#sec-glossary}
+
+::: {.callout-note .translation-review}
+## Tradução provisória
+Este apêndice foi traduzido do inglês e está em revisão. As observações são bem-vindas.
+:::
+
+Este glossário define os principais termos da epidemiologia e da modelação de doenças infecciosas utilizados no curso. Os termos estão agrupados por tema. Recomenda-se a leitura do glossário antes do primeiro módulo, para que as sessões se possam concentrar na aplicação dos conceitos.
+
+## Cronologia da infeção
+
+| Termo | Definição |
+|---|---|
+| **Exposição** | Contacto com um agente infeccioso ou com uma pessoa infecciosa que pode levar à infeção. |
+| **Período de latência** | Tempo entre a infeção e o início da infecciosidade. |
+| **Período infeccioso** | Período durante o qual uma pessoa infetada pode transmitir o agente a outras pessoas. |
+| **Período de incubação** | Tempo entre a infeção e o aparecimento dos sintomas. |
+| **Período sintomático** | Período durante o qual os sintomas estão presentes. |
+| **Período pré-sintomático** | Período durante o qual uma pessoa já é infecciosa mas ainda não desenvolveu sintomas; existe quando o período de latência é mais curto do que o período de incubação. |
+| **Infeção assintomática** | Infeção que nunca produz sintomas; a pessoa pode, no entanto, ser infecciosa. |
+| **Intervalo serial** | Tempo entre o início dos sintomas num caso e o início dos sintomas nas pessoas que ele infetou. |
+| **Intervalo de geração (tempo de geração)** | Tempo entre a infeção de um caso e a infeção das pessoas que ele infeta. Raramente é observado diretamente, pelo que o intervalo serial é frequentemente utilizado como aproximação. |
+| **Recuperação / remoção** | Fim da infecciosidade por recuperação, isolamento ou morte. |
+| **Período de incubação extrínseco** | Tempo necessário para que o parasita ou o vírus se desenvolva no vetor antes de poder ser transmitido. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Transmissão e parâmetros-chave
+
+| Termo | Definição |
+|---|---|
+| **Reservatório** | Habitat humano, animal ou ambiental no qual o agente infeccioso normalmente vive e se multiplica. |
+| **Portador** | Pessoa infetada que pode transmitir o agente sem doença aparente. |
+| **Caso índice / caso primário** | O caso índice é o primeiro caso identificado num surto (por vezes chamado *paciente zero*); o caso primário é o que introduziu a infeção na população. Os dois podem ser diferentes. |
+| **Suscetível** | Pessoa que pode ser infetada se for exposta. |
+| **Infeccioso** | Pessoa que pode transmitir o agente. |
+| **Imune / recuperado** | Pessoa protegida contra a infeção, por infeção anterior ou por vacinação. |
+| **Compartimento** | Grupo de pessoas com o mesmo estado de infeção num modelo compartimental (p. ex. S, I, R). |
+| **Taxa de contacto** | Número médio de contactos (relevantes) de uma pessoa por unidade de tempo. |
+| **Matriz de contactos** | Tabela do número médio de contactos por dia entre grupos etários (ou outros grupos). |
+| **Probabilidade de transmissão** | Probabilidade de que um contacto entre uma pessoa infecciosa e uma pessoa suscetível resulte em infeção. |
+| **Taxa de transmissão ($\beta$)** | Número de contactos efetivos por pessoa e por unidade de tempo: a taxa de contacto multiplicada pela probabilidade de transmissão. |
+| **Força de infeção ($\lambda$)** | Taxa per capita a que as pessoas suscetíveis são infetadas; no modelo SIR, $\lambda = \beta I/N$. |
+| **Taxa de recuperação ($\gamma$)** | Taxa a que as pessoas infecciosas recuperam ou são removidas; o seu inverso $1/\gamma$ é a duração média do período infeccioso. |
+| **Número básico de reprodução ($R_0$)** | Número médio de infeções secundárias causadas por uma pessoa infecciosa numa população totalmente suscetível. |
+| **Número efetivo de reprodução ($R_t$)** | Número médio de infeções secundárias por caso no tempo $t$, tendo em conta a imunidade e as medidas de controlo em vigor. A epidemia cresce se $R_t > 1$ e diminui se $R_t < 1$. |
+| **Limiar epidémico** | A condição $R = 1$, que separa o crescimento da epidemia da sua extinção. |
+| **Taxa de crescimento ($r$)** | Taxa de aumento exponencial (ou, se negativa, de diminuição) da incidência por unidade de tempo. |
+| **Tempo de duplicação** | Tempo necessário para que a incidência duplique durante o crescimento exponencial: $\ln 2 / r$. |
+| **Distribuição da descendência** | Distribuição do número de casos secundários por caso. |
+| **Parâmetro de dispersão ($k$)** | Parâmetro da distribuição binomial negativa da descendência; um $k$ pequeno (sobredispersão) significa que poucos casos são responsáveis pela maior parte da transmissão. |
+| **Supertransmissão** | Eventos de transmissão em que um caso infeta um número desproporcionadamente elevado de outras pessoas. |
+| **Taxa de inoculação entomológica (EIR)** | Número de picadas infetantes de mosquito por pessoa e por unidade de tempo. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Medição da ocorrência de doença
+
+| Termo | Definição |
+|---|---|
+| **Incidência** | Número de casos novos numa população durante um determinado período, ou taxa a que surgem casos novos. |
+| **Prevalência** | Proporção de uma população com a infeção ou a doença num determinado momento. |
+| **Taxa de ataque** | Proporção de uma população infetada durante um surto. |
+| **Taxa de letalidade (CFR)** | Proporção de casos que morrem da doença. |
+| **Curva epidémica** | Número de casos representado em função da data de início dos sintomas (ou de notificação). |
+| **Lista nominal de casos (*line list*)** | Tabela com uma linha por caso e uma coluna por variável (datas, idade, sexo, local, desfecho). |
+| **Atraso de notificação** | Tempo entre um acontecimento (p. ex. o início dos sintomas) e a sua notificação ao sistema de vigilância. |
+| ***Nowcasting*** | Estimação da incidência recente, que ainda não foi totalmente notificada devido aos atrasos de notificação. |
+| **Endémico** | Diz-se de uma infeção cuja transmissão persiste numa população. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Proteção da população e intervenções
+
+| Termo | Definição |
+|---|---|
+| **Imunidade de grupo** | Proteção indireta das pessoas suscetíveis quando uma parte suficiente da população está imune, de modo que a transmissão não se consegue manter. |
+| **Limiar de imunidade de grupo** | Proporção da população que tem de estar imune para impedir a transmissão sustentada: $1 - 1/R_0$ (numa população com mistura homogénea). |
+| **Eficácia / efetividade vacinal ($VE$)** | Redução do risco de infeção ou de doença nas pessoas vacinadas, em condições de ensaio (eficácia) ou em condições reais (efetividade). |
+| **Cobertura vacinal crítica** | Cobertura necessária para impedir a transmissão sustentada: $(1 - 1/R_0)/VE$. |
+| **Intervenções não farmacológicas (INF)** | Medidas que não envolvem vacinas nem medicamentos, como o uso de máscara, o distanciamento físico, o encerramento de escolas e a higiene das mãos. |
+| **Isolamento** | Separação das pessoas que se sabe estarem infetadas. |
+| **Quarentena** | Restrição da circulação das pessoas expostas que podem vir a tornar-se infecciosas. |
+| **Rastreio de contactos** | Identificação e acompanhamento das pessoas expostas a um caso. |
+| **Dimensão final** | Proporção total da população infetada no final de uma epidemia. |
+| **Contrafactual** | O cenário sem a intervenção, utilizado como termo de comparação. |
+| **Cenário** | Projeção do tipo *e se* sob pressupostos explícitos; não é uma previsão. |
+
+: {tbl-colwidths="[30,70]"}
+
+## Modelos e métodos
+
+| Termo | Definição |
+|---|---|
+| **Modelo determinístico** | Modelo sem aleatoriedade: os mesmos dados de entrada dão sempre o mesmo resultado. |
+| **Modelo estocástico** | Modelo que inclui o acaso; simulações repetidas dão resultados diferentes. |
+| **Processo de ramificação** | Modelo estocástico que acompanha cada caso e os casos que este provoca, geração após geração. |
+| **Matriz de próxima geração** | Matriz cujos elementos dão o número de infeções secundárias no grupo $i$ causadas por uma pessoa infetada do grupo $j$; o seu maior valor próprio é $R_0$. |
+| **Calibração** | Escolha dos valores dos parâmetros de modo que os resultados do modelo correspondam aos dados observados. |
+| **Verosimilhança** | Probabilidade dos dados observados dados os valores dos parâmetros. |
+| **Verosimilhança de perfil** | Verosimilhança maximizada em relação a todos os outros parâmetros para valores fixos de um parâmetro de interesse; utilizada para intervalos de confiança. |
+| **Distribuição a priori** | Distribuição que descreve o conhecimento sobre os parâmetros antes de os dados serem observados. |
+| **Distribuição a posteriori** | Distribuição dos parâmetros após a combinação da distribuição a priori com os dados. |
+| **Intervalo de credibilidade** | Na análise bayesiana, intervalo que contém o parâmetro com uma dada probabilidade a posteriori. |
+| **MCMC** | Métodos de Monte Carlo via cadeias de Markov: algoritmos que extraem amostras de uma distribuição a posteriori. |
+| **Amostragem por hipercubo latino** | Método eficiente para amostrar conjuntos de parâmetros no seu domínio conjunto, para a análise de incerteza. |
+| **PRCC** | Coeficiente de correlação parcial de postos: medida da influência de um parâmetro num resultado do modelo, ajustada para os restantes parâmetros. |
+
+: {tbl-colwidths="[30,70]"}
