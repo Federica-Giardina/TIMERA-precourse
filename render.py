@@ -49,7 +49,7 @@ a{color:#2780e3}
 .download{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;text-decoration:none}
 .note{font-size:.85rem;color:#6c757d}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #dee2e6;font-size:.85rem;color:#495057}
-footer img{max-width:100%%;width:16rem}
+footer img{max-width:100%%;width:25rem}
 </style>
 </head><body>
 <p><img src="timera-logo.png" alt="TIMERA — Training Initiative for Modelling Epidemic Response in Africa" style="max-width:100%%;width:26rem"></p>
@@ -59,7 +59,7 @@ footer img{max-width:100%%;width:16rem}
 </ul>
 <p><a class="download" href="datasets/TIMERA-datasets.zip" download>%s %s</a><br><span class="note">%s</span></p>
 <footer>
-<p><img src="funder-logos.png" alt="Global Health EDCTP3 and Co-funded by the European Union"></p>
+<p><img src="funder-logos.png" alt="Global Health EDCTP3, Co-funded by the European Union and CEPI"></p>
 <p>%s</p>
 </footer>
 </body></html>
