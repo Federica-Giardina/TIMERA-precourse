@@ -49,4 +49,4 @@ O TIMERA é apoiado pela Empresa Comum Global Health EDCTP3 e pelos seus membros
 
 ## Licença {.unnumbered}
 
-Este livro está licenciado ao abrigo da [Licença Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt).
+Este livro está licenciado ao abrigo da [Licença Creative Commons Atribuição-NãoComercial-Partilha Igual 4.0 Internacional](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
