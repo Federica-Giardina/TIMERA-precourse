@@ -37,7 +37,7 @@ Chaque chapitre contient une présentation concise de la matière, des exercices
 Le code est présenté dans des encadrés gris ; le résultat apparaît en dessous, précédé de `##`. Il est recommandé de taper le code plutôt que de le copier, afin d'en lire attentivement chaque ligne. Les exercices sont présentés dans des encadrés verts ; les solutions sont masquées et peuvent être affichées.
 :::
 
-Les références en *italique* à des chapitres du **livre du cours TIMERA** indiquent où un sujet est approfondi pendant la formation. Le livre du cours est disponible à l'adresse <https://github.com/Federica-Giardina/TIMERA>.
+Les références en *italique* à des chapitres du **livre du cours TIMERA** indiquent où un sujet est approfondi pendant la formation. Le livre du cours est partagé avec les participants inscrits dans un dépôt privé, <https://github.com/Federica-Giardina/TIMERA>.
 
 ## Remerciements {.unnumbered}
 

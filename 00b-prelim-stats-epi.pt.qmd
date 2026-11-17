@@ -181,6 +181,8 @@ summary(fit)$coefficients
 exp(coef(fit)[["coverage"]] * 0.1)     # razão de taxas por aumento de 10 pontos percentuais na cobertura
 ```
 
+Aqui, um aumento de 10 pontos percentuais na cobertura vacinal está associado a uma razão de taxas de 0,76, ou seja, uma redução de 24% na taxa de casos, mantendo fixa a dimensão da população através do termo de desvio (*offset*).
+
 A regressão de Poisson em função do tempo é também utilizada para estimar a **taxa de crescimento** de uma epidemia a partir das primeiras contagens de casos (@sec-growth-rate). Quando as contagens são sobredispersas, os erros-padrão de um modelo de Poisson são demasiado pequenos; deve então utilizar-se um modelo de **quasi-Poisson** (`family = quasipoisson`) ou **binomial negativo** (`MASS::glm.nb()`).
 
 ::: {.callout-tip icon="false"}

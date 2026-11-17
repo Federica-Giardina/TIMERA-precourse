@@ -171,7 +171,7 @@ L'erreur de la méthode d'Euler diminue lorsque le pas diminue. La fonction `ode
 
 ## P3.6 Équilibres et stabilité {.unnumbered}
 
-Un **équilibre** est un état dans lequel toutes les dérivées sont nulles, de sorte que le système n'évolue plus. Considérons le modèle SIS, dans lequel les individus infectés redeviennent sensibles après leur guérison :
+Un **équilibre** est un état dans lequel toutes les dérivées sont nulles, de sorte que le système n'évolue plus. Considérons le modèle SIS, dans lequel les individus infectés redeviennent sensibles après leur guérison (le modèle SIS lui-même est présenté pendant la formation ; il n'est utilisé ici qu'à titre d'exemple simple dont l'équilibre se calcule algébriquement) :
 
 $$
 \frac{dI}{dt} = \beta I \frac{N - I}{N} - \gamma I.
@@ -203,6 +203,8 @@ tibble(I = seq(0, 1000, 5)) |>
 ## P3.7 Intégrales : des taux aux totaux {.unnumbered}
 
 L'**intégrale** d'un taux sur le temps donne un total. Par exemple, le nombre cumulé d'infections entre les temps 0 et $T$ est l'intégrale de l'incidence, c'est-à-dire l'aire sous la courbe d'incidence. Lorsqu'une fonction est connue à intervalles de temps réguliers, l'intégrale est approchée par la somme des valeurs multipliée par le pas de temps :
+
+L'exemple ci-dessous reprend la décroissance exponentielle de la section *Croissance et décroissance exponentielles* ci-dessus : l'incidence diminue au taux $r = -0,3$ par jour, de sorte que le nombre cumulé de cas est l'intégrale de $100\,e^{-0,3t}$.
 
 ```{r}
 dt <- 0.25

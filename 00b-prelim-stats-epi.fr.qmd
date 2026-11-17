@@ -181,6 +181,8 @@ summary(fit)$coefficients
 exp(coef(fit)[["coverage"]] * 0.1)     # rapport de taux pour une hausse de 10 points de couverture
 ```
 
+Ici, une hausse de 10 points de pourcentage de la couverture vaccinale est associée à un rapport de taux de 0,76, soit une réduction de 24 % du taux de cas, à taille de population fixée grâce au terme de décalage (*offset*).
+
 La régression de Poisson sur le temps sert aussi à estimer le **taux de croissance** d'une épidémie à partir des premiers effectifs de cas (@sec-growth-rate). Lorsque les effectifs sont surdispersés, les erreurs types d'un modèle de Poisson sont trop petites ; il convient alors d'utiliser un modèle de **quasi-Poisson** (`family = quasipoisson`) ou **binomial négatif** (`MASS::glm.nb()`).
 
 ::: {.callout-tip icon="false"}

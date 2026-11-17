@@ -27,7 +27,7 @@ Each chapter contains a concise presentation of the material, exercises with sol
 Code is displayed in grey boxes; the output appears underneath, preceded by `##`. Typing the code, rather than copying it, is recommended, as it encourages careful reading of each line. Exercises are presented in green boxes; solutions are collapsed and can be expanded.
 :::
 
-References in *italics* to chapters of the **TIMERA course book** indicate where a topic is developed further during the course. The course book is available at <https://github.com/Federica-Giardina/TIMERA>.
+References in *italics* to chapters of the **TIMERA course book** indicate where a topic is developed further during the course. The course book is shared with enrolled participants in a private repository, <https://github.com/Federica-Giardina/TIMERA>.
 
 ## Acknowledgements {.unnumbered}
 

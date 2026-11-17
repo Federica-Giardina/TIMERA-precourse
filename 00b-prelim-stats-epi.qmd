@@ -170,6 +170,8 @@ summary(fit)$coefficients
 exp(coef(fit)[["coverage"]] * 0.1)     # rate ratio per 10-percentage-point increase in coverage
 ```
 
+Here, a 10-percentage-point increase in vaccination coverage is associated with a rate ratio of 0.76, i.e. a 24% reduction in the case rate, holding population size fixed through the offset.
+
 Poisson regression on time is also used to estimate the **growth rate** of an epidemic from early case counts (@sec-growth-rate). When counts are overdispersed, the standard errors of a Poisson model are too small; a **quasi-Poisson** (`family = quasipoisson`) or **negative binomial** model (`MASS::glm.nb()`) should then be used.
 
 ::: {.callout-tip icon="false"}

@@ -171,7 +171,7 @@ O erro do método de Euler diminui à medida que o passo diminui. A função `od
 
 ## P3.6 Equilíbrios e estabilidade {.unnumbered}
 
-Um **equilíbrio** é um estado em que todas as derivadas são nulas, pelo que o sistema deixa de se alterar. Considere-se o modelo SIS, em que os indivíduos infetados voltam a ser suscetíveis após a recuperação:
+Um **equilíbrio** é um estado em que todas as derivadas são nulas, pelo que o sistema deixa de se alterar. Considere-se o modelo SIS, em que os indivíduos infetados voltam a ser suscetíveis após a recuperação (o modelo SIS em si é apresentado durante o curso; é aqui utilizado apenas como um exemplo simples cujo equilíbrio se calcula algebricamente):
 
 $$
 \frac{dI}{dt} = \beta I \frac{N - I}{N} - \gamma I.
@@ -203,6 +203,8 @@ tibble(I = seq(0, 1000, 5)) |>
 ## P3.7 Integrais: das taxas aos totais {.unnumbered}
 
 O **integral** de uma taxa ao longo do tempo dá um total. Por exemplo, o número acumulado de infeções entre os instantes 0 e $T$ é o integral da incidência, ou seja, a área sob a curva de incidência. Quando uma função é conhecida em instantes regularmente espaçados, o integral é aproximado pela soma dos valores multiplicada pelo passo de tempo:
+
+O exemplo seguinte retoma o decrescimento exponencial da secção *Crescimento e decrescimento exponenciais* acima: a incidência diminui à taxa $r = -0,3$ por dia, pelo que o número acumulado de casos é o integral de $100\,e^{-0,3t}$.
 
 ```{r}
 dt <- 0.25

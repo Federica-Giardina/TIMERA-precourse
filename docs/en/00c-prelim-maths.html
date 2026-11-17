@@ -681,7 +681,7 @@ Figure&nbsp;2: Numerical solution of <span class="math inline">\(dN/dt = 0.1 N\)
 </section>
 <section id="p3.6-equilibria-and-stability" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="p3.6-equilibria-and-stability">P3.6 Equilibria and stability</h2>
-<p>An <strong>equilibrium</strong> is a state in which all derivatives are zero, so that the system no longer changes. Consider the SIS model, in which infected individuals return to the susceptible state on recovery:</p>
+<p>An <strong>equilibrium</strong> is a state in which all derivatives are zero, so that the system no longer changes. Consider the SIS model, in which infected individuals return to the susceptible state on recovery (the SIS model itself is introduced during the course; it is used here only as a simple example with an algebraic equilibrium):</p>
 <p><span class="math display">\[
 \frac{dI}{dt} = \beta I \frac{N - I}{N} - \gamma I.
 \]</span></p>
@@ -705,6 +705,7 @@ Figure&nbsp;3: Rate of change <span class="math inline">\(dI/dt\)</span> as a fu
 <section id="p3.7-integrals-from-rates-to-totals" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="p3.7-integrals-from-rates-to-totals">P3.7 Integrals: from rates to totals</h2>
 <p>The <strong>integral</strong> of a rate over time gives a total. For example, the cumulative number of infections between times 0 and <span class="math inline">\(T\)</span> is the integral of the incidence, i.e.&nbsp;the area under the incidence curve. When a function is available at regular time points, the integral is approximated by the sum of the values multiplied by the time step:</p>
+<p>The example below reuses the exponential decay from <em>Exponential growth and decay</em> above: the incidence falls at rate <span class="math inline">\(r = -0.3\)</span> per day, so cumulative cases are the integral of <span class="math inline">\(100\,e^{-0.3t}\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">by =</span> dt)</span>

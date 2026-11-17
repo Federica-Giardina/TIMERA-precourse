@@ -773,6 +773,7 @@ Figure&nbsp;2: Log-likelihood of the seroprevalence <span class="math inline">\(
 <pre><code>## [1] 0.7577819</code></pre>
 </div>
 </div>
+<p>Here, a 10-percentage-point increase in vaccination coverage is associated with a rate ratio of 0.76, i.e.&nbsp;a 24% reduction in the case rate, holding population size fixed through the offset.</p>
 <p>Poisson regression on time is also used to estimate the <strong>growth rate</strong> of an epidemic from early case counts (<em>course book: Estimation of the reproduction number from the growth rate</em>). When counts are overdispersed, the standard errors of a Poisson model are too small; a <strong>quasi-Poisson</strong> (<code>family = quasipoisson</code>) or <strong>negative binomial</strong> model (<code>MASS::glm.nb()</code>) should then be used.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">

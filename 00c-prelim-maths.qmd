@@ -160,7 +160,7 @@ The error of Euler's method decreases as the step size decreases. The function `
 
 ## P3.6 Equilibria and stability {.unnumbered}
 
-An **equilibrium** is a state in which all derivatives are zero, so that the system no longer changes. Consider the SIS model, in which infected individuals return to the susceptible state on recovery:
+An **equilibrium** is a state in which all derivatives are zero, so that the system no longer changes. Consider the SIS model, in which infected individuals return to the susceptible state on recovery (the SIS model itself is introduced during the course; it is used here only as a simple example with an algebraic equilibrium):
 
 $$
 \frac{dI}{dt} = \beta I \frac{N - I}{N} - \gamma I.
@@ -192,6 +192,8 @@ tibble(I = seq(0, 1000, 5)) |>
 ## P3.7 Integrals: from rates to totals {.unnumbered}
 
 The **integral** of a rate over time gives a total. For example, the cumulative number of infections between times 0 and $T$ is the integral of the incidence, i.e. the area under the incidence curve. When a function is available at regular time points, the integral is approximated by the sum of the values multiplied by the time step:
+
+The example below reuses the exponential decay from *Exponential growth and decay* above: the incidence falls at rate $r = -0.3$ per day, so cumulative cases are the integral of $100\,e^{-0.3t}$.
 
 ```{r}
 dt <- 0.25
