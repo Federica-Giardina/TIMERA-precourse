@@ -457,18 +457,7 @@
     "href": "setup.pt.html#materiais-do-curso",
     "title": "Apêndice A — Instalação do R e do RStudio",
     "section": "A.3 Materiais do curso",
-    "text": "A.3 Materiais do curso\nOs materiais do próprio curso serão partilhados no repositório https://github.com/Federica-Giardina/TIMERA (Code → Download ZIP), bem como em https://timera-aau.org/. Depois de descomprimida, a pasta deve ser aberta como projeto RStudio (File → New Project → Existing Directory).",
-    "crumbs": [
-      "Apêndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Instalação do R e do RStudio</span>"
-    ]
-  },
-  {
-    "objectID": "setup.pt.html#conjuntos-de-dados",
-    "href": "setup.pt.html#conjuntos-de-dados",
-    "title": "Apêndice A — Instalação do R e do RStudio",
-    "section": "A.4 Conjuntos de dados",
-    "text": "A.4 Conjuntos de dados\nTodos os conjuntos de dados utilizados no Módulo 1 estão disponíveis como ficheiros CSV, acompanhados de uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.\n Descarregar os conjuntos de dados",
+    "text": "A.3 Materiais do curso\nOs materiais do próprio curso serão partilhados no repositório https://github.com/Federica-Giardina/TIMERA (Code → Download ZIP), bem como em https://timera-aau.org/. Depois de descomprimida, a pasta deve ser aberta como projeto RStudio (File → New Project → Existing Directory). Isto inclui os conjuntos de dados utilizados ao longo do Módulo 1; os capítulos deste livro não exigem o descarregamento de qualquer conjunto de dados.",
     "crumbs": [
       "Apêndices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Instalação do R e do RStudio</span>"

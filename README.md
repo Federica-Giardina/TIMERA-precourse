@@ -6,7 +6,7 @@ Self-study material for participants of **TIMERA** (Training Initiative for Mode
 - **P2** Statistical and epidemiological concepts
 - **P3** Mathematical background
 
-**Read online:** <https://federica-giardina.github.io/TIMERA-precourse/>. The datasets used in Module 1 can be downloaded from the same page.
+**Read online:** <https://federica-giardina.github.io/TIMERA-precourse/>. This book does not use the datasets of Module 1; these come with the course materials instead (see the main course repository).
 
 ## Rendering
 
@@ -16,7 +16,7 @@ Requires R (≥ 4.4) with `tidyverse`, `readxl`, `patchwork`, `knitr` and `rmark
 py render.py
 ```
 
-renders the three languages into `docs/en`, `docs/fr` and `docs/pt`, copies the datasets to `docs/datasets` and writes the start page `docs/index.html`. For internal use only (sharing drafts and requesting feedback), it also produces Word versions of each language, complete and short, in `_internal/`, which is not published. `quarto render --to html` alone renders the English version only.
+renders the three languages into `docs/en`, `docs/fr` and `docs/pt` and writes the start page `docs/index.html`. For internal use only (sharing drafts and requesting feedback), it also produces Word versions of each language, complete and short, in `_internal/`, which is not published. `quarto render --to html` alone renders the English version only.
 
 ## Publishing
 
@@ -30,4 +30,4 @@ This repository is **generated** from the main course repository, <https://githu
 
 TIMERA is supported by the Global Health EDCTP3 Joint Undertaking and its members under grant agreement No 101249114, and co-funded by the European Union and the Coalition for Epidemic Preparedness Innovations (CEPI).
 
-CC BY-NC-SA 4.0. The datasets retain the licences of their original sources (see `datasets/README.md`).
+CC BY-NC-SA 4.0.

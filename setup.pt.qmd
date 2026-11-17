@@ -58,10 +58,4 @@ A instalação foi bem-sucedida se forem apresentados três gráficos (S, I e R 
 
 ## Materiais do curso
 
-Os materiais do próprio curso serão partilhados no repositório <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*), bem como em <https://timera-aau.org/>. Depois de descomprimida, a pasta deve ser aberta como projeto RStudio (*File → New Project → Existing Directory*).
-
-## Conjuntos de dados
-
-Todos os conjuntos de dados utilizados no Módulo 1 estão disponíveis como ficheiros CSV, acompanhados de uma descrição de cada conjunto de dados e da respetiva fonte (em inglês). Os ficheiros CSV podem ser abertos no R, no Excel ou em qualquer programa de estatística.
-
-[<i class="bi bi-download"></i> Descarregar os conjuntos de dados](https://federica-giardina.github.io/TIMERA-precourse/datasets/TIMERA-datasets.zip){download=""}
+Os materiais do próprio curso serão partilhados no repositório <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*), bem como em <https://timera-aau.org/>. Depois de descomprimida, a pasta deve ser aberta como projeto RStudio (*File → New Project → Existing Directory*). Isto inclui os conjuntos de dados utilizados ao longo do Módulo 1; os capítulos deste livro não exigem o descarregamento de qualquer conjunto de dados.

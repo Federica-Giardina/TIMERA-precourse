@@ -58,10 +58,4 @@ L'installation a réussi si trois graphiques (S, I et R en fonction du temps) s'
 
 ## Supports de la formation
 
-Les supports de la formation elle-même seront partagés dans le dépôt <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*), ainsi que sur <https://timera-aau.org/>. Après décompression, le dossier doit être ouvert comme projet RStudio (*File → New Project → Existing Directory*).
-
-## Jeux de données
-
-Tous les jeux de données utilisés dans le module 1 sont disponibles sous forme de fichiers CSV, accompagnés d'une description de chaque jeu de données et de sa source (en anglais). Les fichiers CSV peuvent être ouverts dans R, Excel ou tout logiciel statistique.
-
-[<i class="bi bi-download"></i> Télécharger les jeux de données](https://federica-giardina.github.io/TIMERA-precourse/datasets/TIMERA-datasets.zip){download=""}
+Les supports de la formation elle-même seront partagés dans le dépôt <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*), ainsi que sur <https://timera-aau.org/>. Après décompression, le dossier doit être ouvert comme projet RStudio (*File → New Project → Existing Directory*). Cela comprend les jeux de données utilisés tout au long du module 1 ; les chapitres de ce livre n'exigent de télécharger aucun jeu de données.

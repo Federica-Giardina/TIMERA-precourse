@@ -457,18 +457,7 @@
     "href": "setup.html#course-materials",
     "title": "Appendix A — Installation of R and RStudio",
     "section": "A.3 Course materials",
-    "text": "A.3 Course materials\nThe materials of the course itself will be shared in the repository https://github.com/Federica-Giardina/TIMERA (Code → Download ZIP), as well as in https://timera-aau.org/. After unzipping, the folder should be opened as an RStudio Project (File → New Project → Existing Directory).",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation of R and RStudio</span>"
-    ]
-  },
-  {
-    "objectID": "setup.html#datasets",
-    "href": "setup.html#datasets",
-    "title": "Appendix A — Installation of R and RStudio",
-    "section": "A.4 Datasets",
-    "text": "A.4 Datasets\nAll datasets used in Module 1 are available as CSV files, together with a description of each dataset and its source. The CSV files can be opened in R, Excel or any statistical software.\n Download the datasets",
+    "text": "A.3 Course materials\nThe materials of the course itself will be shared in the repository https://github.com/Federica-Giardina/TIMERA (Code → Download ZIP), as well as in https://timera-aau.org/. After unzipping, the folder should be opened as an RStudio Project (File → New Project → Existing Directory). This includes the datasets used throughout Module 1; the chapters of this book do not require downloading any dataset.",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Installation of R and RStudio</span>"
