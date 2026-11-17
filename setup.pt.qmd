@@ -58,7 +58,7 @@ A instalação foi bem-sucedida se forem apresentados três gráficos (S, I e R 
 
 ## Materiais do curso
 
-Os materiais do próprio curso estão disponíveis em <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*). Depois de descomprimida, a pasta deve ser aberta como projeto RStudio (*File → New Project → Existing Directory*). Este repositório é privado; é partilhado individualmente com os participantes inscritos.
+Os materiais do próprio curso serão partilhados no repositório <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*), bem como em <https://timera-aau.org/>. Depois de descomprimida, a pasta deve ser aberta como projeto RStudio (*File → New Project → Existing Directory*).
 
 ## Conjuntos de dados
 

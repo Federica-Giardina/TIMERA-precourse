@@ -222,6 +222,6 @@ c(shape = shape, rate = rate, p_over_21 = 1 - pgamma(21, shape, rate))
 - @giesecke2017 : *Modern Infectious Disease Epidemiology* — une introduction à l'épidémiologie des maladies infectieuses, y compris l'investigation des épidémies et les notions de base sur la transmission.
 - @rothman2012 : *Epidemiology: An Introduction* — mesures de fréquence des maladies et d'effet.
 - @kirkwood2003 : *Essential Medical Statistics* — intervalles de confiance, taux, régression de Poisson et vraisemblance (chapitres sur les taux et sur la vraisemblance).
-- @diez2019 : *OpenIntro Statistics* — un manuel gratuit d'introduction à la statistique (<https://www.openintro.org/book/os/>).
+- OpenStax, *Introductory Statistics 2e* — un manuel gratuit d'introduction à la statistique, avec des applications notamment dans le domaine de la santé (<https://openstax.org/details/books/introductory-statistics-2e>, en anglais).
 - @pawitan2001 : *In All Likelihood* — un exposé avancé de l'inférence fondée sur la vraisemblance.
 - PATH/MACEPA, *Foundational Epidemiology Knowledge* (<https://path-global-health.github.io/df-foundational-epi-skills/>, en anglais) — un bref rappel sur les mesures de fréquence et d'association, les types d'études, les mesures de détection des maladies, la standardisation et la confusion, avec un quiz et des séries d'exercices.

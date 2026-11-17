@@ -58,7 +58,7 @@ L'installation a réussi si trois graphiques (S, I et R en fonction du temps) s'
 
 ## Supports de la formation
 
-Les supports de la formation elle-même sont disponibles à l'adresse <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*). Après décompression, le dossier doit être ouvert comme projet RStudio (*File → New Project → Existing Directory*). Ce dépôt est privé ; il est partagé individuellement avec les participants inscrits.
+Les supports de la formation elle-même seront partagés dans le dépôt <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*), ainsi que sur <https://timera-aau.org/>. Après décompression, le dossier doit être ouvert comme projet RStudio (*File → New Project → Existing Directory*).
 
 ## Jeux de données
 

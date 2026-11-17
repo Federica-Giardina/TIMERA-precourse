@@ -47,7 +47,7 @@ The installation is successful if three plots (S, I and R against time) are disp
 
 ## Course materials
 
-The materials of the course itself are available at <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*). After unzipping, the folder should be opened as an RStudio Project (*File → New Project → Existing Directory*). This repository is private; it is shared individually with enrolled participants.
+The materials of the course itself will be shared in the repository <https://github.com/Federica-Giardina/TIMERA> (*Code → Download ZIP*), as well as in <https://timera-aau.org/>. After unzipping, the folder should be opened as an RStudio Project (*File → New Project → Existing Directory*).
 
 ## Datasets
 

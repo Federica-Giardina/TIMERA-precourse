@@ -211,6 +211,6 @@ c(shape = shape, rate = rate, p_over_21 = 1 - pgamma(21, shape, rate))
 - @giesecke2017: *Modern Infectious Disease Epidemiology* — an introduction to the epidemiology of infectious diseases, including outbreak investigation and basic transmission concepts.
 - @rothman2012: *Epidemiology: An Introduction* — measures of disease frequency and effect.
 - @kirkwood2003: *Essential Medical Statistics* — confidence intervals, rates, Poisson regression and likelihood (chapters on rates and on likelihood).
-- @diez2019: *OpenIntro Statistics* — a free introductory statistics textbook (<https://www.openintro.org/book/os/>).
+- OpenStax, *Introductory Statistics 2e* — a free introductory statistics textbook, with applications from healthcare among other fields (<https://openstax.org/details/books/introductory-statistics-2e>).
 - @pawitan2001: *In All Likelihood* — an advanced treatment of likelihood-based inference.
 - PATH/MACEPA *Foundational Epidemiology Knowledge* (<https://path-global-health.github.io/df-foundational-epi-skills/>) — a short refresher on measures of disease frequency and association, study designs, measures of disease detection, standardisation and confounding, with a quiz and problem sets.

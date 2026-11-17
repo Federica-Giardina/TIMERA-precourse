@@ -37,7 +37,7 @@ Cada capítulo contém uma apresentação concisa da matéria, exercícios com s
 O código é apresentado em caixas cinzentas; o resultado aparece por baixo, precedido de `##`. Recomenda-se escrever o código em vez de o copiar, pois isso incentiva a leitura atenta de cada linha. Os exercícios são apresentados em caixas verdes; as soluções estão recolhidas e podem ser expandidas.
 :::
 
-As referências em *itálico* a capítulos do **livro do curso TIMERA** indicam onde um tema é desenvolvido durante o curso. O livro do curso é partilhado com os participantes inscritos num repositório privado, <https://github.com/Federica-Giardina/TIMERA>.
+As referências em *itálico* a capítulos do **livro do curso TIMERA** indicam onde um tema é desenvolvido durante o curso. O curso será partilhado no repositório <https://github.com/Federica-Giardina/TIMERA>, bem como em <https://timera-aau.org/>.
 
 ## Agradecimentos {.unnumbered}
 
