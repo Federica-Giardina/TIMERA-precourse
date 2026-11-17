@@ -791,6 +791,7 @@ Figura&nbsp;2: Log-verosimilhança da seroprevalência <span class="math inline"
 <pre><code>## [1] 0.7577819</code></pre>
 </div>
 </div>
+<p>Aqui, um aumento de 10 pontos percentuais na cobertura vacinal está associado a uma razão de taxas de 0,76, ou seja, uma redução de 24% na taxa de casos, mantendo fixa a dimensão da população através do termo de desvio (<em>offset</em>).</p>
 <p>A regressão de Poisson em função do tempo é também utilizada para estimar a <strong>taxa de crescimento</strong> de uma epidemia a partir das primeiras contagens de casos (<em>livro do curso: Estimation of the reproduction number from the growth rate</em>). Quando as contagens são sobredispersas, os erros-padrão de um modelo de Poisson são demasiado pequenos; deve então utilizar-se um modelo de <strong>quasi-Poisson</strong> (<code>family = quasipoisson</code>) ou <strong>binomial negativo</strong> (<code>MASS::glm.nb()</code>).</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">

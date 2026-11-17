@@ -699,7 +699,7 @@ Figura&nbsp;2: Resolução numérica de <span class="math inline">\(dN/dt = 0{,}
 </section>
 <section id="p3.6-equilíbrios-e-estabilidade" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="p3.6-equilíbrios-e-estabilidade">P3.6 Equilíbrios e estabilidade</h2>
-<p>Um <strong>equilíbrio</strong> é um estado em que todas as derivadas são nulas, pelo que o sistema deixa de se alterar. Considere-se o modelo SIS, em que os indivíduos infetados voltam a ser suscetíveis após a recuperação:</p>
+<p>Um <strong>equilíbrio</strong> é um estado em que todas as derivadas são nulas, pelo que o sistema deixa de se alterar. Considere-se o modelo SIS, em que os indivíduos infetados voltam a ser suscetíveis após a recuperação (o modelo SIS em si é apresentado durante o curso; é aqui utilizado apenas como um exemplo simples cujo equilíbrio se calcula algebricamente):</p>
 <p><span class="math display">\[
 \frac{dI}{dt} = \beta I \frac{N - I}{N} - \gamma I.
 \]</span></p>
@@ -723,6 +723,7 @@ Figura&nbsp;3: Taxa de variação <span class="math inline">\(dI/dt\)</span> em 
 <section id="p3.7-integrais-das-taxas-aos-totais" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="p3.7-integrais-das-taxas-aos-totais">P3.7 Integrais: das taxas aos totais</h2>
 <p>O <strong>integral</strong> de uma taxa ao longo do tempo dá um total. Por exemplo, o número acumulado de infeções entre os instantes 0 e <span class="math inline">\(T\)</span> é o integral da incidência, ou seja, a área sob a curva de incidência. Quando uma função é conhecida em instantes regularmente espaçados, o integral é aproximado pela soma dos valores multiplicada pelo passo de tempo:</p>
+<p>O exemplo seguinte retoma o decrescimento exponencial da secção <em>Crescimento e decrescimento exponenciais</em> acima: a incidência diminui à taxa <span class="math inline">\(r = -0,3\)</span> por dia, pelo que o número acumulado de casos é o integral de <span class="math inline">\(100\,e^{-0,3t}\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">by =</span> dt)</span>

@@ -699,7 +699,7 @@ Figure&nbsp;2: Résolution numérique de <span class="math inline">\(dN/dt = 0{,
 </section>
 <section id="p3.6-équilibres-et-stabilité" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="p3.6-équilibres-et-stabilité">P3.6 Équilibres et stabilité</h2>
-<p>Un <strong>équilibre</strong> est un état dans lequel toutes les dérivées sont nulles, de sorte que le système n’évolue plus. Considérons le modèle SIS, dans lequel les individus infectés redeviennent sensibles après leur guérison :</p>
+<p>Un <strong>équilibre</strong> est un état dans lequel toutes les dérivées sont nulles, de sorte que le système n’évolue plus. Considérons le modèle SIS, dans lequel les individus infectés redeviennent sensibles après leur guérison (le modèle SIS lui-même est présenté pendant la formation ; il n’est utilisé ici qu’à titre d’exemple simple dont l’équilibre se calcule algébriquement) :</p>
 <p><span class="math display">\[
 \frac{dI}{dt} = \beta I \frac{N - I}{N} - \gamma I.
 \]</span></p>
@@ -723,6 +723,7 @@ Figure&nbsp;3: Taux de variation <span class="math inline">\(dI/dt\)</span> en f
 <section id="p3.7-intégrales-des-taux-aux-totaux" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="p3.7-intégrales-des-taux-aux-totaux">P3.7 Intégrales : des taux aux totaux</h2>
 <p>L’<strong>intégrale</strong> d’un taux sur le temps donne un total. Par exemple, le nombre cumulé d’infections entre les temps 0 et <span class="math inline">\(T\)</span> est l’intégrale de l’incidence, c’est-à-dire l’aire sous la courbe d’incidence. Lorsqu’une fonction est connue à intervalles de temps réguliers, l’intégrale est approchée par la somme des valeurs multipliée par le pas de temps :</p>
+<p>L’exemple ci-dessous reprend la décroissance exponentielle de la section <em>Croissance et décroissance exponentielles</em> ci-dessus : l’incidence diminue au taux <span class="math inline">\(r = -0,3\)</span> par jour, de sorte que le nombre cumulé de cas est l’intégrale de <span class="math inline">\(100\,e^{-0,3t}\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">by =</span> dt)</span>

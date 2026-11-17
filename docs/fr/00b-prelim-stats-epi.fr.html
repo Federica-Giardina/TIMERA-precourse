@@ -791,6 +791,7 @@ Figure&nbsp;2: Log-vraisemblance de la séroprévalence <span class="math inline
 <pre><code>## [1] 0.7577819</code></pre>
 </div>
 </div>
+<p>Ici, une hausse de 10 points de pourcentage de la couverture vaccinale est associée à un rapport de taux de 0,76, soit une réduction de 24 % du taux de cas, à taille de population fixée grâce au terme de décalage (<em>offset</em>).</p>
 <p>La régression de Poisson sur le temps sert aussi à estimer le <strong>taux de croissance</strong> d’une épidémie à partir des premiers effectifs de cas (<em>livre du cours : Estimation of the reproduction number from the growth rate</em>). Lorsque les effectifs sont surdispersés, les erreurs types d’un modèle de Poisson sont trop petites ; il convient alors d’utiliser un modèle de <strong>quasi-Poisson</strong> (<code>family = quasipoisson</code>) ou <strong>binomial négatif</strong> (<code>MASS::glm.nb()</code>).</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
