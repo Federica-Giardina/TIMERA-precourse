@@ -11,7 +11,9 @@ profile:
     - [en, fr, pt]
 
 book:
-  author: "Federica Giardina"
+  author:
+    - "Federica Giardina"
+    - "Chelsea Hansen"
   date: today
   repo-url: https://github.com/Federica-Giardina/TIMERA-precourse
   repo-branch: main
